@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Buyers Defend The 11/20 Lows… 11-25-26 SPY/ ES, QQQ/ NQ Futures Daily Market Analysis"
+title: "Buyers Defend The 11/20 Lows… 11-25-26 SPY/ ES, QQQ/ NQ, VIX and Bitcoin Daily Market Analysis"
 kind: Daily TA
 description: "Buyers defend the 11/20 lows, but the bears still control the daily: delta sellers, 8ema under the 20ema, extreme bear momentum. Supply/ demand levels for SPY, ES, QQQ and NQ."
 ---
@@ -69,4 +69,40 @@ Bears need to CLOSE back under the 608.45/ 25291-26000.50 demand area. IF bears 
 <span class="s">Supply-</span> 26509.36 (8ema) -> 26888 -> 27332.91 (20ema)
 
 <span class="m">Demand-</span> 26000.50 -> 25291 -> 24420
+</div>
+
+### VIX
+
+VIX spiked all the way to 34.95 at Wednesday's flush, right under its 11/20 supply at 35.89, and then got sold back down to close at 28.29 as SPY ripped off the lows. That's congruent with the bounce... fear got rejected at the same time buyers defended the 11/20 lows. VIX still closed up 7.3% on the day though, and it's above its 8ema at 26.81 with the 8 over the 20, so fear is still elevated even with the supply/ demand indicator bearish on VIX.
+
+The bulls want VIX back under the 8ema at 26.81 and then the 20ema at 23.87. A VIX CLOSE over the 35.89 supply would be a red flag for SPY and QQQ. Watch for a disconnect too: if SPY pushes higher and VIX does NOT come down with it, I wouldn't trust that bounce.
+
+![VIX daily chart with EMAs and supply/ demand levels](/assets/charts/2026-11-25/VIX_daily.png)
+
+<div class="levels" markdown="1">
+**VIX DAILY LEVELS**
+
+<span class="s">Supply-</span> 35.89
+
+<span class="m">Demand-</span> 26.81 (8ema) -> 23.87 (20ema) -> 18.36
+</div>
+
+### BITCOIN
+
+*Bitcoin levels are based on CME Bitcoin futures (MBT).*
+
+Bitcoin is trying to bounce too, but it's still the weakest chart of the bunch. It flushed to 57,385 on Wednesday, bounced to close at 60,435, and today's short session closed at 60,595. We're still well under the 8ema at 62,203 with the 8 under the 20ema at 67,603, so the daily trend is bearish, and daily bear momentum is at an extreme. The supply/ demand indicator is bullish for now.
+
+Bulls need to close over 61,500 (the 11/19 demand that is now resistance) and the 8ema at 62,203 minimally to gain some momentum to the upside. From there the next real level is the 66,520 supply along with the 20ema at 67,603. Until bulls retake the 100ema at 74,048 though, Bitcoin remains bearish longer term.
+
+Bears need to CLOSE back under the 58,900 demand. IF they do, I would look for 57,985 and then the 53,695-53,770 area.
+
+![Bitcoin (MBT) daily chart with EMAs and supply/ demand levels](/assets/charts/2026-11-25/BTC_daily.png)
+
+<div class="levels" markdown="1">
+**BITCOIN (MBT) DAILY LEVELS**
+
+<span class="s">Supply-</span> 61,500 -> 62,203 (8ema) -> 66,520 -> 67,603 (20ema)
+
+<span class="m">Demand-</span> 58,900 -> 57,985 -> 53,770
 </div>
