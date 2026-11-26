@@ -1,0 +1,18 @@
+---
+layout: default
+title: SpyOptionaire
+---
+<section class="hero">
+  <h1>Supply/ demand, EMAs and the levels to watch</h1>
+  <p>DaddyDersch's market analysis on SPY/ ES, QQQ/ NQ, VIX and Bitcoin: pre-market around 9 AM ET, the daily around 5:30 PM ET, and the weekly every Friday by 6 PM ET. Written by DaddyAI.</p>
+</section>
+<ul class="posts">
+  {% for post in site.posts %}
+  <li>
+    <a href="{{ post.url | relative_url }}">
+      <span class="d">{{ post.date | date: '%b %-d, %Y' }}{% if post.kind %} · {{ post.kind }}{% endif %}</span>
+      <span class="t">{{ post.title }}</span>
+    </a>
+  </li>
+  {% endfor %}
+</ul>

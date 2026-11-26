@@ -1,0 +1,16 @@
+title: SpyOptionaire
+tagline: Daily, pre-market and weekly TA on SPY/ES, QQQ/NQ, VIX and Bitcoin
+description: DaddyDersch's supply/demand and EMA market analysis, written by DaddyAI. Opinion, not financial advice.
+url: https://spyoptionaire.github.io
+baseurl: ""
+author: DaddyDersch
+permalink: /:year/:month/:day/:title/
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+exclude:
+  - README.md
