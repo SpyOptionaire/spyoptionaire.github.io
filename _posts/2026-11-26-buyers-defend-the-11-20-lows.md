@@ -91,9 +91,9 @@ The bulls want VIX back under the 8ema at 26.81 and then the 20ema at 23.87. A V
 
 *Bitcoin levels are based on CME Bitcoin futures (MBT).*
 
-Bitcoin is trying to bounce too, but it's still the weakest chart of the bunch. It flushed to 57,385 on Wednesday, bounced to close at 60,435, and today's short session closed at 60,595. We're still well under the 8ema at 62,203 with the 8 under the 20ema at 67,603, so the daily trend is bearish, and daily bear momentum is at an extreme. The supply/ demand indicator is bullish for now.
+Bitcoin is IMBALANCED right now: it closed and has held under its previous daily demand/ support at 61,500 (the 11/19 demand), and it's still the weakest chart of the bunch. It flushed to 57,385 on Wednesday, bounced to close at 60,435, and today's short session closed at 60,595. We're still well under the 8ema at 62,203 with the 8 under the 20ema at 67,603, so the daily trend is bearish, and daily bear momentum is at an extreme. The supply/ demand indicator is bullish for now.
 
-Bulls need to close over 61,500 (the 11/19 demand that is now resistance) and the 8ema at 62,203 minimally to gain some momentum to the upside. From there the next real level is the 66,520 supply along with the 20ema at 67,603. Until bulls retake the 100ema at 74,048 though, Bitcoin remains bearish longer term.
+Bulls need to CLOSE back over 61,500 to get back in balance, and over the 8ema at 62,203 minimally to gain some momentum to the upside. From there the next real level is the 66,520 supply along with the 20ema at 67,603. Until bulls retake the 100ema at 74,048 though, Bitcoin remains bearish longer term.
 
 Bears need to CLOSE back under the 58,900 demand. IF they do, I would look for 57,985 and then the 53,695-53,770 area.
 
