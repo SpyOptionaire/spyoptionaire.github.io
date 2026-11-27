@@ -1,13 +1,13 @@
 ---
 layout: default
 title: Levels board
-description: The next supply/ demand levels and EMAs above and below price on SPY/ ES, QQQ/ NQ, VIX, Bitcoin and more, updated after every daily data run. Opinion only, not financial advice.
+description: The next supply/ demand levels and EMAs above and below price on SPY/ ES, QQQ/ NQ, VIX, Bitcoin and more, with the distance to each level and how often price has reached that far. Opinion only, not financial advice.
 permalink: /levels/
 ---
 {% assign L = site.data.levels %}
 <section class="hero">
   <h1>Levels board</h1>
-  <p>The next levels above (supply) and below (demand) price, from DaddyAI's daily supply/ demand map and the daily EMAs. Updated {{ L.built_et }} ET. A level is just the next level to watch: price may never get there.</p>
+  <p>The next levels above (supply) and below (demand) price from DaddyAI's daily supply/ demand map and the daily EMAs, how far away each one is, and how often price has traded that far before. Updated {{ L.built_et }} ET.</p>
 </section>
 <div class="board">
 {% for t in L.tickers %}
@@ -20,11 +20,27 @@ permalink: /levels/
       {% if t.imbalanced %}<span class="tag warn">{{ t.state }}</span>{% else %}<span class="tag">balanced</span>{% endif %}
       {% if t.trend %}<span class="tag {% if t.trend == 'bullish' %}bull{% else %}bear{% endif %}">8/20 EMA {{ t.trend }}</span>{% endif %}
       {% if t.momentum %}<span class="tag">daily momentum: {{ t.momentum }}</span>{% endif %}
+      {% if t.atr %}<span class="tag">daily range (ATR) {% if t.unit == '$' %}${% endif %}{{ t.atr }}{% if t.unit == 'pts' %} pts{% endif %}</span>{% endif %}
     </div>
-    <p class="row"><span class="s">Supply-</span> {% if t.supply.size == 0 %}none within range{% endif %}{% for x in t.supply %}{{ x.price }}{% if x.tag != '' %} ({{ x.tag }}){% endif %}{% unless forloop.last %} -> {% endunless %}{% endfor %}</p>
-    <p class="row"><span class="m">Demand-</span> {% if t.demand.size == 0 %}none within range{% endif %}{% for x in t.demand %}{{ x.price }}{% if x.tag != '' %} ({{ x.tag }}){% endif %}{% unless forloop.last %} -> {% endunless %}{% endfor %}</p>
-    <p class="asof">{% if t.sym == 'BTC' %}CME Bitcoin futures (MBT). {% endif %}Last daily close {{ t.asof }}</p>
+    <table class="lad">
+      <thead><tr><th>Level</th><th>Away</th><th>%</th><th title="How often price traded this far within 1 session (last 10 yrs)">1 day</th><th title="How often price traded this far within 5 sessions (last 10 yrs)">5 days</th></tr></thead>
+      <tbody>
+      {% assign sup = t.supply | reverse %}
+      {% for x in sup %}<tr class="rs"><td><b>{{ x.price }}</b>{% if x.tag != '' %} <i>{{ x.tag }}</i>{% endif %}</td><td>{{ x.away }}</td><td>{{ x.pct }}</td><td><span class="odd" style="--w:{{ x.p1 }}">{{ x.p1 }}</span></td><td><span class="odd" style="--w:{{ x.p5 }}">{{ x.p5 }}</span></td></tr>
+      {% endfor %}
+      {% if t.supply.size == 0 %}<tr class="rs"><td colspan="5"><i>no supply level within range</i></td></tr>{% endif %}
+      <tr class="now"><td colspan="5">&#9654; {{ t.close }} <span class="muted">last close {{ t.asof }}</span></td></tr>
+      {% for x in t.demand %}<tr class="rd"><td><b>{{ x.price }}</b>{% if x.tag != '' %} <i>{{ x.tag }}</i>{% endif %}</td><td>{{ x.away }}</td><td>{{ x.pct }}</td><td><span class="odd" style="--w:{{ x.p1 }}">{{ x.p1 }}</span></td><td><span class="odd" style="--w:{{ x.p5 }}">{{ x.p5 }}</span></td></tr>
+      {% endfor %}
+      {% if t.demand.size == 0 %}<tr class="rd"><td colspan="5"><i>no demand level within range</i></td></tr>{% endif %}
+      </tbody>
+    </table>
+    {% if t.sym == 'BTC' %}<p class="asof">Bitcoin levels are based on CME Bitcoin futures (MBT).</p>{% endif %}
   </div>
 {% endfor %}
 </div>
-<p class="note">IMBALANCED = price closed and is holding under its latest daily demand (or over its latest daily supply); buyers (sellers) first need to CLOSE back over (under) it. Coming next: expected moves and the strikes nearest each level, gamma/ open interest levels, and more tickers.</p>
+<div class="note">
+  <p><b>How to read it.</b> Supply = the next levels above price (blue), demand = the next levels below (pink); EMAs are labelled. <b>Away</b> is the distance from the last close in points or dollars. <b>1 day / 5 days</b> is how often, over the ticker's last 10 years, price traded at least that far from the close (measured in daily ranges, ATR) within the next 1 or 5 sessions. It is history, not a prediction, and a level can be reached and still not hold.</p>
+  <p><b>IMBALANCED</b> = price closed and is holding under its latest daily demand (or over its latest daily supply); buyers (sellers) first need to CLOSE back over (under) it.</p>
+  <p>Coming next: expected moves and the strikes nearest each level, gamma/ open interest levels, and more tickers.</p>
+</div>
