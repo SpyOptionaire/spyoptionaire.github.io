@@ -16,7 +16,7 @@ permalink: /levels/
 {% for g in groups %}
 {% assign items = L.tickers | where: "group", g %}
 <div class="board" data-g="{{ g }}">
-{% if items.size == 0 %}<p class="empty">{% if g == 'stocks' %}IWM, Apple, Amazon, Microsoft, Nvidia and Tesla join with the next morning update.{% else %}Nothing here yet.{% endif %}</p>{% endif %}
+{% if items.size == 0 %}<p class="empty">{% if g == 'stocks' %}Stocks join with the next update.{% else %}Nothing here yet.{% endif %}</p>{% endif %}
 {% for t in items %}
   <div class="card{% if t.imbalanced %} imb{% endif %}">
     <div class="ch">

@@ -1,0 +1,61 @@
+{
+ "built": "2026-11-27",
+ "today": {
+  "date": "2026-11-25",
+  "swings": [],
+  "no_swing": "No swing today. Nothing is stretched far enough to qualify.",
+  "checked": "the Nov 25 close (Wednesday). The next check runs with the next daily update."
+ },
+ "history": {
+  "period": "Sep 2017 - Nov 2026",
+  "days": 234,
+  "cases": 3142,
+  "up": 59.2,
+  "avg": 0.73,
+  "groups": [
+   {
+    "name": "Index ETFs",
+    "up": 60.7,
+    "avg": 0.47
+   },
+   {
+    "name": "Large caps",
+    "up": 58.5,
+    "avg": 0.68
+   },
+   {
+    "name": "High-beta stocks",
+    "up": 59.0,
+    "avg": 1.12
+   }
+  ],
+  "base": "52-56%",
+  "options": {
+   "trades": 108,
+   "avg_limit": 13.8,
+   "win_limit": 64,
+   "worst": -96,
+   "period": "Jan 2023 - Nov 2026"
+  }
+ },
+ "example": {
+  "date": "2026-11-20",
+  "names": [
+   "GLD",
+   "SPY",
+   "DIA",
+   "IWM",
+   "QQQ"
+  ],
+  "first": {
+   "ticker": "SPY",
+   "direction": "call",
+   "price": 689.81,
+   "reason": "SPY: it is stretched unusually far below where it has traded over the past few weeks; it has closed lower 7 days in a row; it is down 3.6% today. The whole market is fearful and the selling is broad today. In the past, names this stretched on days like this bounced the next day more often than usual. A one-night idea, not a multi-day hold.",
+   "contract": "Call about 1 strike in the money (about $689), expiring in about 3-7 days (not the next-day expiry).",
+   "plan": "Tested as: in near 3:45-3:55 PM, out on a +30% pop or by about noon the next day, whichever comes first. Risk only a small, fixed slice of the account per swing day; a loser can lose most of the premium."
+  },
+  "result": "All 5 closed higher the next day."
+ },
+ "log": []
+}

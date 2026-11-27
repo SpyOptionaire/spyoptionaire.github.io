@@ -1,0 +1,70 @@
+{
+ "built": "2026-11-27",
+ "session": "2026-11-27",
+ "preview": true,
+ "note": "Preview built from the Nov 25 close (open interest from Nov 25). Today's expected move covers two sessions because of the holiday. Daily updates start once the morning options pull is automated.",
+ "tickers": [
+  {
+   "sym": "SPY",
+   "name": "S&P 500 ETF",
+   "last": 716.75,
+   "asof": "2026-11-25",
+   "expiry": "2026-11-27",
+   "days": 2,
+   "move": 10.04,
+   "move_pct": 1.4,
+   "box_half": 12.56,
+   "box_pct": 1.75,
+   "close_lo": 706.71,
+   "close_hi": 726.79,
+   "zone": "FAST",
+   "line": 732.64,
+   "line_pct": 2.22,
+   "zone_avg_below": 1.22,
+   "zone_avg_above": 0.67,
+   "rich_label": "OPTIONS CHEAP",
+   "rich_text": "Options are pricing only 0.7x recent moves. Days like this have tended to use more of the box.",
+   "ceiling": 730.0,
+   "ceiling_pct": "+1.8%",
+   "floor": 700.0,
+   "floor_pct": "-2.3%",
+   "week_risk": "HIGH: option prices sit near the top of their recent range. Those readings came before bigger weeks in our test. They say nothing about direction.",
+   "details": [
+    "30-day implied volatility 22.9%",
+    "1.17 puts open per call",
+    "downside puts 10.3 vol points over at-the-money"
+   ]
+  },
+  {
+   "sym": "QQQ",
+   "name": "Nasdaq 100 ETF",
+   "last": 633.95,
+   "asof": "2026-11-25",
+   "expiry": "2026-11-27",
+   "days": 2,
+   "move": 14.07,
+   "move_pct": 2.22,
+   "box_half": 17.59,
+   "box_pct": 2.78,
+   "close_lo": 619.88,
+   "close_hi": 648.03,
+   "zone": "FAST",
+   "line": 651.77,
+   "line_pct": 2.81,
+   "zone_avg_below": 1.85,
+   "zone_avg_above": 1.25,
+   "rich_label": "OPTIONS CHEAP",
+   "rich_text": "Options are pricing only 0.7x recent moves. Days like this have tended to use more of the box.",
+   "ceiling": 650.0,
+   "ceiling_pct": "+2.5%",
+   "floor": 630.0,
+   "floor_pct": "-0.6%",
+   "week_risk": "HIGH: option prices sit near the top of their recent range and this week costs more than next month. Those readings came before bigger weeks in our test. They say nothing about direction.",
+   "details": [
+    "30-day implied volatility 34.1%",
+    "1.11 puts open per call",
+    "downside puts 11.1 vol points over at-the-money"
+   ]
+  }
+ ]
+}

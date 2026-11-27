@@ -1,0 +1,71 @@
+---
+layout: default
+title: Swings
+description: Possible overnight swing setups - only when the whole market is fearful and the selling is broad - with the reason, a contract to look at, and a running log of how each one turned out. Education only, never a trade call.
+permalink: /swings/
+---
+{% assign S = site.data.swings %}
+{% assign H = S.history %}
+<section class="hero">
+  <h1>Swings</h1>
+  <p>Possible one-night setups, not trade calls. A swing only shows up on days that have historically set up a next-day bounce. Most days there isn't one, and that's on purpose.</p>
+</section>
+
+<div class="card sw">
+  <span class="k">Latest check</span>
+  {% if S.today.swings.size > 0 %}
+    {% for x in S.today.swings %}
+    <div class="swi">
+      <div class="ch"><span class="sym">{{ x.ticker }}</span><span class="nm">possible {{ x.direction }} swing</span><span class="px">{{ x.price }}</span></div>
+      <p>{{ x.reason }}</p>
+      <p><b>Contract to look at:</b> {{ x.contract }}</p>
+      <p class="muted">{{ x.plan }}</p>
+    </div>
+    {% endfor %}
+  {% else %}
+    <p class="big">{{ S.today.no_swing }}</p>
+  {% endif %}
+  <p class="asof">Checked on {{ S.today.checked }}</p>
+</div>
+
+<div class="ob">
+  <span class="k">How it works</span>
+  <ul class="plain">
+    <li><b>When:</b> only on days when the whole market is fearful <i>and</i> the selling is broad across many names, and only for names stretched unusually far below where they've been trading. Single-stock news drops don't count.</li>
+    <li><b>The idea:</b> a call bought near the close (3:45 - 3:55 PM) for a one-night bounce. It's not a multi-day hold.</li>
+    <li><b>The contract tested:</b> about 1 strike in the money, expiring in about 3 - 7 days rather than the next day. Out on a +30% pop or by about noon.</li>
+    <li><b>Size:</b> a small, fixed slice of the account per swing day. A loser can lose most of the premium.</li>
+  </ul>
+</div>
+
+<div class="ob">
+  <span class="k">How this setup has done ({{ H.period }}, tested)</span>
+  <table class="lad">
+    <thead><tr><th>Group</th><th>Up next day</th><th>Avg next day</th></tr></thead>
+    <tbody>
+      <tr><td><b>All names</b></td><td>{{ H.up }}%</td><td>+{{ H.avg }}%</td></tr>
+      {% for g in H.groups %}<tr><td>{{ g.name }}</td><td>{{ g.up }}%</td><td>+{{ g.avg }}%</td></tr>{% endfor %}
+    </tbody>
+  </table>
+  <p class="muted">{{ H.cases }} cases on {{ H.days }} days. For comparison, buying any name on a fearful day was up the next day {{ H.base }} of the time.</p>
+  <p class="muted">On real SPY / QQQ / IWM option prices ({{ H.options.period }}, {{ H.options.trades }} trades, bought at the ask, sold at the bid): the tested contract averaged about +{{ H.options.avg_limit }}% a trade with {{ H.options.win_limit }}% winners. The worst trade was {{ H.options.worst }}%. Results are lumpy: a few big rebound days carry the average.</p>
+</div>
+
+<div class="ob">
+  <span class="k">What it looks like: Nov 20 example</span>
+  <p>On Nov 20 the scan showed <b>{{ S.example.names | join: ", " }}</b>. {{ S.example.result }} <span class="muted">(Generated afterwards from the data, not a live call.)</span></p>
+  <p class="muted">{{ S.example.first.reason }}</p>
+</div>
+
+<div class="ob">
+  <span class="k">Results log</span>
+  {% if S.log.size > 0 %}
+  <table class="lad">
+    <thead><tr><th>Date</th><th>Name</th><th>Next day</th><th>Result</th></tr></thead>
+    <tbody>{% for r in S.log %}<tr><td>{{ r.date }}</td><td>{{ r.ticker }}</td><td>{{ r.move }}</td><td class="{% if r.result == 'worked' %}up{% elsif r.result == 'did not work' %}dn{% endif %}">{{ r.result }}</td></tr>{% endfor %}</tbody>
+  </table>
+  {% else %}
+  <p class="muted">The live log starts with the first swing that shows up here. Every one gets logged with its next-day result, winners and losers.</p>
+  {% endif %}
+</div>
+<div class="note"><p>Swings are possible setups for education. They're not recommendations to buy or sell anything. Options can lose 100% of what you pay.</p></div>
