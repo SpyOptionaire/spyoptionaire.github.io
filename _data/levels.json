@@ -1,0 +1,314 @@
+{
+ "built_et": "2026-11-26 19:40",
+ "tickers": [
+  {
+   "sym": "SPY",
+   "name": "S&P 500 ETF",
+   "asof": "2026-11-25",
+   "close": "716.70",
+   "chg_pct": -0.29,
+   "state": "balanced",
+   "imbalanced": false,
+   "trend": "bearish",
+   "momentum": "extreme bear",
+   "supply": [
+    {
+     "price": "722.45",
+     "tag": "8ema",
+     "dist": 0.8
+    },
+    {
+     "price": "725.43",
+     "tag": "",
+     "dist": 1.22
+    },
+    {
+     "price": "729.46",
+     "tag": "",
+     "dist": 1.78
+    },
+    {
+     "price": "733.45",
+     "tag": "200ema",
+     "dist": 2.34
+    }
+   ],
+   "demand": [
+    {
+     "price": "689.81",
+     "tag": "",
+     "dist": -3.75
+    },
+    {
+     "price": "682.08",
+     "tag": "",
+     "dist": -4.83
+    },
+    {
+     "price": "677.58",
+     "tag": "",
+     "dist": -5.46
+    },
+    {
+     "price": "672.39",
+     "tag": "",
+     "dist": -6.18
+    }
+   ]
+  },
+  {
+   "sym": "ES",
+   "name": "S&P 500 futures",
+   "asof": "2026-11-26",
+   "close": "7,234.50",
+   "chg_pct": 0.65,
+   "state": "balanced",
+   "imbalanced": false,
+   "trend": "bearish",
+   "momentum": "bearish",
+   "supply": [
+    {
+     "price": "7,254.61",
+     "tag": "8ema",
+     "dist": 0.28
+    },
+    {
+     "price": "7,335.25",
+     "tag": "",
+     "dist": 1.39
+    },
+    {
+     "price": "7,359.00",
+     "tag": "",
+     "dist": 1.72
+    },
+    {
+     "price": "7,392.57",
+     "tag": "20ema",
+     "dist": 2.18
+    }
+   ],
+   "demand": [
+    {
+     "price": "6,966.75",
+     "tag": "",
+     "dist": -3.7
+    },
+    {
+     "price": "6,884.50",
+     "tag": "",
+     "dist": -4.84
+    },
+    {
+     "price": "6,883.25",
+     "tag": "",
+     "dist": -4.86
+    },
+    {
+     "price": "6,796.75",
+     "tag": "",
+     "dist": -6.05
+    }
+   ]
+  },
+  {
+   "sym": "QQQ",
+   "name": "Nasdaq-100 ETF",
+   "asof": "2026-11-25",
+   "close": "633.93",
+   "chg_pct": -0.65,
+   "state": "balanced",
+   "imbalanced": false,
+   "trend": "bearish",
+   "momentum": "extreme bear",
+   "supply": [
+    {
+     "price": "645.48",
+     "tag": "8ema",
+     "dist": 1.82
+    },
+    {
+     "price": "651.42",
+     "tag": "",
+     "dist": 2.76
+    },
+    {
+     "price": "656.10",
+     "tag": "",
+     "dist": 3.5
+    },
+    {
+     "price": "665.47",
+     "tag": "20ema",
+     "dist": 4.98
+    }
+   ],
+   "demand": [
+    {
+     "price": "608.45",
+     "tag": "",
+     "dist": -4.02
+    },
+    {
+     "price": "603.31",
+     "tag": "",
+     "dist": -4.83
+    },
+    {
+     "price": "600.04",
+     "tag": "",
+     "dist": -5.35
+    },
+    {
+     "price": "599.75",
+     "tag": "",
+     "dist": -5.39
+    }
+   ]
+  },
+  {
+   "sym": "NQ",
+   "name": "Nasdaq-100 futures",
+   "asof": "2026-11-26",
+   "close": "26,221.25",
+   "chg_pct": 0.85,
+   "state": "balanced",
+   "imbalanced": false,
+   "trend": "bearish",
+   "momentum": "extreme bear",
+   "supply": [
+    {
+     "price": "26,509.36",
+     "tag": "8ema",
+     "dist": 1.1
+    },
+    {
+     "price": "26,888.00",
+     "tag": "",
+     "dist": 2.54
+    },
+    {
+     "price": "27,332.91",
+     "tag": "20ema",
+     "dist": 4.24
+    },
+    {
+     "price": "28,185.45",
+     "tag": "200ema",
+     "dist": 7.49
+    }
+   ],
+   "demand": [
+    {
+     "price": "26,000.50",
+     "tag": "",
+     "dist": -0.84
+    },
+    {
+     "price": "25,291.00",
+     "tag": "",
+     "dist": -3.55
+    },
+    {
+     "price": "24,420.00",
+     "tag": "",
+     "dist": -6.87
+    },
+    {
+     "price": "23,379.50",
+     "tag": "",
+     "dist": -10.84
+    }
+   ]
+  },
+  {
+   "sym": "VIX",
+   "name": "Volatility index",
+   "asof": "2026-11-25",
+   "close": "28.29",
+   "chg_pct": 7.32,
+   "state": "balanced",
+   "imbalanced": false,
+   "trend": "bullish",
+   "momentum": "bullish",
+   "supply": [],
+   "demand": [
+    {
+     "price": "26.81",
+     "tag": "8ema",
+     "dist": -5.23
+    },
+    {
+     "price": "23.87",
+     "tag": "20ema",
+     "dist": -15.62
+    },
+    {
+     "price": "20.57",
+     "tag": "50ema",
+     "dist": -27.29
+    },
+    {
+     "price": "18.44",
+     "tag": "200ema",
+     "dist": -34.82
+    }
+   ]
+  },
+  {
+   "sym": "BTC",
+   "name": "Bitcoin (CME futures)",
+   "asof": "2026-11-27",
+   "close": "60,645",
+   "chg_pct": 0.08,
+   "state": "IMBALANCED under the latest demand",
+   "imbalanced": true,
+   "trend": "bearish",
+   "momentum": "extreme bear",
+   "supply": [
+    {
+     "price": "61,500",
+     "tag": "",
+     "dist": 1.41
+    },
+    {
+     "price": "61,857",
+     "tag": "8ema",
+     "dist": 2.0
+    },
+    {
+     "price": "66,520",
+     "tag": "",
+     "dist": 9.69
+    },
+    {
+     "price": "66,941",
+     "tag": "20ema",
+     "dist": 10.38
+    }
+   ],
+   "demand": [
+    {
+     "price": "58,900",
+     "tag": "",
+     "dist": -2.88
+    },
+    {
+     "price": "57,985",
+     "tag": "",
+     "dist": -4.39
+    },
+    {
+     "price": "53,770",
+     "tag": "",
+     "dist": -11.34
+    },
+    {
+     "price": "53,695",
+     "tag": "",
+     "dist": -11.46
+    }
+   ]
+  }
+ ]
+}
