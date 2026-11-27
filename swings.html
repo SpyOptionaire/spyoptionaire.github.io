@@ -21,12 +21,6 @@ permalink: /swings/
 </div>
 {% endif %}
 
-<div class="card sw">
-  <span class="k">Swing trade: fear-day snap-back</span>
-  {% if S.today.swings.size > 0 %}
-    {% for x in S.today.swings %}
-    <div class="swi">
-      <div class="ch"><span class="sym">{{ x.ticker }}</span><span class="nm">possible {{ x.direction }} swing</span><span class="px">{{ x.price }}</span></div>
       <p>{{ x.reason }}</p>
       <p><b>Contract to look at:</b> {{ x.contract }}</p>
       <p class="muted">{{ x.plan }}</p>
@@ -36,22 +30,6 @@ permalink: /swings/
     <p class="big">{{ S.today.no_swing }}</p>
   {% endif %}
   <p class="asof">Checked on {{ S.today.checked }}</p>
-</div>
-
-<div class="card sw">
-  <span class="k">Lotto ideas (zero or hero)</span>
-  {% if S.lotto.size > 0 %}
-    {% for x in S.lotto %}
-    <div class="swi">
-      <div class="ch"><span class="sym">{{ x.ticker }}</span><span class="nm">possible {{ x.direction }} lotto</span><span class="px">{{ x.price }}</span></div>
-      <p>{{ x.reason }}</p>
-      <p><b>Contract to look at:</b> {{ x.contract }}</p>
-    </div>
-    {% endfor %}
-  {% else %}
-    <p>No lotto ideas from the last check.</p>
-  {% endif %}
-  <p class="asof">Not high probability. The conditions say a call or a put could work, but most of these lose the whole premium.</p>
 </div>
 
 <div class="ob">
@@ -70,6 +48,49 @@ permalink: /swings/
   </table>
   <p class="muted">Fear-day snap-backs from November, priced on real option quotes: bought at the ask, sold at the bid at each time the next day, after fees. Hypothetical, not live trades. From the next live swing on, each one gets added here.</p>
 </div>
+
+<div class="card sw">
+  <span class="k">Swing trade: fear-day snap-back</span>
+  <p class="asof">Swing plays are posted between 3:45 and 4:00 PM ET on the days one shows up.</p>
+  {% if S.today.swings.size > 0 %}
+    {% for x in S.today.swings %}
+    <div class="swi">
+      <div class="ch"><span class="sym">{{ x.ticker }}</span><span class="nm">possible {{ x.direction }} swing</span><span class="px">{{ x.price }}</span></div>
+      <p>{{ x.reason }}</p>
+      <p><b>Contract to look at:</b> {{ x.contract }}</p>
+      <p class="muted">{{ x.plan }}</p>
+    </div>
+    {% endfor %}
+  {% else %}
+    <p class="big">{{ S.today.no_swing }}</p>
+  {% endif %}
+  <p class="asof">Last check: {{ S.today.checked }}</p>
+  {% assign hits = S.today.swings | map: "ticker" %}
+  <div class="uni">
+  {% for g in S.universe %}
+    <span class="ug">{{ g.name }}</span>
+    <div class="uc">{% for t in g.tickers %}<span class="tk{% if hits contains t %} on{% endif %}">{{ t }}</span>{% endfor %}</div>
+  {% endfor %}
+  </div>
+  <p class="asof">All 42 names are scanned. A name lights up when it qualifies.</p>
+</div>
+
+<div class="card sw">
+  <span class="k">Lotto ideas (zero or hero)</span>
+  {% if S.lotto.size > 0 %}
+    {% for x in S.lotto %}
+    <div class="swi">
+      <div class="ch"><span class="sym">{{ x.ticker }}</span><span class="nm">possible {{ x.direction }} lotto</span><span class="px">{{ x.price }}</span></div>
+      <p>{{ x.reason }}</p>
+      <p><b>Contract to look at:</b> {{ x.contract }}</p>
+    </div>
+    {% endfor %}
+  {% else %}
+    <p>No lotto ideas from the last check.</p>
+  {% endif %}
+  <p class="asof">Not high probability. The conditions say a call or a put could work, but most of these lose the whole premium.</p>
+</div>
+
 
 <div class="ob">
   <span class="k">How the swing trade works</span>

@@ -88,3 +88,8 @@ main > .ob { margin:14px 0; }
 .board .posts { margin:4px 0 30px; }
 .swt td i { white-space:normal; } .swt td:first-child { white-space:normal; } .swt td { font-size:13px; }
 .board > .empty { margin:14px 0 30px; }
+.uni { margin:8px 0 2px; border-top:1px solid var(--line); padding-top:8px; }
+.ug { display:block; color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.4px; margin:6px 0 4px; }
+.uc { display:flex; flex-wrap:wrap; gap:5px; }
+.tk { font-size:12px; font-weight:650; border:1px solid var(--line); border-radius:6px; padding:2px 7px; color:var(--muted); }
+.tk.on { color:#0b0d10; background:var(--accent); border-color:var(--accent); }

@@ -104,6 +104,65 @@
   }
  ],
  "lotto": [],
+ "universe": [
+  {
+   "name": "Index ETFs",
+   "tickers": [
+    "SPY",
+    "QQQ",
+    "IWM",
+    "DIA",
+    "SMH",
+    "XLF",
+    "XLE",
+    "TLT",
+    "GLD"
+   ]
+  },
+  {
+   "name": "Large caps",
+   "tickers": [
+    "AAPL",
+    "AMZN",
+    "MSFT",
+    "NVDA",
+    "GOOGL",
+    "META",
+    "AVGO",
+    "NFLX",
+    "COST",
+    "WMT",
+    "JPM",
+    "LLY",
+    "UNH",
+    "XOM",
+    "ORCL",
+    "ADBE",
+    "CRM",
+    "DIS",
+    "BA",
+    "INTC"
+   ]
+  },
+  {
+   "name": "High-beta",
+   "tickers": [
+    "TSLA",
+    "AMD",
+    "PLTR",
+    "COIN",
+    "MSTR",
+    "SMCI",
+    "MU",
+    "ARM",
+    "UBER",
+    "SHOP",
+    "BABA",
+    "SOFI",
+    "HOOD"
+   ]
+  }
+ ],
  "fear": {
   "pct": 97.6,
   "asof": "2026-11-25",
