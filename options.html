@@ -22,36 +22,35 @@ permalink: /options/
       {% if t.rich_label %}<span class="chip">{{ t.rich_label }}</span>{% endif %}
     </div>
     <div class="ob">
-      <span class="k">Day box</span>
+      <span class="k">Today's range guide</span>
       <p class="big">Today's open &plusmn; <b>{{ t.box_half }}</b> <span class="muted">({{ t.box_pct }}%)</span></p>
       <div class="boxbar"><span>&minus;{{ t.box_half }}</span><i></i><span>open</span><i></i><span>+{{ t.box_half }}</span></div>
-      <p>The whole session stayed inside the box on about <b>63%</b> of days and closed inside on about <b>82%</b>. When price tags an edge it closes back inside only about half the time, so an edge is a range guide, not a turn.</p>
+      <p>This is the range options are pricing for today, centred on the open. Price has stayed inside it all day about 6 days in 10 and closed inside about 8 in 10. A tag of the edge is a range guide, not an automatic turn: about half the time price closes back inside.</p>
       <p class="muted">Options price a move of about {{ t.move }} ({{ t.move_pct }}%){% if t.days > 1 %} over {{ t.days }} sessions{% endif %}. From the last close that is {{ t.close_lo }} &ndash; {{ t.close_hi }}.</p>
     </div>
     <div class="ob">
       <span class="k">Calm or fast</span>
-      <p>Volatility line <b>{{ t.line }}</b>, {% if t.line_pct >= 0 %}{{ t.line_pct }}% above{% else %}{{ t.line_pct | abs }}% below{% endif %} price. {% if t.zone == 'FAST' %}Price is under it: expect wider, faster swings.{% else %}Price is over it: days have tended to be calmer.{% endif %}{% if t.zone_avg_below %} Average day recently: {{ t.zone_avg_below }}% under the line vs {{ t.zone_avg_above }}% over it.{% endif %}</p>
+      <p>{{ t.zone_text }}</p>
       {% if t.rich_text %}<p>{{ t.rich_text }}</p>{% endif %}
       {% if t.week_risk %}<p><span class="chip warn">NEXT-WEEK RANGE RISK</span> {{ t.week_risk }}</p>{% endif %}
     </div>
     <div class="ob">
-      <span class="k">Where the big positions are</span>
+      <span class="k">Walls: where the big option bets sit</span>
       <table class="lad">
         <tbody>
-          {% if t.ceiling %}<tr class="rs"><td><b>{{ t.ceiling }}</b><i>ceiling</i></td><td>{{ t.ceiling_pct }}</td></tr>{% endif %}
+          {% if t.ceiling %}<tr class="rs"><td><b>{{ t.ceiling }}</b><i>call wall (ceiling)</i></td><td>{{ t.ceiling_pct }}</td></tr>{% endif %}
           <tr class="now"><td colspan="2">&#9654; {{ t.last }} <span class="muted">last close</span></td></tr>
-          {% if t.floor %}<tr class="rd"><td><b>{{ t.floor }}</b><i>floor</i></td><td>{{ t.floor_pct }}</td></tr>{% endif %}
+          {% if t.floor %}<tr class="rd"><td><b>{{ t.floor }}</b><i>put wall (floor)</i></td><td>{{ t.floor_pct }}</td></tr>{% endif %}
         </tbody>
       </table>
-      <p class="muted">Context only. In testing these were reached and held no more often than any level the same distance away.</p>
+      <p class="muted">The call wall is the strike with the biggest pile of call bets above price; the put wall is the biggest pile of put bets below. Traders watch them as magnets and turn points, but price runs through them often. Treat them as landmarks, not guarantees.</p>
     </div>
     {% if t.details.size > 0 %}<p class="asof">{{ t.details | join: " &middot; " }}</p>{% endif %}
   </div>
 {% endfor %}
 </div>
 <div class="note">
-  <p><b>Day box</b> = the move the options market is pricing for the day, widened a little and centred on the opening price. Tested on about 4 years of intraday data (2023-26) and in low and high volatility alike.</p>
-  <p><b>Calm / fast zone</b> = which side of the options volatility line price sits on. Under it, days have run wider; over it, calmer. It sizes the day; it does not call direction.</p>
-  <p><b>Options cheap / rich</b> = what options are pricing compared with how much price has actually been moving lately.</p>
-  <p>What we tested and left off because it did not help: put/call ratios, the "pin" strike, open-interest build-ups and big-trade flow.</p>
+  <p><b>Range guide</b> = the move the options market is pricing for the day, widened a little and centred on the opening price. It held up the same way across four years of data and in quiet and wild markets.</p>
+  <p><b>Fast / calm day</b> = which side of the options volatility line price sits on. Fast days run wider and quicker; calm days tighter. It tells you how big a day to expect, not which way.</p>
+  <p><b>Cheap / rich</b> = what options are charging compared with how much price has really been moving lately.</p>
 </div>

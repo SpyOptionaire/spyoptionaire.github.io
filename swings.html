@@ -28,6 +28,15 @@ permalink: /swings/
   <p class="asof">Checked on {{ S.today.checked }}</p>
 </div>
 
+{% assign F = S.fear %}
+{% if F %}
+<div class="ob">
+  <span class="k">Fear check</span>
+  <p>{% if F.top5 %}<span class="chip warn">FEAR IN THE TOP 5%</span> {% endif %}VIX closed at {{ F.vix }} on {{ F.asof }}, higher than {{ F.pct }}% of the past year.</p>
+  <p class="muted">When fear has been this high ({{ F.period }}), SPY was higher 5 days later {{ F.up }}% of the time, against {{ F.base }}% on a normal day. Extreme fear has tended to set up bounces, which is when swings show up most.</p>
+</div>
+{% endif %}
+
 <div class="ob">
   <span class="k">How it works</span>
   <ul class="plain">

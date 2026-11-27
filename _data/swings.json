@@ -57,5 +57,14 @@
   },
   "result": "All 5 closed higher the next day."
  },
+ "fear": {
+  "pct": 97.6,
+  "asof": "2026-11-25",
+  "vix": 28.29,
+  "top5": true,
+  "up": 68,
+  "base": 60,
+  "period": "2012-2026"
+ },
  "log": []
 }
