@@ -1,5 +1,5 @@
 {
- "built_et": "2026-11-26 20:33",
+ "built_et": "2026-11-27 08:40",
  "tickers": [
   {
    "sym": "SPY",
@@ -14,7 +14,7 @@
    "trend": "bearish",
    "ema": "bearish (8 under 20)",
    "momentum": "extreme bear",
-   "delta": null,
+   "delta": "weaker sellers",
    "group": "etfs",
    "supply": [
     {
@@ -96,11 +96,11 @@
   {
    "sym": "ES",
    "name": "S&P 500 futures",
-   "asof": "2026-11-26",
-   "close": "7,234.50",
-   "atr": "185.27",
+   "asof": "2026-11-27",
+   "close": "7,312.75",
+   "atr": "176.11",
    "unit": "pts",
-   "chg_pct": 0.65,
+   "chg_pct": 1.08,
    "state": "balanced",
    "imbalanced": false,
    "trend": "bearish",
@@ -110,69 +110,78 @@
    "group": "futures",
    "supply": [
     {
-     "price": "7,254.61",
-     "tag": "8ema",
-     "away": "+20.11 pts",
-     "pct": "+0.28%",
-     "atr": 0.11,
-     "p1": "86%",
-     "p5": "95%"
-    },
-    {
-     "price": "7,335.25",
-     "tag": "supply",
-     "away": "+100.75 pts",
-     "pct": "+1.39%",
-     "atr": 0.54,
-     "p1": "37%",
-     "p5": "73%"
-    },
-    {
      "price": "7,359.00",
      "tag": "supply",
-     "away": "+124.50 pts",
-     "pct": "+1.72%",
-     "atr": 0.67,
-     "p1": "27%",
-     "p5": "67%"
+     "away": "+46.25 pts",
+     "pct": "+0.63%",
+     "atr": 0.26,
+     "p1": "67%",
+     "p5": "88%"
     },
     {
-     "price": "7,392.57",
+     "price": "7,384.96",
      "tag": "20ema",
-     "away": "+158.07 pts",
-     "pct": "+2.18%",
-     "atr": 0.85,
-     "p1": "17%",
-     "p5": "57%"
+     "away": "+72.21 pts",
+     "pct": "+0.99%",
+     "atr": 0.41,
+     "p1": "50%",
+     "p5": "81%"
+    },
+    {
+     "price": "7,397.66",
+     "tag": "200ema",
+     "away": "+84.91 pts",
+     "pct": "+1.16%",
+     "atr": 0.48,
+     "p1": "43%",
+     "p5": "76%"
+    },
+    {
+     "price": "7,532.14",
+     "tag": "50ema",
+     "away": "+219.39 pts",
+     "pct": "+3.00%",
+     "atr": 1.25,
+     "p1": "6%",
+     "p5": "40%"
     }
    ],
    "demand": [
     {
+     "price": "7,267.53",
+     "tag": "8ema",
+     "away": "-45.22 pts",
+     "pct": "-0.62%",
+     "atr": 0.26,
+     "p1": "63%",
+     "p5": "82%"
+    },
+    {
      "price": "6,966.75",
      "tag": "demand",
-     "away": "-267.75 pts",
-     "pct": "-3.70%",
-     "atr": 1.45,
-     "p1": "7%",
-     "p5": "32%"
+     "away": "-346.00 pts",
+     "pct": "-4.73%",
+     "atr": 1.96,
+     "p1": "2%",
+     "p5": "21%"
     },
     {
      "price": "6,884.50",
      "tag": "demand",
-     "away": "-350.00 pts",
-     "pct": "-4.84%",
-     "atr": 1.89,
-     "p1": "3%",
-     "p5": "22%"
+     "away": "-428.25 pts",
+     "pct": "-5.86%",
+     "atr": 2.43,
+     "p1": "1%",
+     "p5": "14%"
     },
     {
      "price": "6,796.75",
      "tag": "demand",
-     "away": "-437.75 pts",
-     "pct": "-6.05%",
-     "atr": 2.36,
+     "away": "-516.00 pts",
+     "pct": "-7.06%",
+     "atr": 2.93,
      "p1": "1%",
-     "p5": "15%"
+     "p5": "10%"
     }
    ]
   },
@@ -189,7 +198,7 @@
    "trend": "bearish",
    "ema": "bearish (8 under 20)",
    "momentum": "extreme bear",
-   "delta": null,
+   "delta": "weaker sellers",
    "group": "etfs",
    "supply": [
     {
@@ -271,92 +280,184 @@
   {
    "sym": "NQ",
    "name": "Nasdaq-100 futures",
-   "asof": "2026-11-26",
-   "close": "26,221.25",
-   "atr": "1,044.14",
+   "asof": "2026-11-27",
+   "close": "26,714.75",
+   "atr": "992.12",
    "unit": "pts",
-   "chg_pct": 0.85,
+   "chg_pct": 1.88,
    "state": "balanced",
    "imbalanced": false,
    "trend": "bearish",
    "ema": "bearish (8 under 20)",
-   "momentum": "extreme bear",
+   "momentum": "bearish",
    "delta": "weaker sellers",
    "group": "futures",
    "supply": [
     {
-     "price": "26,509.36",
-     "tag": "8ema",
-     "away": "+288.11 pts",
-     "pct": "+1.10%",
-     "atr": 0.28,
-     "p1": "66%",
-     "p5": "86%"
-    },
-    {
      "price": "26,888.00",
      "tag": "supply",
-     "away": "+666.75 pts",
-     "pct": "+2.54%",
-     "atr": 0.64,
-     "p1": "30%",
-     "p5": "69%"
+     "away": "+173.25 pts",
+     "pct": "+0.65%",
+     "atr": 0.17,
+     "p1": "78%",
+     "p5": "92%"
     },
     {
-     "price": "27,332.91",
+     "price": "27,274.04",
      "tag": "20ema",
-     "away": "+1,111.66 pts",
-     "pct": "+4.24%",
-     "atr": 1.06,
-     "p1": "9%",
-     "p5": "49%"
+     "away": "+559.29 pts",
+     "pct": "+2.09%",
+     "atr": 0.56,
+     "p1": "36%",
+     "p5": "73%"
     },
     {
-     "price": "28,185.45",
+     "price": "28,170.82",
      "tag": "200ema",
-     "away": "+1,964.20 pts",
-     "pct": "+7.49%",
-     "atr": 1.88,
+     "away": "+1,456.07 pts",
+     "pct": "+5.45%",
+     "atr": 1.47,
+     "p1": "3%",
+     "p5": "33%"
+    },
+    {
+     "price": "28,359.24",
+     "tag": "50ema",
+     "away": "+1,644.49 pts",
+     "pct": "+6.16%",
+     "atr": 1.66,
      "p1": "1%",
-     "p5": "19%"
+     "p5": "26%"
     }
    ],
    "demand": [
     {
+     "price": "26,555.00",
+     "tag": "8ema",
+     "away": "-159.75 pts",
+     "pct": "-0.60%",
+     "atr": 0.16,
+     "p1": "76%",
+     "p5": "88%"
+    },
+    {
      "price": "26,000.50",
      "tag": "demand",
-     "away": "-220.75 pts",
-     "pct": "-0.84%",
-     "atr": 0.21,
-     "p1": "69%",
-     "p5": "85%"
+     "away": "-714.25 pts",
+     "pct": "-2.67%",
+     "atr": 0.72,
+     "p1": "26%",
+     "p5": "58%"
     },
     {
      "price": "25,291.00",
      "tag": "demand",
-     "away": "-930.25 pts",
-     "pct": "-3.55%",
-     "atr": 0.89,
-     "p1": "19%",
-     "p5": "51%"
+     "away": "-1,423.75 pts",
+     "pct": "-5.33%",
+     "atr": 1.44,
+     "p1": "6%",
+     "p5": "32%"
     },
     {
      "price": "24,420.00",
      "tag": "demand",
-     "away": "-1,801.25 pts",
-     "pct": "-6.87%",
-     "atr": 1.73,
-     "p1": "3%",
-     "p5": "24%"
+     "away": "-2,294.75 pts",
+     "pct": "-8.59%",
+     "atr": 2.31,
+     "p1": "1%",
+     "p5": "14%"
+    }
+   ]
+  },
+  {
+   "sym": "IWM",
+   "name": "Russell 2000 ETF",
+   "asof": "2026-11-25",
+   "close": "268.87",
+   "atr": "6.23",
+   "unit": "$",
+   "chg_pct": 0.65,
+   "state": "balanced",
+   "imbalanced": false,
+   "trend": "bearish",
+   "ema": "bearish (8 under 20)",
+   "momentum": "bearish",
+   "delta": "weaker sellers",
+   "group": "etfs",
+   "supply": [
+    {
+     "price": "269.95",
+     "tag": "supply",
+     "away": "+$1.08",
+     "pct": "+0.40%",
+     "atr": 0.17,
+     "p1": "72%",
+     "p5": "88%"
     },
     {
-     "price": "23,379.50",
+     "price": "271.28",
+     "tag": "supply",
+     "away": "+$2.41",
+     "pct": "+0.90%",
+     "atr": 0.39,
+     "p1": "54%",
+     "p5": "80%"
+    },
+    {
+     "price": "271.98",
+     "tag": "supply",
+     "away": "+$3.11",
+     "pct": "+1.16%",
+     "atr": 0.5,
+     "p1": "44%",
+     "p5": "74%"
+    },
+    {
+     "price": "272.12",
+     "tag": "20ema",
+     "away": "+$3.25",
+     "pct": "+1.21%",
+     "atr": 0.52,
+     "p1": "42%",
+     "p5": "73%"
+    }
+   ],
+   "demand": [
+    {
+     "price": "268.10",
+     "tag": "8ema",
+     "away": "-$0.77",
+     "pct": "-0.29%",
+     "atr": 0.12,
+     "p1": "71%",
+     "p5": "87%"
+    },
+    {
+     "price": "256.61",
      "tag": "demand",
-     "away": "-2,841.75 pts",
-     "pct": "-10.84%",
-     "atr": 2.72,
+     "away": "-$12.26",
+     "pct": "-4.56%",
+     "atr": 1.97,
+     "p1": "2%",
+     "p5": "20%"
+    },
+    {
+     "price": "252.85",
+     "tag": "demand",
+     "away": "-$16.02",
+     "pct": "-5.96%",
+     "atr": 2.57,
      "p1": "1%",
-     "p5": "9%"
+     "p5": "11%"
+    },
+    {
+     "price": "251.82",
+     "tag": "demand",
+     "away": "-$17.05",
+     "pct": "-6.34%",
+     "atr": 2.74,
+     "p1": "0%",
+     "p5": "10%"
     }
    ]
   },
@@ -429,91 +530,515 @@
    "sym": "BTC",
    "name": "Bitcoin (CME futures)",
    "asof": "2026-11-27",
-   "close": "60,645",
-   "atr": "2,996",
+   "close": "61,435",
+   "atr": "3,102",
    "unit": "$",
-   "chg_pct": 0.08,
+   "chg_pct": 1.39,
    "state": "IMBALANCED under the latest demand",
    "imbalanced": true,
    "trend": "bearish",
    "ema": "bearish (8 under 20)",
-   "momentum": "extreme bear",
-   "delta": null,
+   "momentum": "bearish",
+   "delta": "weaker sellers",
    "group": "crypto",
    "supply": [
     {
      "price": "61,500",
      "tag": "broken demand",
-     "away": "+$855",
-     "pct": "+1.41%",
-     "atr": 0.29,
-     "p1": "59%",
-     "p5": "82%"
+     "away": "+$65",
+     "pct": "+0.11%",
+     "atr": 0.02,
+     "p1": "86%",
+     "p5": "95%"
     },
     {
-     "price": "61,857",
+     "price": "62,032",
      "tag": "8ema",
-     "away": "+$1,212",
-     "pct": "+2.00%",
-     "atr": 0.4,
-     "p1": "46%",
-     "p5": "75%"
+     "away": "+$597",
+     "pct": "+0.97%",
+     "atr": 0.19,
+     "p1": "70%",
+     "p5": "87%"
     },
     {
      "price": "66,520",
      "tag": "supply",
-     "away": "+$5,875",
-     "pct": "+9.69%",
-     "atr": 1.96,
-     "p1": "3%",
-     "p5": "20%"
+     "away": "+$5,085",
+     "pct": "+8.28%",
+     "atr": 1.64,
+     "p1": "4%",
+     "p5": "27%"
     },
     {
-     "price": "66,941",
+     "price": "67,016",
      "tag": "20ema",
-     "away": "+$6,296",
-     "pct": "+10.38%",
-     "atr": 2.1,
-     "p1": "2%",
-     "p5": "18%"
+     "away": "+$5,581",
+     "pct": "+9.08%",
+     "atr": 1.8,
+     "p1": "3%",
+     "p5": "22%"
     }
    ],
    "demand": [
     {
      "price": "58,900",
      "tag": "demand",
-     "away": "-$1,745",
-     "pct": "-2.88%",
-     "atr": 0.58,
-     "p1": "32%",
-     "p5": "64%"
+     "away": "-$2,535",
+     "pct": "-4.13%",
+     "atr": 0.82,
+     "p1": "19%",
+     "p5": "52%"
     },
     {
      "price": "57,985",
      "tag": "demand",
-     "away": "-$2,660",
-     "pct": "-4.39%",
-     "atr": 0.89,
-     "p1": "16%",
-     "p5": "49%"
+     "away": "-$3,450",
+     "pct": "-5.62%",
+     "atr": 1.11,
+     "p1": "10%",
+     "p5": "39%"
     },
     {
      "price": "53,770",
      "tag": "demand",
-     "away": "-$6,875",
-     "pct": "-11.34%",
-     "atr": 2.29,
-     "p1": "2%",
-     "p5": "12%"
+     "away": "-$7,665",
+     "pct": "-12.48%",
+     "atr": 2.47,
+     "p1": "1%",
+     "p5": "10%"
     },
     {
      "price": "53,695",
      "tag": "demand",
-     "away": "-$6,950",
-     "pct": "-11.46%",
-     "atr": 2.32,
+     "away": "-$7,740",
+     "pct": "-12.60%",
+     "atr": 2.5,
+     "p1": "1%",
+     "p5": "10%"
+    }
+   ]
+  },
+  {
+   "sym": "AAPL",
+   "name": "Apple",
+   "asof": "2026-11-25",
+   "close": "355.58",
+   "atr": "8.03",
+   "unit": "$",
+   "chg_pct": 0.43,
+   "state": "balanced",
+   "imbalanced": false,
+   "trend": "bullish",
+   "ema": "bullish (8 over 20)",
+   "momentum": "bearish",
+   "delta": "weaker sellers",
+   "group": "stocks",
+   "supply": [
+    {
+     "price": "356.27",
+     "tag": "weekly supply",
+     "away": "+$0.69",
+     "pct": "+0.19%",
+     "atr": 0.09,
+     "p1": "81%",
+     "p5": "92%"
+    },
+    {
+     "price": "357.81",
+     "tag": "supply",
+     "away": "+$2.23",
+     "pct": "+0.63%",
+     "atr": 0.28,
+     "p1": "64%",
+     "p5": "86%"
+    }
+   ],
+   "demand": [
+    {
+     "price": "351.46",
+     "tag": "8ema",
+     "away": "-$4.12",
+     "pct": "-1.16%",
+     "atr": 0.51,
+     "p1": "36%",
+     "p5": "64%"
+    },
+    {
+     "price": "349.06",
+     "tag": "20ema",
+     "away": "-$6.52",
+     "pct": "-1.83%",
+     "atr": 0.81,
+     "p1": "21%",
+     "p5": "50%"
+    },
+    {
+     "price": "342.56",
+     "tag": "demand",
+     "away": "-$13.02",
+     "pct": "-3.66%",
+     "atr": 1.62,
+     "p1": "4%",
+     "p5": "26%"
+    },
+    {
+     "price": "342.10",
+     "tag": "50ema",
+     "away": "-$13.48",
+     "pct": "-3.79%",
+     "atr": 1.68,
+     "p1": "4%",
+     "p5": "24%"
+    }
+   ]
+  },
+  {
+   "sym": "AMZN",
+   "name": "Amazon",
+   "asof": "2026-11-25",
+   "close": "244.43",
+   "atr": "10.46",
+   "unit": "$",
+   "chg_pct": -3.12,
+   "state": "IMBALANCED under the latest demand",
+   "imbalanced": true,
+   "trend": "bearish",
+   "ema": "bearish (8 under 20)",
+   "momentum": "extreme bear",
+   "delta": "weaker sellers",
+   "group": "stocks",
+   "supply": [
+    {
+     "price": "246.82",
+     "tag": "broken demand",
+     "away": "+$2.39",
+     "pct": "+0.98%",
+     "atr": 0.23,
+     "p1": "67%",
+     "p5": "87%"
+    },
+    {
+     "price": "247.82",
+     "tag": "200ema",
+     "away": "+$3.39",
+     "pct": "+1.39%",
+     "atr": 0.32,
+     "p1": "58%",
+     "p5": "82%"
+    },
+    {
+     "price": "253.83",
+     "tag": "8ema",
+     "away": "+$9.40",
+     "pct": "+3.85%",
+     "atr": 0.9,
+     "p1": "20%",
+     "p5": "57%"
+    },
+    {
+     "price": "255.98",
+     "tag": "50ema",
+     "away": "+$11.55",
+     "pct": "+4.73%",
+     "atr": 1.1,
+     "p1": "12%",
+     "p5": "49%"
+    }
+   ],
+   "demand": [
+    {
+     "price": "243.79",
+     "tag": "demand",
+     "away": "-$0.64",
+     "pct": "-0.26%",
+     "atr": 0.06,
+     "p1": "74%",
+     "p5": "87%"
+    },
+    {
+     "price": "227.01",
+     "tag": "demand",
+     "away": "-$17.42",
+     "pct": "-7.13%",
+     "atr": 1.67,
+     "p1": "4%",
+     "p5": "26%"
+    },
+    {
+     "price": "226.65",
+     "tag": "demand",
+     "away": "-$17.78",
+     "pct": "-7.27%",
+     "atr": 1.7,
+     "p1": "3%",
+     "p5": "25%"
+    },
+    {
+     "price": "221.25",
+     "tag": "demand",
+     "away": "-$23.18",
+     "pct": "-9.48%",
+     "atr": 2.22,
+     "p1": "1%",
+     "p5": "15%"
+    }
+   ]
+  },
+  {
+   "sym": "MSFT",
+   "name": "Microsoft",
+   "asof": "2026-11-25",
+   "close": "489.93",
+   "atr": "17.05",
+   "unit": "$",
+   "chg_pct": -1.25,
+   "state": "balanced",
+   "imbalanced": false,
+   "trend": "bearish",
+   "ema": "bearish (8 under 20)",
+   "momentum": "extreme bear",
+   "delta": "weaker sellers",
+   "group": "stocks",
+   "supply": [
+    {
+     "price": "499.62",
+     "tag": "8ema",
+     "away": "+$9.69",
+     "pct": "+1.98%",
+     "atr": 0.57,
+     "p1": "37%",
+     "p5": "73%"
+    },
+    {
+     "price": "507.12",
+     "tag": "supply",
+     "away": "+$17.19",
+     "pct": "+3.51%",
+     "atr": 1.01,
+     "p1": "15%",
+     "p5": "53%"
+    },
+    {
+     "price": "508.29",
+     "tag": "supply",
+     "away": "+$18.36",
+     "pct": "+3.75%",
+     "atr": 1.08,
+     "p1": "13%",
+     "p5": "51%"
+    },
+    {
+     "price": "511.25",
+     "tag": "50ema",
+     "away": "+$21.32",
+     "pct": "+4.35%",
+     "atr": 1.25,
+     "p1": "9%",
+     "p5": "45%"
+    }
+   ],
+   "demand": [
+    {
+     "price": "484.52",
+     "tag": "demand",
+     "away": "-$5.41",
+     "pct": "-1.10%",
+     "atr": 0.32,
+     "p1": "54%",
+     "p5": "76%"
+    },
+    {
+     "price": "481.15",
+     "tag": "demand",
+     "away": "-$8.78",
+     "pct": "-1.79%",
+     "atr": 0.51,
+     "p1": "38%",
+     "p5": "65%"
+    },
+    {
+     "price": "472.70",
+     "tag": "200ema",
+     "away": "-$17.23",
+     "pct": "-3.52%",
+     "atr": 1.01,
+     "p1": "14%",
+     "p5": "44%"
+    },
+    {
+     "price": "464.84",
+     "tag": "demand",
+     "away": "-$25.09",
+     "pct": "-5.12%",
+     "atr": 1.47,
+     "p1": "6%",
+     "p5": "29%"
+    }
+   ]
+  },
+  {
+   "sym": "NVDA",
+   "name": "Nvidia",
+   "asof": "2026-11-25",
+   "close": "149.30",
+   "atr": "15.83",
+   "unit": "$",
+   "chg_pct": -3.91,
+   "state": "balanced",
+   "imbalanced": false,
+   "trend": "bearish",
+   "ema": "bearish (8 under 20)",
+   "momentum": "bearish",
+   "delta": "weaker sellers",
+   "group": "stocks",
+   "supply": [
+    {
+     "price": "154.09",
+     "tag": "8ema",
+     "away": "+$4.79",
+     "pct": "+3.21%",
+     "atr": 0.3,
+     "p1": "60%",
+     "p5": "84%"
+    },
+    {
+     "price": "164.07",
+     "tag": "supply",
+     "away": "+$14.77",
+     "pct": "+9.89%",
+     "atr": 0.93,
+     "p1": "18%",
+     "p5": "58%"
+    },
+    {
+     "price": "165.17",
+     "tag": "supply",
+     "away": "+$15.87",
+     "pct": "+10.63%",
+     "atr": 1.0,
+     "p1": "16%",
+     "p5": "55%"
+    },
+    {
+     "price": "169.65",
+     "tag": "20ema",
+     "away": "+$20.35",
+     "pct": "+13.63%",
+     "atr": 1.29,
+     "p1": "8%",
+     "p5": "45%"
+    }
+   ],
+   "demand": [
+    {
+     "price": "139.99",
+     "tag": "demand",
+     "away": "-$9.31",
+     "pct": "-6.24%",
+     "atr": 0.59,
+     "p1": "33%",
+     "p5": "62%"
+    },
+    {
+     "price": "135.49",
+     "tag": "demand",
+     "away": "-$13.81",
+     "pct": "-9.25%",
+     "atr": 0.87,
+     "p1": "19%",
+     "p5": "50%"
+    }
+   ]
+  },
+  {
+   "sym": "TSLA",
+   "name": "Tesla",
+   "asof": "2026-11-25",
+   "close": "380.14",
+   "atr": "20.05",
+   "unit": "$",
+   "chg_pct": -1.18,
+   "state": "balanced",
+   "imbalanced": false,
+   "trend": "bearish",
+   "ema": "bearish (8 under 20)",
+   "momentum": "bearish",
+   "delta": "weaker sellers",
+   "group": "stocks",
+   "supply": [
+    {
+     "price": "397.45",
+     "tag": "supply",
+     "away": "+$17.31",
+     "pct": "+4.55%",
+     "atr": 0.86,
+     "p1": "21%",
+     "p5": "57%"
+    },
+    {
+     "price": "405.63",
+     "tag": "supply",
+     "away": "+$25.49",
+     "pct": "+6.71%",
+     "atr": 1.27,
+     "p1": "9%",
+     "p5": "42%"
+    },
+    {
+     "price": "410.49",
+     "tag": "supply",
+     "away": "+$30.35",
+     "pct": "+7.98%",
+     "atr": 1.51,
+     "p1": "5%",
+     "p5": "34%"
+    },
+    {
+     "price": "419.77",
+     "tag": "supply",
+     "away": "+$39.63",
+     "pct": "+10.43%",
+     "atr": 1.98,
      "p1": "2%",
-     "p5": "12%"
+     "p5": "24%"
+    }
+   ],
+   "demand": [
+    {
+     "price": "379.66",
+     "tag": "20ema",
+     "away": "-$0.48",
+     "pct": "-0.13%",
+     "atr": 0.02,
+     "p1": "77%",
+     "p5": "88%"
+    },
+    {
+     "price": "378.60",
+     "tag": "200ema",
+     "away": "-$1.54",
+     "pct": "-0.41%",
+     "atr": 0.08,
+     "p1": "75%",
+     "p5": "87%"
+    },
+    {
+     "price": "376.52",
+     "tag": "50ema",
+     "away": "-$3.62",
+     "pct": "-0.95%",
+     "atr": 0.18,
+     "p1": "67%",
+     "p5": "83%"
+    },
+    {
+     "price": "348.92",
+     "tag": "demand",
+     "away": "-$31.22",
+     "pct": "-8.21%",
+     "atr": 1.56,
+     "p1": "4%",
+     "p5": "30%"
     }
    ]
   }
