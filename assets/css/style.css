@@ -25,7 +25,8 @@ nav a { color:var(--muted); margin-left:18px; font-size:15px; } nav a:hover { co
 .levels .s { color:var(--sup); } .levels .m { color:var(--dem); }
 .back { margin:10px 0 40px; }
 .foot { color:var(--muted); font-size:13px; border-top:1px solid var(--line); padding-top:16px; padding-bottom:30px; }
-.board { display:grid; grid-template-columns:1fr; gap:14px; margin:18px 0 10px; }
+.board { display:grid; grid-template-columns:minmax(0,1fr); gap:14px; margin:18px 0 10px; }
+.board > * { min-width:0; } .card { overflow-x:auto; }
 .card { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:12px 14px; font-variant-numeric:tabular-nums; }
 .card.imb { border-color:#b45309; }
 .ch { display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; }
@@ -101,6 +102,8 @@ main > .ob { margin:14px 0; }
 .picker button.on { background:var(--panel); border-color:var(--accent); color:var(--accent); }
 .picker button.soon { color:var(--muted); font-weight:500; border-style:dashed; }
 .picker button.soon.on { color:var(--text); border-style:solid; }
-.board.one { grid-template-columns:1fr; max-width:640px; }
+.board.one { grid-template-columns:minmax(0,1fr); }
 .ledger { margin:14px 0 0; } .ledger .lg { margin:0 0 2px; } .ledger .picker { margin:4px 0 8px; }
 .lgn { color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.5px; font-weight:700; }
+
+.lad.txt td { white-space:normal; } .lad.txt td:last-child { text-align:left; padding-left:12px; }
