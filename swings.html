@@ -60,7 +60,7 @@ permalink: /swings/
     <thead><tr><th>Swing</th><th>9:31</th><th>10:00</th><th>Noon</th><th>Close</th></tr></thead>
     <tbody>
     {% for r in S.previous %}
-      <tr><td><b>{{ r.ticker }} {{ r.contract }}</b><i>{{ r.date }} &middot; bought {{ r.bought }} &middot; best +{{ r.best }}%</i></td>
+      <tr><td><b>{{ r.ticker }} {{ r.contract }}</b><i>{{ r.date }} &middot; bought {{ r.bought }} &middot; best {% if r.best >= 0 %}+{% endif %}{{ r.best }}%</i></td>
         <td class="{% if r.o >= 0 %}up{% else %}dn{% endif %}">{% if r.o >= 0 %}+{% endif %}{{ r.o }}%</td>
         <td class="{% if r.t10 >= 0 %}up{% else %}dn{% endif %}">{% if r.t10 >= 0 %}+{% endif %}{{ r.t10 }}%</td>
         <td class="{% if r.noon >= 0 %}up{% else %}dn{% endif %}">{% if r.noon >= 0 %}+{% endif %}{{ r.noon }}%</td>
