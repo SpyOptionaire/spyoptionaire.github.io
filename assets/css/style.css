@@ -65,3 +65,7 @@ nav a { color:var(--muted); margin-left:18px; font-size:15px; } nav a:hover { co
 .soon ul { margin:6px 0 0; padding-left:18px; color:var(--muted); font-size:15px; } .soon li { margin:5px 0; } .soon b { color:var(--text); }
 .follow { margin-bottom:30px; }
 @media (max-width:520px) { .tiles { grid-template-columns:1fr; } .hero.home h1 { font-size:24px; } nav a { margin-left:12px; font-size:14px; } }
+.lad td i { display:block; margin:0; line-height:1.2; } .lad td small { display:block; color:var(--muted); font-size:11px; line-height:1.2; }
+.lad td { vertical-align:middle; padding:5px 4px; }
+.odd { min-width:40px; text-align:right; }
+@media (max-width:520px) { .card { padding:10px 10px; } .lad { font-size:13px; } .lad td, .lad th { padding-left:3px; padding-right:3px; } }

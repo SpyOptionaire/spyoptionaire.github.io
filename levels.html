@@ -32,18 +32,18 @@ permalink: /levels/
     </dl>
     <table class="lad">
       <thead>
-        <tr><th rowspan="2">Level</th><th rowspan="2">Away {% if t.unit == '$' %}($){% else %}(pts){% endif %}</th><th rowspan="2">%</th><th colspan="2" class="oh">Odds price hits it</th></tr>
+        <tr><th rowspan="2">Level</th><th rowspan="2">Away</th><th colspan="2" class="oh">Odds price hits it</th></tr>
         <tr><th>1 day</th><th>5 days</th></tr>
       </thead>
       <tbody>
       {% assign sup = t.supply | reverse %}
-      {% for x in sup %}<tr class="rs"><td><b>{{ x.price }}</b> <i>{{ x.tag }}</i></td><td>{{ x.away }}</td><td>{{ x.pct }}</td><td><span class="odd" style="--w:{{ x.p1 }}">{{ x.p1 }}</span></td><td><span class="odd" style="--w:{{ x.p5 }}">{{ x.p5 }}</span></td></tr>
+      {% for x in sup %}<tr class="rs"><td><b>{{ x.price }}</b><i>{{ x.tag }}</i></td><td>{{ x.away }}<small>{{ x.pct }}</small></td><td><span class="odd" style="--w:{{ x.p1 }}">{{ x.p1 }}</span></td><td><span class="odd" style="--w:{{ x.p5 }}">{{ x.p5 }}</span></td></tr>
       {% endfor %}
-      {% if t.supply.size == 0 %}<tr class="rs"><td colspan="5"><i>no supply level within range</i></td></tr>{% endif %}
-      <tr class="now"><td colspan="5">&#9654; {{ t.close }} <span class="muted">last close {{ t.asof }}</span></td></tr>
-      {% for x in t.demand %}<tr class="rd"><td><b>{{ x.price }}</b> <i>{{ x.tag }}</i></td><td>{{ x.away }}</td><td>{{ x.pct }}</td><td><span class="odd" style="--w:{{ x.p1 }}">{{ x.p1 }}</span></td><td><span class="odd" style="--w:{{ x.p5 }}">{{ x.p5 }}</span></td></tr>
+      {% if t.supply.size == 0 %}<tr class="rs"><td colspan="4"><i>no supply level within range</i></td></tr>{% endif %}
+      <tr class="now"><td colspan="4">&#9654; {{ t.close }} <span class="muted">last close {{ t.asof }}</span></td></tr>
+      {% for x in t.demand %}<tr class="rd"><td><b>{{ x.price }}</b><i>{{ x.tag }}</i></td><td>{{ x.away }}<small>{{ x.pct }}</small></td><td><span class="odd" style="--w:{{ x.p1 }}">{{ x.p1 }}</span></td><td><span class="odd" style="--w:{{ x.p5 }}">{{ x.p5 }}</span></td></tr>
       {% endfor %}
-      {% if t.demand.size == 0 %}<tr class="rd"><td colspan="5"><i>no demand level within range</i></td></tr>{% endif %}
+      {% if t.demand.size == 0 %}<tr class="rd"><td colspan="4"><i>no demand level within range</i></td></tr>{% endif %}
       </tbody>
     </table>
     {% if t.sym == 'BTC' %}<p class="asof">Bitcoin levels are based on CME Bitcoin futures (MBT).</p>{% endif %}
