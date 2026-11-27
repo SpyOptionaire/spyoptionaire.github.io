@@ -34,7 +34,117 @@
     "30-day implied volatility 22.9%",
     "1.17 puts open per call",
     "downside puts 10.3 vol points over at-the-money"
-   ]
+   ],
+   "odds": {
+    "expiry": "Fri Nov 27",
+    "rows": [
+     {
+      "level": "735",
+      "side": "rs",
+      "finish": "above 5%",
+      "touch": "9%",
+      "w": 5,
+      "tw": 9
+     },
+     {
+      "level": "730",
+      "side": "rs",
+      "finish": "above 14%",
+      "touch": "28%",
+      "w": 14,
+      "tw": 28
+     },
+     {
+      "level": "725",
+      "side": "rs",
+      "finish": "above 30%",
+      "touch": "60%",
+      "w": 30,
+      "tw": 60
+     },
+     {
+      "level": "720",
+      "side": "rs",
+      "finish": "above 48%",
+      "touch": "95%",
+      "w": 48,
+      "tw": 95
+     },
+     {
+      "level": "715",
+      "side": "rd",
+      "finish": "below 37%",
+      "touch": "73%",
+      "w": 37,
+      "tw": 73
+     },
+     {
+      "level": "710",
+      "side": "rd",
+      "finish": "below 25%",
+      "touch": "50%",
+      "w": 25,
+      "tw": 50
+     },
+     {
+      "level": "705",
+      "side": "rd",
+      "finish": "below 15%",
+      "touch": "31%",
+      "w": 15,
+      "tw": 31
+     },
+     {
+      "level": "700",
+      "side": "rd",
+      "finish": "below 9%",
+      "touch": "19%",
+      "w": 9,
+      "tw": 19
+     },
+     {
+      "level": "695",
+      "side": "rd",
+      "finish": "below 5%",
+      "touch": "11%",
+      "w": 5,
+      "tw": 11
+     }
+    ]
+   },
+   "ovn": {
+    "calls": "194,266",
+    "puts": "16,755",
+    "lean": "far more calls than puts",
+    "cb": [
+     {
+      "k": "735",
+      "n": "+22,085"
+     },
+     {
+      "k": "730",
+      "n": "+17,098"
+     },
+     {
+      "k": "740",
+      "n": "+13,534"
+     }
+    ],
+    "pb": [
+     {
+      "k": "700",
+      "n": "+32,986"
+     },
+     {
+      "k": "675",
+      "n": "+27,343"
+     },
+     {
+      "k": "665",
+      "n": "+14,174"
+     }
+    ]
+   }
   },
   {
    "sym": "QQQ",
@@ -66,7 +176,117 @@
     "30-day implied volatility 34.1%",
     "1.11 puts open per call",
     "downside puts 11.1 vol points over at-the-money"
-   ]
+   ],
+   "odds": {
+    "expiry": "Fri Nov 27",
+    "rows": [
+     {
+      "level": "655",
+      "side": "rs",
+      "finish": "above 9%",
+      "touch": "17%",
+      "w": 9,
+      "tw": 17
+     },
+     {
+      "level": "650",
+      "side": "rs",
+      "finish": "above 17%",
+      "touch": "34%",
+      "w": 17,
+      "tw": 34
+     },
+     {
+      "level": "645",
+      "side": "rs",
+      "finish": "above 29%",
+      "touch": "59%",
+      "w": 29,
+      "tw": 59
+     },
+     {
+      "level": "640",
+      "side": "rs",
+      "finish": "above 43%",
+      "touch": "86%",
+      "w": 43,
+      "tw": 86
+     },
+     {
+      "level": "635",
+      "side": "rs",
+      "finish": "above 55%",
+      "touch": "99%",
+      "w": 55,
+      "tw": 99
+     },
+     {
+      "level": "630",
+      "side": "rd",
+      "finish": "below 34%",
+      "touch": "68%",
+      "w": 34,
+      "tw": 68
+     },
+     {
+      "level": "625",
+      "side": "rd",
+      "finish": "below 27%",
+      "touch": "54%",
+      "w": 27,
+      "tw": 54
+     },
+     {
+      "level": "620",
+      "side": "rd",
+      "finish": "below 20%",
+      "touch": "40%",
+      "w": 20,
+      "tw": 40
+     },
+     {
+      "level": "615",
+      "side": "rd",
+      "finish": "below 14%",
+      "touch": "29%",
+      "w": 14,
+      "tw": 29
+     }
+    ]
+   },
+   "ovn": {
+    "calls": "147,971",
+    "puts": "138,376",
+    "lean": "calls and puts in about equal size",
+    "cb": [
+     {
+      "k": "690",
+      "n": "+34,244"
+     },
+     {
+      "k": "650",
+      "n": "+22,390"
+     },
+     {
+      "k": "680",
+      "n": "+11,313"
+     }
+    ],
+    "pb": [
+     {
+      "k": "510",
+      "n": "+34,493"
+     },
+     {
+      "k": "605",
+      "n": "+25,811"
+     },
+     {
+      "k": "625",
+      "n": "+19,941"
+     }
+    ]
+   }
   }
  ],
  "ledger": [

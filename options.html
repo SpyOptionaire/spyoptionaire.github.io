@@ -19,7 +19,7 @@ permalink: /options/
 {% for g in O.ledger %}{% for x in g.tickers %}{% unless x.has %}
   <div class="card" data-s="{{ x.sym }}" hidden>
     <div class="ch"><span class="sym">{{ x.sym }}</span><span class="nm">{{ x.name }}</span></div>
-    <p class="empty">The {{ x.sym }} options card fills in once the live TOS feed starts: today's range guide, calm or fast, and the walls, same as SPY.</p>
+    <p class="empty">The {{ x.sym }} options card fills in once the live TOS feed starts: today's range guide, odds board, calm or fast, walls and overnight positioning, same as SPY.</p>
   </div>
 {% endunless %}{% endfor %}{% endfor %}
 {% for t in O.tickers %}
@@ -39,6 +39,18 @@ permalink: /options/
       <p>This is the range options are pricing for today, centred on the open. Price has stayed inside it all day about 6 days in 10 and closed inside about 8 in 10. A tag of the edge is a range guide, not an automatic turn: about half the time price closes back inside.</p>
       <p class="muted">Options price a move of about {{ t.move }} ({{ t.move_pct }}%){% if t.days > 1 %} over {{ t.days }} sessions{% endif %}. From the last close that is {{ t.close_lo }} &ndash; {{ t.close_hi }}.</p>
     </div>
+    {% if t.odds %}<div class="ob">
+      <span class="k">Odds board: where {{ t.sym }} finishes {{ t.odds.expiry }}</span>
+      <table class="lad">
+        <thead><tr><th>Level</th><th>Finishes</th><th>Gets there at some point</th></tr></thead>
+        <tbody>
+        {% for r in t.odds.rows %}{% if r.side == 'rd' %}{% unless shown %}<tr class="now"><td colspan="3">&#9654; {{ t.last }} <span class="muted">last close</span></td></tr>{% assign shown = true %}{% endunless %}{% endif %}<tr class="{{ r.side }}"><td><b>{{ r.level }}</b></td><td><span class="odd" style="--w:{{ r.w }}%">{{ r.finish }}</span></td><td><span class="odd" style="--w:{{ r.tw }}%">{{ r.touch }}</span></td></tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      {% assign shown = false %}
+      <p class="muted">What traders are paying right now, turned into odds: the chance price finishes above (or below) each level by the close, and a rough chance it trades there at some point first. It moves all day with price. Odds, not a forecast.</p>
+    </div>{% endif %}
     <div class="ob">
       <span class="k">Calm or fast</span>
       <p>{{ t.zone_text }}</p>
@@ -56,6 +68,17 @@ permalink: /options/
       </table>
       <p class="muted">The call wall is the strike with the biggest pile of call bets above price; the put wall is the biggest pile of put bets below. Traders watch them as magnets and turn points, but price runs through them often. Treat them as landmarks, not guarantees.</p>
     </div>
+    {% if t.ovn %}<div class="ob">
+      <span class="k">Overnight positioning: new bets left open</span>
+      <p>Since the day before, traders added {{ t.ovn.calls }} call contracts and {{ t.ovn.puts }} put contracts that stayed open overnight: {{ t.ovn.lean }}.</p>
+      <table class="lad">
+        <tbody>
+          {% for x in t.ovn.cb %}<tr class="rs"><td><b>{{ x.k }}</b><i>calls added</i></td><td>{{ x.n }}</td></tr>{% endfor %}
+          {% for x in t.ovn.pb %}<tr class="rd"><td><b>{{ x.k }}</b><i>puts added</i></td><td>{{ x.n }}</td></tr>{% endfor %}
+        </tbody>
+      </table>
+      <p class="muted">Where new money is betting (calls up high) or buying protection (puts down low). It shows that the positions exist, not who bought or sold them. Updated before the open.</p>
+    </div>{% endif %}
     {% if t.details.size > 0 %}<p class="asof">{{ t.details | join: " &middot; " }}</p>{% endif %}
   </div>
 {% endfor %}
@@ -64,6 +87,7 @@ permalink: /options/
   <p><b>Range guide</b> = the move the options market is pricing for the day, widened a little and centred on the opening price. It held up the same way across four years of data and in quiet and wild markets.</p>
   <p><b>Fast / calm day</b> = which side of the options volatility line price sits on. Fast days run wider and quicker; calm days tighter. It tells you how big a day to expect, not which way.</p>
   <p><b>Cheap / rich</b> = what options are charging compared with how much price has really been moving lately.</p>
+  <p><b>Odds board</b> = the odds traders are paying for, read from option prices: the chance price finishes past a level, and roughly twice that for it to trade there at some point.</p>
 </div>
 <script>
 (function(){
