@@ -29,9 +29,9 @@ Bulls need a CLOSE over 735 (ES 7404) to clear that stack. Do that and the 50/10
 
 Bears want this week to be nothing more than a retest of broken support. Losing the daily 8ema at 723.76 would be the first crack. The real trigger is a CLOSE under the 11/20 weekly demand at 689.81 (ES 6966.75). As long as the bulls defend that demand, I struggle to be too bearish long term.
 
-![SPY weekly chart with weekly EMAs and weekly supply/ demand levels](/assets/charts/2026-11-27/SPY_weekly.png)
+![SPY weekly chart with weekly EMAs and weekly supply/ demand levels](/assets/charts/2026-11-27/SPY_1w.png)
 
-![ES weekly chart with weekly EMAs and weekly supply/ demand levels](/assets/charts/2026-11-27/ES_weekly.png)
+![ES weekly chart with weekly EMAs and weekly supply/ demand levels](/assets/charts/2026-11-27/ES_1w.png)
 
 <div class="levels" markdown="1">
 **SPY LEVELS FOR NEXT WEEK**
@@ -59,9 +59,9 @@ Bulls want a CLOSE over Monday's high first (NQ 27137), which also clears that 2
 
 Bears want a second run at the lows. A CLOSE under 608.45 (NQ 25291) breaks the demand buyers just defended, and that would hand tech back to the bears.
 
-![QQQ weekly chart with weekly EMAs and weekly supply/ demand levels](/assets/charts/2026-11-27/QQQ_weekly.png)
+![QQQ weekly chart with weekly EMAs and weekly supply/ demand levels](/assets/charts/2026-11-27/QQQ_1w.png)
 
-![NQ weekly chart with weekly EMAs and weekly supply/ demand levels](/assets/charts/2026-11-27/NQ_weekly.png)
+![NQ weekly chart with weekly EMAs and weekly supply/ demand levels](/assets/charts/2026-11-27/NQ_1w.png)
 
 <div class="levels" markdown="1">
 **QQQ LEVELS FOR NEXT WEEK**
@@ -85,7 +85,7 @@ VIX backs up the bounce. It lost a third of its value this week, from 35.89 down
 
 The jobs report is the test for VIX too. If it holds under the 20ema through Friday, that keeps the bulls' path open, with the 50ema at 20.70 as the next demand. IF VIX gets back over its 8ema at 26.15 while SPY is still stuck under that 735 stack, that's the warning sign.
 
-![VIX daily chart with EMAs and supply/ demand levels](/assets/charts/2026-11-27/VIX_daily.png)
+![VIX daily chart with EMAs and supply/ demand levels](/assets/charts/2026-11-27/VIX_1d.png)
 
 <div class="levels" markdown="1">
 **VIX DAILY LEVELS**
@@ -107,14 +107,14 @@ The bulls first need to CLOSE back over 62,060 to get back in balance. The 60,27
 
 Bears want a CLOSE under 59,085, last week's weekly demand. Under that, the next demands are 58,900 and 57,985.
 
-![Bitcoin (MBT) weekly chart with weekly EMAs and weekly supply/ demand levels](/assets/charts/2026-11-27/BTC_weekly.png)
+![Bitcoin (MBT) weekly chart with weekly EMAs and weekly supply/ demand levels](/assets/charts/2026-11-27/BTC_1w.png)
 
-![Bitcoin (MBT) daily chart with EMAs and supply/ demand levels](/assets/charts/2026-11-27/BTC_daily.png)
+![Bitcoin (MBT) daily chart with EMAs and supply/ demand levels](/assets/charts/2026-11-27/BTC_1d.png)
 
 <div class="levels" markdown="1">
 **BITCOIN (MBT) LEVELS**
 
-<span class="s">Supply-</span> 60270 -> 60900 (8ema) -> 62060 -> 62630 (weekly) -> 62975 (weekly) -> 64959 (20ema)
+<span class="s">Supply-</span> 60270 -> 60900 (8ema) -> 62060 -> 62630 (weekly) -> 62975 (weekly) -> 64959 (20ema) -> 65325 -> 66520 -> 81330 (weekly)
 
 <span class="m">Demand-</span> 59763 (weekly) -> 59085 (weekly) -> 58900 -> 57985
 </div>
