@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Posts
+title: Technical Analysis
 permalink: /posts/
 ---
 <section class="hero">
-  <h1>Posts</h1>
+  <h1>Technical Analysis</h1>
   <p>Pre-market before the open, the daily after the close, and the weekly every Friday.</p>
 </section>
 {% assign latest = site.posts | first %}
@@ -16,7 +16,7 @@ permalink: /posts/
 {% assign k = kv | split: ":" %}
 {% assign items = site.posts | where: "kind", k[1] %}
 <div class="board" data-g="{{ k[0] }}">
-<ul class="posts">
+{% if items.size > 0 %}<ul class="posts">
   {% for post in items %}
   <li>
     <a href="{{ post.url | relative_url }}">
@@ -25,7 +25,7 @@ permalink: /posts/
     </a>
   </li>
   {% endfor %}
-</ul>
+</ul>{% endif %}
 {% if items.size == 0 %}<p class="empty">{% if k[0] == 'weekly' %}The first weekly post lands Friday evening.{% else %}No posts here yet.{% endif %}</p>{% endif %}
 </div>
 {% endfor %}
