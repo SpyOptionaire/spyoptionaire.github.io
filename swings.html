@@ -21,17 +21,6 @@ permalink: /swings/
 </div>
 {% endif %}
 
-      <p>{{ x.reason }}</p>
-      <p><b>Contract to look at:</b> {{ x.contract }}</p>
-      <p class="muted">{{ x.plan }}</p>
-    </div>
-    {% endfor %}
-  {% else %}
-    <p class="big">{{ S.today.no_swing }}</p>
-  {% endif %}
-  <p class="asof">Checked on {{ S.today.checked }}</p>
-</div>
-
 <div class="ob">
   <span class="k">Previous swings: what would have happened</span>
   <table class="lad swt">
@@ -90,7 +79,6 @@ permalink: /swings/
   {% endif %}
   <p class="asof">Not high probability. The conditions say a call or a put could work, but most of these lose the whole premium.</p>
 </div>
-
 
 <div class="ob">
   <span class="k">How the swing trade works</span>
