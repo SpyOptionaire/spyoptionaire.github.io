@@ -1,36 +1,47 @@
 ---
 layout: default
-title: Levels board
-description: The next supply/ demand levels and EMAs above and below price on SPY/ ES, QQQ/ NQ, VIX, Bitcoin and more, with the distance to each level and how often price has reached that far. Opinion only, not financial advice.
+title: Daily Levels
+description: The next supply and demand levels and daily EMAs above and below price for futures, ETFs, stocks and Bitcoin, with the distance to each level and the historical odds price reaches it. Opinion only, not financial advice.
 permalink: /levels/
 ---
 {% assign L = site.data.levels %}
 <section class="hero">
-  <h1>Levels board</h1>
-  <p>The next levels above (supply) and below (demand) price from DaddyAI's daily supply/ demand map and the daily EMAs, how far away each one is, and how often price has traded that far before. Updated {{ L.built_et }} ET.</p>
+  <h1>Daily Levels</h1>
+  <p>The next levels above and below price, how far away each one is, and how often price has reached that far before. Updated {{ L.built_et }} ET, before the open and after the close.</p>
 </section>
-<div class="board">
-{% for t in L.tickers %}
+<div class="tabs" role="tablist">
+  <button data-g="futures">Futures</button><button data-g="etfs">ETFs</button><button data-g="stocks">Stocks</button><button data-g="crypto">Crypto</button>
+</div>
+{% assign groups = "futures,etfs,stocks,crypto" | split: "," %}
+{% for g in groups %}
+{% assign items = L.tickers | where: "group", g %}
+<div class="board" data-g="{{ g }}">
+{% if items.size == 0 %}<p class="empty">{% if g == 'stocks' %}IWM, Apple, Amazon, Microsoft, Nvidia and Tesla join with the next morning update.{% else %}Nothing here yet.{% endif %}</p>{% endif %}
+{% for t in items %}
   <div class="card{% if t.imbalanced %} imb{% endif %}">
     <div class="ch">
       <span class="sym">{{ t.sym }}</span><span class="nm">{{ t.name }}</span>
       <span class="px">{{ t.close }} <span class="{% if t.chg_pct >= 0 %}up{% else %}dn{% endif %}">{% if t.chg_pct >= 0 %}+{% endif %}{{ t.chg_pct }}%</span></span>
     </div>
-    <div class="tags">
-      {% if t.imbalanced %}<span class="tag warn">{{ t.state }}</span>{% else %}<span class="tag">balanced</span>{% endif %}
-      {% if t.trend %}<span class="tag {% if t.trend == 'bullish' %}bull{% else %}bear{% endif %}">8/20 EMA {{ t.trend }}</span>{% endif %}
-      {% if t.momentum %}<span class="tag">daily momentum: {{ t.momentum }}</span>{% endif %}
-      {% if t.atr %}<span class="tag">daily range (ATR) {% if t.unit == '$' %}${% endif %}{{ t.atr }}{% if t.unit == 'pts' %} pts{% endif %}</span>{% endif %}
-    </div>
+    {% if t.imbalanced %}<div class="tags"><span class="tag warn">{{ t.state }}</span></div>{% endif %}
+    <dl class="met">
+      {% if t.ema %}<div><dt>EMAs</dt><dd class="{% if t.trend == 'bullish' %}up{% else %}dn{% endif %}">{{ t.ema }}</dd></div>{% endif %}
+      {% if t.atr %}<div><dt>Daily range (ATR)</dt><dd>{% if t.unit == '$' %}${% endif %}{{ t.atr }}{% if t.unit == 'pts' %} pts{% endif %}</dd></div>{% endif %}
+      {% if t.momentum %}<div><dt>Momentum</dt><dd class="{% if t.momentum contains 'bull' %}up{% else %}dn{% endif %}">{{ t.momentum }}</dd></div>{% endif %}
+      {% if t.delta %}<div><dt>Delta</dt><dd class="{% if t.delta contains 'buyers' %}up{% else %}dn{% endif %}">{{ t.delta }}</dd></div>{% endif %}
+    </dl>
     <table class="lad">
-      <thead><tr><th>Level</th><th>Away {% if t.unit == '$' %}($){% else %}(pts){% endif %}</th><th>%</th><th title="How often price traded this far within 1 session (last 10 yrs)">1 day</th><th title="How often price traded this far within 5 sessions (last 10 yrs)">5 days</th></tr></thead>
+      <thead>
+        <tr><th rowspan="2">Level</th><th rowspan="2">Away {% if t.unit == '$' %}($){% else %}(pts){% endif %}</th><th rowspan="2">%</th><th colspan="2" class="oh">Odds price hits it</th></tr>
+        <tr><th>1 day</th><th>5 days</th></tr>
+      </thead>
       <tbody>
       {% assign sup = t.supply | reverse %}
-      {% for x in sup %}<tr class="rs"><td><b>{{ x.price }}</b>{% if x.tag != '' %} <i>{{ x.tag }}</i>{% endif %}</td><td>{{ x.away }}</td><td>{{ x.pct }}</td><td><span class="odd" style="--w:{{ x.p1 }}">{{ x.p1 }}</span></td><td><span class="odd" style="--w:{{ x.p5 }}">{{ x.p5 }}</span></td></tr>
+      {% for x in sup %}<tr class="rs"><td><b>{{ x.price }}</b> <i>{{ x.tag }}</i></td><td>{{ x.away }}</td><td>{{ x.pct }}</td><td><span class="odd" style="--w:{{ x.p1 }}">{{ x.p1 }}</span></td><td><span class="odd" style="--w:{{ x.p5 }}">{{ x.p5 }}</span></td></tr>
       {% endfor %}
       {% if t.supply.size == 0 %}<tr class="rs"><td colspan="5"><i>no supply level within range</i></td></tr>{% endif %}
       <tr class="now"><td colspan="5">&#9654; {{ t.close }} <span class="muted">last close {{ t.asof }}</span></td></tr>
-      {% for x in t.demand %}<tr class="rd"><td><b>{{ x.price }}</b>{% if x.tag != '' %} <i>{{ x.tag }}</i>{% endif %}</td><td>{{ x.away }}</td><td>{{ x.pct }}</td><td><span class="odd" style="--w:{{ x.p1 }}">{{ x.p1 }}</span></td><td><span class="odd" style="--w:{{ x.p5 }}">{{ x.p5 }}</span></td></tr>
+      {% for x in t.demand %}<tr class="rd"><td><b>{{ x.price }}</b> <i>{{ x.tag }}</i></td><td>{{ x.away }}</td><td>{{ x.pct }}</td><td><span class="odd" style="--w:{{ x.p1 }}">{{ x.p1 }}</span></td><td><span class="odd" style="--w:{{ x.p5 }}">{{ x.p5 }}</span></td></tr>
       {% endfor %}
       {% if t.demand.size == 0 %}<tr class="rd"><td colspan="5"><i>no demand level within range</i></td></tr>{% endif %}
       </tbody>
@@ -39,8 +50,17 @@ permalink: /levels/
   </div>
 {% endfor %}
 </div>
+{% endfor %}
 <div class="note">
-  <p><b>How to read it.</b> Supply = the next levels above price (blue), demand = the next levels below (pink); EMAs are labelled. <b>Away</b> is the distance from the last close in points or dollars. <b>1 day / 5 days</b> is how often, over the ticker's last 10 years, price traded at least that far from the close (measured in daily ranges, ATR) within the next 1 or 5 sessions. It is history, not a prediction, and a level can be reached and still not hold.</p>
-  <p><b>IMBALANCED</b> = price closed and is holding under its latest daily demand (or over its latest daily supply); buyers (sellers) first need to CLOSE back over (under) it.</p>
-  <p>Coming next: expected moves and the strikes nearest each level, gamma/ open interest levels, and more tickers.</p>
+  <p><b>Supply</b> (blue) = the next levels above price, <b>demand</b> (pink) = the next levels below; EMAs are the daily EMAs. <b>Away</b> = distance from the last close.</p>
+  <p><b>Odds price hits it</b> = how often, over the ticker's last 10 years, price traded at least that far from the close within the next 1 or 5 sessions (measured in daily ranges). History, not a prediction: a level can be hit and still not hold.</p>
+  <p><b>IMBALANCED</b> = price closed and is holding under its latest demand (or over its latest supply). Buyers (sellers) first need to close back over (under) it.</p>
 </div>
+<script>
+(function(){
+  var bs=document.querySelectorAll('.tabs button'), ps=document.querySelectorAll('.board[data-g]');
+  function show(g){ bs.forEach(function(b){b.classList.toggle('on',b.dataset.g===g)}); ps.forEach(function(p){p.hidden=p.dataset.g!==g}); }
+  bs.forEach(function(b){ b.addEventListener('click',function(){ show(b.dataset.g); history.replaceState(null,'','#'+b.dataset.g); }); });
+  var h=(location.hash||'').slice(1); show(['futures','etfs','stocks','crypto'].indexOf(h)>=0?h:'futures');
+})();
+</script>

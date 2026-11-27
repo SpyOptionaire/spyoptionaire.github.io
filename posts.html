@@ -1,0 +1,19 @@
+---
+layout: default
+title: Posts
+permalink: /posts/
+---
+<section class="hero">
+  <h1>Posts</h1>
+  <p>Pre-market before the open, the daily after the close, and the weekly every Friday.</p>
+</section>
+<ul class="posts">
+  {% for post in site.posts %}
+  <li>
+    <a href="{{ post.url | relative_url }}">
+      <span class="d">{{ post.date | date: '%b %-d, %Y' }}{% if post.kind %} · {{ post.kind }}{% endif %}</span>
+      <span class="t">{{ post.title }}</span>
+    </a>
+  </li>
+  {% endfor %}
+</ul>

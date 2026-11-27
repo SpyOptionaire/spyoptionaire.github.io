@@ -45,3 +45,23 @@ nav a { color:var(--muted); margin-left:18px; font-size:15px; } nav a:hover { co
 .card .asof { color:var(--muted); font-size:12px; margin:6px 0 0; }
 .note { color:var(--muted); font-size:14px; margin:6px 0 40px; } .note p { margin:8px 0; } .note b { color:var(--text); }
 @media (max-width:520px) { body { font-size:16px; } .hero h1 { font-size:23px; } .post h1 { font-size:22px; } }
+/* 11-26 v3: tabs, metrics, home */
+.tabs { display:flex; gap:6px; margin:16px 0 0; overflow-x:auto; }
+.tabs button { background:var(--panel); color:var(--muted); border:1px solid var(--line); border-radius:999px; padding:6px 14px; font:inherit; font-size:14px; cursor:pointer; white-space:nowrap; }
+.tabs button.on { color:#0b0d10; background:var(--accent); border-color:var(--accent); font-weight:700; }
+.board[hidden] { display:none; }
+.empty { color:var(--muted); font-size:14px; }
+.met { display:grid; grid-template-columns:1fr 1fr; gap:6px 14px; margin:8px 0 4px; }
+.met div { min-width:0; } .met dt { color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.4px; } .met dd { margin:0; font-size:14px; font-weight:650; }
+.lad th.oh { text-align:center; color:var(--text); }
+.hero.home h1 { font-size:30px; }
+.tiles { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:22px 0 14px; }
+.tile { display:block; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px 16px; color:var(--text); }
+.tile:hover { text-decoration:none; border-color:var(--accent); }
+.tile b { display:block; font-size:17px; margin:2px 0 6px; } .tile span:last-child { color:var(--muted); font-size:14px; line-height:1.5; display:block; }
+.k { display:block; color:var(--accent); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.6px; }
+.latest, .soon, .follow { border-top:1px solid var(--line); padding:14px 0; }
+.latest a { color:var(--text); display:block; margin:2px 0; } .latest a:hover b { color:var(--accent); } .latest .d { color:var(--muted); font-size:13px; }
+.soon ul { margin:6px 0 0; padding-left:18px; color:var(--muted); font-size:15px; } .soon li { margin:5px 0; } .soon b { color:var(--text); }
+.follow { margin-bottom:30px; }
+@media (max-width:520px) { .tiles { grid-template-columns:1fr; } .hero.home h1 { font-size:24px; } nav a { margin-left:12px; font-size:14px; } }
