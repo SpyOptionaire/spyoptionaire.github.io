@@ -1,0 +1,87 @@
+---
+layout: default
+title: Earnings
+description: When the big stocks report, how much they usually move on earnings, and the earnings plays that held up in testing, with their history. Zero-or-hero lottos are marked as such. Education only, not financial advice.
+permalink: /earnings/
+---
+{% assign E = site.data.earnings %}
+<section class="hero">
+  <h1>Earnings</h1>
+  <p>Who reports next, how much each stock usually moves on its report, and the earnings plays that held up in our tests, with every past result. Prices as of {{ E.asof }}.</p>
+</section>
+<p class="pre"><span class="tag warn">ZERO OR HERO</span> Earnings options are lottos. Option prices jump before a report and collapse right after it, so a bet placed before the report can lose most of its value even when the stock moves your way. Only the after-the-report play below has held up in testing.</p>
+
+<div class="board one">
+<div class="card">
+  <span class="k">Reporting in the next 7 days</span>
+  {% if E.week.size > 0 %}
+  {% for u in E.week %}{% assign T = nil %}{% for x in E.tickers %}{% if x.sym == u.sym %}{% assign T = x %}{% endif %}{% endfor %}
+  <div class="swi">
+    <div class="ch"><span class="sym">{{ u.sym }}</span><span class="nm">{{ u.name }}</span><span class="px">{{ u.date }}</span></div>
+    <p>Reports {{ u.time }} (estimated: same week as last year). Usual earnings move: <b>&plusmn;{{ u.usual }}</b> (last 3 years){% if T %}; up after {{ T.up8 }} of its last reports{% endif %}.{% if u.stretch != '' %} <span class="tag warn">{{ u.stretch }}</span>{% endif %}</p>
+    <ul class="plain">
+      <li><b>Before the report (lotto):</b> only worth a look when options price a smaller move than the usual &plusmn;{{ u.usual }}. Our expected move from option prices fills in with the live feed.</li>
+      <li><b>After the report (the play that held up):</b> if it closes up 2+ normal days' ranges on the report, a call for the next 1 - 5 days.</li>
+      {% if u.stretch == 'stretched up into it' %}<li><b>Put lotto watch:</b> stocks that run hard into their report have dropped on it more often than not (small sample).</li>{% endif %}
+    </ul>
+  </div>
+  {% endfor %}
+  {% else %}<p class="empty">None of our stocks reports in the next 7 days.</p>{% endif %}
+</div>
+
+<div class="card">
+  <span class="k">Coming up</span>
+  <table class="lad swt">
+    <thead><tr><th>Date</th><th>Stock</th><th>When</th><th>Usual move</th></tr></thead>
+    <tbody>{% for u in E.upcoming %}<tr><td>{{ u.date }}</td><td><b>{{ u.sym }}</b></td><td>{{ u.time }}</td><td>&plusmn;{{ u.usual }}</td></tr>{% endfor %}</tbody>
+  </table>
+  <p class="asof">Dates are estimated from the same week last year until the company confirms. Usual move = the median earnings-day move over the last 3 years, close to close.</p>
+</div>
+
+<div class="card">
+  <span class="k">The plays and how they did (2017 - 2026, 30 stocks)</span>
+  <table class="lad">
+    <tbody>
+      <tr><td><b>After the report: big up day keeps going</b><i>the play that held up</i></td><td>When a stock closes up 2+ normal days' ranges on its report, it was up the next day {{ E.record.cont.next_up_train }}% / {{ E.record.cont.next_up_test }}% of the time (2017-22 / 2023-26) and 5 days later averaged {{ E.record.cont.train }} / {{ E.record.cont.test }} (a normal 5 days: {{ E.record.cont.normal_train }} / {{ E.record.cont.normal_test }}). Positive {{ E.record.cont.years }}.</td></tr>
+      <tr><td><b>Hot into the report</b><i>lotto watch</i></td><td>Stretched up into earnings, the stock rose on the report only {{ E.record.hot.up_train }}% / {{ E.record.hot.up_test }}% of the time (avg {{ E.record.hot.avg_train }} / {{ E.record.hot.avg_test }}). Small sample ({{ E.record.hot.n }}).</td></tr>
+      <tr><td><b>Guessing the direction</b><i>no edge</i></td><td>Up on the report {{ E.record.coin.up_train }}% / {{ E.record.coin.up_test }}% of the time: a coin flip. The big winners are why traders chase it.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <span class="k">Each stock's earnings history</span>
+  <div class="picker">{% for t in E.tickers %}<button data-s="{{ t.sym }}">{{ t.sym }}</button>{% endfor %}</div>
+  {% for t in E.tickers %}
+  <div class="ehist" data-s="{{ t.sym }}" hidden>
+    <div class="ch"><span class="sym">{{ t.sym }}</span><span class="nm">{{ t.name }}</span>{% if t.next %}<span class="px">next: {{ t.next }}</span>{% endif %}</div>
+    <p>Usual earnings move <b>&plusmn;{{ t.usual }}</b> ({{ t.usual_x }}x a normal day lately); up after {{ t.up8 }} of its last reports; biggest {{ t.best }} / {{ t.worst }}.</p>
+    <table class="lad swt">
+      <thead><tr><th>Reaction day</th><th>Move</th><th>Next day</th><th>5 days</th></tr></thead>
+      <tbody>{% for h in t.history %}<tr><td>{{ h.date }}{% if h.cont %} <span class="tag bull">setup</span>{% endif %}</td><td class="{% if h.up %}up{% else %}dn{% endif %}">{{ h.move }}</td><td>{{ h.n1 }}</td><td>{{ h.n5 }}</td></tr>{% endfor %}</tbody>
+    </table>
+  </div>
+  {% endfor %}
+  <p class="asof"><span class="tag bull">setup</span> = closed up 2+ normal days' ranges on the report: the after-the-report call. Next day / 5 days = from the reaction day's close.</p>
+</div>
+
+<div class="card">
+  <span class="k">Latest earnings reactions</span>
+  <table class="lad swt">
+    <thead><tr><th>Day</th><th>Stock</th><th>Move</th><th>5 days</th></tr></thead>
+    <tbody>{% for r in E.recent %}<tr><td>{{ r.date }}</td><td><b>{{ r.sym }}</b>{% if r.cont %} <span class="tag bull">setup</span>{% endif %}</td><td class="{% if r.up %}up{% else %}dn{% endif %}">{{ r.move }}</td><td>{% if r.n5 %}{{ r.n5 }}{% else %}-{% endif %}</td></tr>{% endfor %}</tbody>
+  </table>
+</div>
+</div>
+<div class="note">
+  <p><b>Usual move</b> = the median close-to-close move on the day the market reacts to the report (the next day for reports after the close). <b>Normal day</b> = the stock's average daily range lately. Dates and timing come from the companies' SEC filings.</p>
+</div>
+<script>
+(function(){
+  var bs=document.querySelectorAll('.picker button'), cs=document.querySelectorAll('.ehist[data-s]');
+  function show(s){ bs.forEach(function(b){b.classList.toggle('on',b.dataset.s===s)}); cs.forEach(function(c){c.hidden=c.dataset.s!==s}); }
+  bs.forEach(function(b){ b.addEventListener('click',function(){ show(b.dataset.s); history.replaceState(null,'','#'+b.dataset.s); }); });
+  var h=(location.hash||'').slice(1).toUpperCase(), first='{% if E.week.size > 0 %}{{ E.week[0].sym }}{% elsif E.upcoming.size > 0 %}{{ E.upcoming[0].sym }}{% else %}NVDA{% endif %}';
+  show([].some.call(bs,function(b){return b.dataset.s===h})?h:first);
+})();
+</script>
