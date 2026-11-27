@@ -26,6 +26,20 @@ permalink: /scorecard/
 </div>
 
 <div class="card">
+  <span class="k">Options odds board: do the odds come true?</span>
+  <p>SPY and QQQ, {{ C.board.days }} days ({{ C.board.period }}): the odds read from option prices for each level, checked against where price actually finished and traded by that expiry.</p>
+  <table class="lad">
+    <thead><tr><th>Odds said</th><th>Finishes past: happened</th><th>Gets there: happened</th></tr></thead>
+    <tbody>
+    {% for r in C.board.finish %}{% assign t = nil %}{% for x in C.board.touch_new %}{% if x.b == r.b %}{% assign t = x %}{% endif %}{% endfor %}
+      <tr><td><b>{{ r.b }}</b></td><td><span class="odd" style="--w:{{ r.happened }}%">{{ r.happened }}%</span> <i>said {{ r.said }}%</i></td><td>{% if t %}<span class="odd" style="--w:{{ t.happened }}%">{{ t.happened }}%</span> <i>said {{ t.said }}%</i>{% else %}-{% endif %}</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <p class="asof">The "finishes past" odds came true about as often as they said. The "gets there" odds were first set at a flat 2x the finish odds; that ran too high near price (said 87%, happened 61%), so the board now uses a corrected version (shown here). The correction was fitted on this same sample, so the live scorecard will be its real test. Short sample: one wild autumn.</p>
+</div>
+
+<div class="card">
   <span class="k">Options range guide: did price stay in the box?</span>
   <table class="lad">
     <thead><tr><th></th><th>Inside all day</th><th>Closed inside</th></tr></thead>

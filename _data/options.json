@@ -42,9 +42,9 @@
       "level": "735",
       "side": "rs",
       "finish": "above 5%",
-      "touch": "9%",
+      "touch": "10%",
       "w": 5,
-      "tw": 9
+      "tw": 10
      },
      {
       "level": "730",
@@ -58,57 +58,57 @@
       "level": "725",
       "side": "rs",
       "finish": "above 30%",
-      "touch": "60%",
+      "touch": "45%",
       "w": 30,
-      "tw": 60
+      "tw": 45
      },
      {
       "level": "720",
       "side": "rs",
       "finish": "above 48%",
-      "touch": "95%",
+      "touch": "63%",
       "w": 48,
-      "tw": 95
+      "tw": 63
      },
      {
       "level": "715",
       "side": "rd",
       "finish": "below 37%",
-      "touch": "73%",
+      "touch": "52%",
       "w": 37,
-      "tw": 73
+      "tw": 52
      },
      {
       "level": "710",
       "side": "rd",
       "finish": "below 25%",
-      "touch": "50%",
+      "touch": "40%",
       "w": 25,
-      "tw": 50
+      "tw": 40
      },
      {
       "level": "705",
       "side": "rd",
       "finish": "below 15%",
-      "touch": "31%",
+      "touch": "30%",
       "w": 15,
-      "tw": 31
+      "tw": 30
      },
      {
       "level": "700",
       "side": "rd",
       "finish": "below 9%",
-      "touch": "19%",
+      "touch": "18%",
       "w": 9,
-      "tw": 19
+      "tw": 18
      },
      {
       "level": "695",
       "side": "rd",
       "finish": "below 5%",
-      "touch": "11%",
+      "touch": "10%",
       "w": 5,
-      "tw": 11
+      "tw": 10
      }
     ]
    },
@@ -184,73 +184,73 @@
       "level": "655",
       "side": "rs",
       "finish": "above 9%",
-      "touch": "17%",
+      "touch": "18%",
       "w": 9,
-      "tw": 17
+      "tw": 18
      },
      {
       "level": "650",
       "side": "rs",
       "finish": "above 17%",
-      "touch": "34%",
+      "touch": "32%",
       "w": 17,
-      "tw": 34
+      "tw": 32
      },
      {
       "level": "645",
       "side": "rs",
       "finish": "above 29%",
-      "touch": "59%",
+      "touch": "44%",
       "w": 29,
-      "tw": 59
+      "tw": 44
      },
      {
       "level": "640",
       "side": "rs",
       "finish": "above 43%",
-      "touch": "86%",
+      "touch": "58%",
       "w": 43,
-      "tw": 86
+      "tw": 58
      },
      {
       "level": "635",
       "side": "rs",
       "finish": "above 55%",
-      "touch": "99%",
+      "touch": "70%",
       "w": 55,
-      "tw": 99
+      "tw": 70
      },
      {
       "level": "630",
       "side": "rd",
       "finish": "below 34%",
-      "touch": "68%",
+      "touch": "49%",
       "w": 34,
-      "tw": 68
+      "tw": 49
      },
      {
       "level": "625",
       "side": "rd",
       "finish": "below 27%",
-      "touch": "54%",
+      "touch": "42%",
       "w": 27,
-      "tw": 54
+      "tw": 42
      },
      {
       "level": "620",
       "side": "rd",
       "finish": "below 20%",
-      "touch": "40%",
+      "touch": "35%",
       "w": 20,
-      "tw": 40
+      "tw": 35
      },
      {
       "level": "615",
       "side": "rd",
       "finish": "below 14%",
-      "touch": "29%",
+      "touch": "28%",
       "w": 14,
-      "tw": 29
+      "tw": 28
      }
     ]
    },
