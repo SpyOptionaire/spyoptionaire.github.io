@@ -172,5 +172,128 @@
   "base": 60,
   "period": "2012-2026"
  },
- "log": []
+ "log": [],
+ "watch": {
+  "asof": "Nov 25",
+  "latest": [
+   {
+    "date": "Nov 25",
+    "side": "call",
+    "sym": "GLD",
+    "close": "327.45",
+    "move": null,
+    "best": null,
+    "result": "pending"
+   },
+   {
+    "date": "Nov 25",
+    "side": "put",
+    "sym": "TLT",
+    "close": "82.24",
+    "move": null,
+    "best": null,
+    "result": "pending"
+   }
+  ],
+  "recent": [
+   {
+    "date": "Nov 24",
+    "side": "put",
+    "sym": "WMT",
+    "close": "132.31",
+    "move": "+0.28%",
+    "best": "+0.83%",
+    "result": "worked"
+   },
+   {
+    "date": "Nov 24",
+    "side": "call",
+    "sym": "MSTR",
+    "close": "77.55",
+    "move": "+3.11%",
+    "best": "+4.47%",
+    "result": "worked"
+   },
+   {
+    "date": "Nov 23",
+    "side": "put",
+    "sym": "TLT",
+    "close": "81.69",
+    "move": "+0.24%",
+    "best": "+0.27%",
+    "result": "worked"
+   },
+   {
+    "date": "Nov 23",
+    "side": "call",
+    "sym": "UNH",
+    "close": "336.08",
+    "move": "+1.73%",
+    "best": "+3.09%",
+    "result": "worked"
+   },
+   {
+    "date": "Nov 20",
+    "side": "put",
+    "sym": "TLT",
+    "close": "81.45",
+    "move": "-0.29%",
+    "best": "+0.45%",
+    "result": "did not work"
+   },
+   {
+    "date": "Nov 20",
+    "side": "call",
+    "sym": "GLD",
+    "close": "322.87",
+    "move": "+3.14%",
+    "best": "+4.69%",
+    "result": "worked"
+   },
+   {
+    "date": "Nov 19",
+    "side": "put",
+    "sym": "DIS",
+    "close": "120.25",
+    "move": "+1.89%",
+    "best": "+2.24%",
+    "result": "worked"
+   },
+   {
+    "date": "Nov 19",
+    "side": "call",
+    "sym": "UNH",
+    "close": "330.48",
+    "move": "+2.84%",
+    "best": "+5.13%",
+    "result": "worked"
+   },
+   {
+    "date": "Nov 18",
+    "side": "put",
+    "sym": "DIS",
+    "close": "122.36",
+    "move": "+1.72%",
+    "best": "+1.95%",
+    "result": "worked"
+   },
+   {
+    "date": "Nov 18",
+    "side": "call",
+    "sym": "UNH",
+    "close": "349.91",
+    "move": "-5.55%",
+    "best": "+1.13%",
+    "result": "did not work"
+   }
+  ],
+  "record": {
+   "period": "Apr 2023 - Nov 2026",
+   "call_n": 916,
+   "call_win": 51,
+   "put_n": 916,
+   "put_win": 47,
+   "fear_win": 61.5
+  }
+ }
 }

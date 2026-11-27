@@ -1,0 +1,61 @@
+---
+layout: default
+title: Scorecard
+description: How SpyOptionaire's odds, range guide and swing ideas have actually done - what we said versus what happened. Education only, not financial advice.
+permalink: /scorecard/
+---
+{% assign C = site.data.scorecard %}
+<section class="hero">
+  <h1>Scorecard</h1>
+  <p>What we said versus what happened. Every number on this site should earn its place, so we keep score in public, good or bad.</p>
+</section>
+
+<div class="board one">
+<div class="card">
+  <span class="k">Daily Levels odds: do they come true?</span>
+  <p>When the board says price has an X% chance to reach a distance, how often did it really get there? Checked on {{ C.odds.tickers }}, {{ C.odds.period }}, with odds built only from the years before each day.</p>
+  <table class="lad">
+    <thead><tr><th>Board said</th><th>1 day: said</th><th>happened</th><th>5 days: said</th><th>happened</th></tr></thead>
+    <tbody>
+    {% for r in C.odds.five %}{% assign o = nil %}{% for x in C.odds.one %}{% if x.bucket == r.bucket %}{% assign o = x %}{% endif %}{% endfor %}
+      <tr><td><b>{{ r.bucket }}</b></td><td>{% if o %}{{ o.said }}%{% else %}-{% endif %}</td><td>{% if o %}<span class="odd" style="--w:{{ o.happened }}%">{{ o.happened }}%</span>{% else %}-{% endif %}</td><td>{{ r.said }}%</td><td><span class="odd" style="--w:{{ r.happened }}%">{{ r.happened }}%</span></td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <p class="asof">Close match = honest odds. This checks the odds, not whether a level "worked": a level is where to watch, not a promise it gets hit or holds.</p>
+</div>
+
+<div class="card">
+  <span class="k">Options range guide: did price stay in the box?</span>
+  <table class="lad">
+    <thead><tr><th></th><th>Inside all day</th><th>Closed inside</th></tr></thead>
+    <tbody>
+    {% assign syms = "SPY,QQQ" | split: "," %}{% for s in syms %}{% assign B = C.box[s] %}
+      <tr class="now"><td colspan="3">{{ s }}</td></tr>
+      <tr><td>Last 20 sessions</td><td>{{ B.last20.inside }}%</td><td>{{ B.last20.close_inside }}%</td></tr>
+      <tr><td>2026</td><td>{{ B.y2026.inside }}%</td><td>{{ B.y2026.close_inside }}%</td></tr>
+      <tr><td>2023 - 2026</td><td>{{ B.all.inside }}%</td><td>{{ B.all.close_inside }}%</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <p class="muted">The page promises about 6 in 10 inside all day and 8 in 10 closing inside. The last few weeks have been wilder than usual, and the scorecard shows it.</p>
+  <table class="lad swt">
+    <thead><tr><th>SPY day</th><th>Box</th><th>Result</th></tr></thead>
+    <tbody>{% for d in C.box.SPY.last %}<tr><td>{{ d.date }}</td><td>{{ d.box }}</td><td class="{% if d.res == 'inside all day' %}up{% elsif d.res == 'closed inside' %}{% else %}dn{% endif %}">{{ d.res }}{% if d.tag != '' %} <i>(tagged {{ d.tag }})</i>{% endif %}</td></tr>{% endfor %}</tbody>
+  </table>
+</div>
+
+<div class="card">
+  <span class="k">Swings</span>
+  <table class="lad">
+    <tbody>
+      <tr><td><b>Fear-day snap-back</b><i>{{ C.swings.fear.period }}</i></td><td>{{ C.swings.fear.ideas }} ideas on {{ C.swings.fear.days }} days: the stock was higher the next day {{ C.swings.fear.worked }}% of the time (avg {{ C.swings.fear.avg }})</td></tr>
+      <tr><td><b>Swing watch</b><i>{{ C.swings.watch.period }}</i></td><td>Call idea worked {{ C.swings.watch.call }}%, put idea {{ C.swings.watch.put }}%: a coin flip, as labelled</td></tr>
+    </tbody>
+  </table>
+  <p class="asof">Backtests until the live scan starts; from then on every posted swing is logged here with its result. Option results for each swing are on the <a href="{{ '/swings/' | relative_url }}">Swings</a> page.</p>
+</div>
+</div>
+<div class="note">
+  <p>Updated after the close. Live tracking starts {{ C.built }}; earlier rows are backtests, marked as such.</p>
+</div>

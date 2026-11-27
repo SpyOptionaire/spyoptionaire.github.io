@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Swings
-description: Possible overnight swing setups - the fear-day snap-back when it fires, plus zero-or-hero lotto ideas - with the reason, a contract to look at, and what each would have done the next morning. Education only, never a trade call.
+description: Possible overnight swing setups - the fear-day snap-back when it fires, plus a daily zero-or-hero swing watch (one call, one put) - with the reason, a contract to look at, and what each would have done the next morning. Education only, never a trade call.
 permalink: /swings/
 ---
 {% assign S = site.data.swings %}
@@ -11,7 +11,7 @@ permalink: /swings/
   <h1>Swings</h1>
   <p>Possible one-night setups, not trade calls. Bought near the close, out the next morning. Most days there isn't one, and that's on purpose.</p>
 </section>
-<p class="pre"><span class="tag warn">ZERO OR HERO</span> Every swing is risky. An option bought for one night can lose most or all of what you pay. Only the fear-day snap-back has held up as a higher-probability setup; everything else here is a lotto idea.</p>
+<p class="pre"><span class="tag warn">ZERO OR HERO</span> Every swing is risky. An option bought for one night can lose most or all of what you pay. Only the fear-day snap-back has held up as a higher-probability setup; everything else here, including the daily swing watch, is a lotto idea.</p>
 
 {% if F %}
 <div class="ob">
@@ -65,19 +65,21 @@ permalink: /swings/
 </div>
 
 <div class="card sw">
-  <span class="k">Lotto ideas (zero or hero)</span>
-  {% if S.lotto.size > 0 %}
-    {% for x in S.lotto %}
-    <div class="swi">
-      <div class="ch"><span class="sym">{{ x.ticker }}</span><span class="nm">possible {{ x.direction }} lotto</span><span class="px">{{ x.price }}</span></div>
-      <p>{{ x.reason }}</p>
-      <p><b>Contract to look at:</b> {{ x.contract }}</p>
-    </div>
-    {% endfor %}
-  {% else %}
-    <p>No lotto ideas from the last check.</p>
+  <span class="k">Swing watch: one call, one put (zero or hero)</span>
+  {% assign W = S.watch %}
+  <p>Every day at 3:45 - 4:00 PM: the name of the 42 stretched furthest <b>below</b> its short-term average (call idea) and the one stretched furthest <b>above</b> it (put idea). Not high probability: about a coin flip on the stock, and most of these options lose the whole premium.</p>
+  {% if W.latest.size > 0 %}
+  <table class="lad swt">
+    <thead><tr><th>Latest ({{ W.asof }} close)</th><th>Idea</th><th>Price</th></tr></thead>
+    <tbody>{% for r in W.latest %}<tr class="{% if r.side == 'call' %}rs{% else %}rd{% endif %}"><td><b>{{ r.sym }}</b></td><td>{{ r.side }} idea</td><td>{{ r.close }}</td></tr>{% endfor %}</tbody>
+  </table>
+  <p class="asof">Example from the backtest scan. Live picks post here once the 3:45 PM scan runs on the live feed.</p>
   {% endif %}
-  <p class="asof">Not high probability. The conditions say a call or a put could work, but most of these lose the whole premium.</p>
+  <table class="lad swt">
+    <thead><tr><th>Day (backtest)</th><th>Idea</th><th>Next day</th><th>Best</th></tr></thead>
+    <tbody>{% for r in W.recent %}<tr><td>{{ r.date }}</td><td><b>{{ r.sym }}</b> <i>{{ r.side }}</i></td><td class="{% if r.result == 'worked' %}up{% else %}dn{% endif %}">{{ r.move }}</td><td>{{ r.best }}</td></tr>{% endfor %}</tbody>
+  </table>
+  <p class="asof">Stock's move from the 4 PM close to the next close, in the idea's direction (put ideas count a drop as a gain). Backtest: call ideas worked {{ W.record.call_win }}% and put ideas {{ W.record.put_win }}% of {{ W.record.call_n }} days ({{ W.record.period }}). The fear-day snap-back: {{ W.record.fear_win }}%.</p>
 </div>
 
 <div class="ob">

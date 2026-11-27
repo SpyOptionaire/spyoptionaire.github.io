@@ -1,0 +1,206 @@
+{
+ "built": "2026-11-27",
+ "odds": {
+  "period": "Jan 2025 - Nov 2026",
+  "tickers": "ES, NQ, SPY, QQQ",
+  "one": [
+   {
+    "k": 1,
+    "bucket": "0-20%",
+    "n": 19220,
+    "said": 4,
+    "happened": 5
+   },
+   {
+    "k": 1,
+    "bucket": "20-40%",
+    "n": 5448,
+    "said": 29,
+    "happened": 30
+   },
+   {
+    "k": 1,
+    "bucket": "40-60%",
+    "n": 3184,
+    "said": 47,
+    "happened": 47
+   },
+   {
+    "k": 1,
+    "bucket": "60-80%",
+    "n": 2900,
+    "said": 67,
+    "happened": 65
+   }
+  ],
+  "five": [
+   {
+    "k": 5,
+    "bucket": "0-20%",
+    "n": 9379,
+    "said": 11,
+    "happened": 11
+   },
+   {
+    "k": 5,
+    "bucket": "20-40%",
+    "n": 5997,
+    "said": 28,
+    "happened": 28
+   },
+   {
+    "k": 5,
+    "bucket": "40-60%",
+    "n": 5766,
+    "said": 51,
+    "happened": 53
+   },
+   {
+    "k": 5,
+    "bucket": "60-80%",
+    "n": 6710,
+    "said": 71,
+    "happened": 70
+   },
+   {
+    "k": 5,
+    "bucket": "80-100%",
+    "n": 2900,
+    "said": 86,
+    "happened": 84
+   }
+  ]
+ },
+ "box": {
+  "SPY": {
+   "last20": {
+    "n": 20,
+    "inside": 50,
+    "close_inside": 75
+   },
+   "y2026": {
+    "n": 227,
+    "inside": 65,
+    "close_inside": 87
+   },
+   "all": {
+    "n": 978,
+    "inside": 65,
+    "close_inside": 83
+   },
+   "last": [
+    {
+     "date": "Nov 25",
+     "box": "692.79 - 713.51",
+     "res": "closed outside",
+     "tag": "top"
+    },
+    {
+     "date": "Nov 24",
+     "box": "703.49 - 726.87",
+     "res": "inside all day",
+     "tag": ""
+    },
+    {
+     "date": "Nov 23",
+     "box": "701.52 - 747.24",
+     "res": "inside all day",
+     "tag": ""
+    },
+    {
+     "date": "Nov 20",
+     "box": "700.60 - 726.52",
+     "res": "closed outside",
+     "tag": "bottom"
+    },
+    {
+     "date": "Nov 19",
+     "box": "726.90 - 748.02",
+     "res": "closed outside",
+     "tag": "bottom"
+    }
+   ]
+  },
+  "QQQ": {
+   "last20": {
+    "n": 20,
+    "inside": 50,
+    "close_inside": 75
+   },
+   "y2026": {
+    "n": 227,
+    "inside": 63,
+    "close_inside": 83
+   },
+   "all": {
+    "n": 975,
+    "inside": 63,
+    "close_inside": 81
+   },
+   "last": [
+    {
+     "date": "Nov 25",
+     "box": "602.45 - 631.75",
+     "res": "closed outside",
+     "tag": "top"
+    },
+    {
+     "date": "Nov 24",
+     "box": "624.69 - 655.35",
+     "res": "inside all day",
+     "tag": ""
+    },
+    {
+     "date": "Nov 23",
+     "box": "626.90 - 684.48",
+     "res": "inside all day",
+     "tag": ""
+    },
+    {
+     "date": "Nov 20",
+     "box": "620.52 - 657.16",
+     "res": "closed outside",
+     "tag": "bottom"
+    },
+    {
+     "date": "Nov 19",
+     "box": "655.65 - 686.65",
+     "res": "closed outside",
+     "tag": "bottom"
+    }
+   ]
+  }
+ },
+ "swings": {
+  "fear": {
+   "ideas": 265,
+   "days": 53,
+   "worked": 61.5,
+   "avg": "+0.64%",
+   "period": "Feb 2025 - Nov 2026"
+  },
+  "watch": {
+   "call": 51,
+   "put": 47,
+   "period": "Apr 2023 - Nov 2026"
+  },
+  "options": [
+   {
+    "sym": "268 call, exp 11/24",
+    "best": 37
+   },
+   {
+    "sym": "739 call, exp 11/23",
+    "best": -10
+   },
+   {
+    "sym": "734 call, exp 11/13",
+    "best": 112
+   },
+   {
+    "sym": "271 call, exp 11/12",
+    "best": 15
+   }
+  ]
+ }
+}
