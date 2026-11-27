@@ -100,11 +100,6 @@
      "dist": -4.84
     },
     {
-     "price": "6,883.25",
-     "tag": "",
-     "dist": -4.86
-    },
-    {
      "price": "6,796.75",
      "tag": "",
      "dist": -6.05
@@ -231,7 +226,13 @@
    "imbalanced": false,
    "trend": "bullish",
    "momentum": "bullish",
-   "supply": [],
+   "supply": [
+    {
+     "price": "31.05",
+     "tag": "weekly",
+     "dist": 9.76
+    }
+   ],
    "demand": [
     {
      "price": "26.81",
