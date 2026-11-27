@@ -23,7 +23,7 @@ permalink: /levels/
       {% if t.atr %}<span class="tag">daily range (ATR) {% if t.unit == '$' %}${% endif %}{{ t.atr }}{% if t.unit == 'pts' %} pts{% endif %}</span>{% endif %}
     </div>
     <table class="lad">
-      <thead><tr><th>Level</th><th>Away</th><th>%</th><th title="How often price traded this far within 1 session (last 10 yrs)">1 day</th><th title="How often price traded this far within 5 sessions (last 10 yrs)">5 days</th></tr></thead>
+      <thead><tr><th>Level</th><th>Away {% if t.unit == '$' %}($){% else %}(pts){% endif %}</th><th>%</th><th title="How often price traded this far within 1 session (last 10 yrs)">1 day</th><th title="How often price traded this far within 5 sessions (last 10 yrs)">5 days</th></tr></thead>
       <tbody>
       {% assign sup = t.supply | reverse %}
       {% for x in sup %}<tr class="rs"><td><b>{{ x.price }}</b>{% if x.tag != '' %} <i>{{ x.tag }}</i>{% endif %}</td><td>{{ x.away }}</td><td>{{ x.pct }}</td><td><span class="odd" style="--w:{{ x.p1 }}">{{ x.p1 }}</span></td><td><span class="odd" style="--w:{{ x.p5 }}">{{ x.p5 }}</span></td></tr>
