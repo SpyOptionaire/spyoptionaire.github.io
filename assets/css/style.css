@@ -86,3 +86,4 @@ main > .ob { margin:14px 0; }
 @media (max-width:520px) { nav a { margin-left:10px; font-size:13px; } .brand { font-size:18px; } }
 @media (max-width:560px) { .bar { height:auto; flex-wrap:wrap; padding:8px 18px 6px; } nav { width:100%; display:flex; gap:16px; overflow-x:auto; padding-top:2px; } nav a { margin-left:0; font-size:14px; white-space:nowrap; } }
 .board .posts { margin:4px 0 30px; }
+.swt td i { white-space:normal; } .swt td:first-child { white-space:normal; } .swt td { font-size:13px; }

@@ -57,6 +57,53 @@
   },
   "result": "All 5 closed higher the next day."
  },
+ "previous": [
+  {
+   "date": "2026-11-17",
+   "ticker": "IWM",
+   "contract": "268 call, exp 11/24",
+   "bought": "3:55 PM at $4.44",
+   "o": -11,
+   "t10": 18,
+   "noon": 11,
+   "close": 5,
+   "best": 37
+  },
+  {
+   "date": "2026-11-16",
+   "ticker": "SPY",
+   "contract": "739 call, exp 11/23",
+   "bought": "3:55 PM at $9.26",
+   "o": -13,
+   "t10": -11,
+   "noon": -47,
+   "close": -47,
+   "best": -10
+  },
+  {
+   "date": "2026-11-06",
+   "ticker": "SPY",
+   "contract": "734 call, exp 11/13",
+   "bought": "3:55 PM at $10.69",
+   "o": 18,
+   "t10": 57,
+   "noon": 80,
+   "close": 95,
+   "best": 112
+  },
+  {
+   "date": "2026-11-05",
+   "ticker": "IWM",
+   "contract": "271 call, exp 11/12",
+   "bought": "3:55 PM at $4.83",
+   "o": -9,
+   "t10": -17,
+   "noon": 8,
+   "close": 5,
+   "best": 15
+  }
+ ],
+ "lotto": [],
  "fear": {
   "pct": 97.6,
   "asof": "2026-11-25",
