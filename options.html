@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Options
-description: What the options market is pricing for SPY and QQQ - the day's likely range, calm or fast zone, and where the biggest option positions sit. Only readings that held up in testing get odds. Education only, not financial advice.
+description: What the options market is pricing for SPY, QQQ, SPX, ETFs and big stocks - the day's likely range, calm or fast zone, and where the biggest option positions sit. Only readings that held up in testing get odds. Education only, not financial advice.
 permalink: /options/
 ---
 {% assign O = site.data.options %}
@@ -10,9 +10,20 @@ permalink: /options/
   <p>What the options market is pricing for the day: how big a range to expect, whether the market is in a calm or a fast zone, and where the biggest positions sit. Only readings that held up in our tests get odds.</p>
 </section>
 {% if O.preview %}<p class="pre"><span class="tag warn">PREVIEW</span> {{ O.note }}</p>{% endif %}
-<div class="board">
+<div class="ledger">
+{% for g in O.ledger %}
+  <div class="lg"><span class="lgn">{{ g.name }}</span><div class="picker">{% for x in g.tickers %}<button data-s="{{ x.sym }}"{% unless x.has %} class="soon"{% endunless %}>{{ x.sym }}</button>{% endfor %}</div></div>
+{% endfor %}
+</div>
+<div class="board one">
+{% for g in O.ledger %}{% for x in g.tickers %}{% unless x.has %}
+  <div class="card" data-s="{{ x.sym }}" hidden>
+    <div class="ch"><span class="sym">{{ x.sym }}</span><span class="nm">{{ x.name }}</span></div>
+    <p class="empty">The {{ x.sym }} options card fills in once the live TOS feed starts: today's range guide, calm or fast, and the walls, same as SPY.</p>
+  </div>
+{% endunless %}{% endfor %}{% endfor %}
 {% for t in O.tickers %}
-  <div class="card">
+  <div class="card" data-s="{{ t.sym }}">
     <div class="ch">
       <span class="sym">{{ t.sym }}</span><span class="nm">{{ t.name }}</span>
       <span class="px">{{ t.last }} <span class="muted">last close {{ t.asof }}</span></span>
@@ -54,3 +65,12 @@ permalink: /options/
   <p><b>Fast / calm day</b> = which side of the options volatility line price sits on. Fast days run wider and quicker; calm days tighter. It tells you how big a day to expect, not which way.</p>
   <p><b>Cheap / rich</b> = what options are charging compared with how much price has really been moving lately.</p>
 </div>
+<script>
+(function(){
+  var bs=document.querySelectorAll('.picker button'), cs=document.querySelectorAll('.board.one .card[data-s]');
+  function show(s){ bs.forEach(function(b){b.classList.toggle('on',b.dataset.s===s)}); cs.forEach(function(c){c.hidden=c.dataset.s!==s}); }
+  bs.forEach(function(b){ b.addEventListener('click',function(){ show(b.dataset.s); history.replaceState(null,'','#'+b.dataset.s); }); });
+  var h=(location.hash||'').slice(1).toUpperCase(), ok=[].some.call(bs,function(b){return b.dataset.s===h});
+  show(ok?h:'SPY');
+})();
+</script>

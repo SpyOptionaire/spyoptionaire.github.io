@@ -15,10 +15,11 @@ permalink: /levels/
 {% assign groups = "futures,etfs,stocks,crypto" | split: "," %}
 {% for g in groups %}
 {% assign items = L.tickers | where: "group", g %}
-<div class="board" data-g="{{ g }}">
+<div class="board one" data-g="{{ g }}">
+{% if items.size > 0 %}<div class="picker">{% for t in items %}<button data-s="{{ t.sym }}">{{ t.sym }}</button>{% endfor %}</div>{% endif %}
 {% if items.size == 0 %}<p class="empty">{% if g == 'stocks' %}Stocks join with the next update.{% else %}Nothing here yet.{% endif %}</p>{% endif %}
 {% for t in items %}
-  <div class="card{% if t.imbalanced %} imb{% endif %}">
+  <div class="card{% if t.imbalanced %} imb{% endif %}" data-s="{{ t.sym }}">
     <div class="ch">
       <span class="sym">{{ t.sym }}</span><span class="nm">{{ t.name }}</span>
       <span class="px">{{ t.close }} <span class="{% if t.chg_pct >= 0 %}up{% else %}dn{% endif %}">{% if t.chg_pct >= 0 %}+{% endif %}{{ t.chg_pct }}%</span></span>
@@ -58,9 +59,24 @@ permalink: /levels/
 </div>
 <script>
 (function(){
-  var bs=document.querySelectorAll('.tabs button'), ps=document.querySelectorAll('.board[data-g]');
-  function show(g){ bs.forEach(function(b){b.classList.toggle('on',b.dataset.g===g)}); ps.forEach(function(p){p.hidden=p.dataset.g!==g}); }
-  bs.forEach(function(b){ b.addEventListener('click',function(){ show(b.dataset.g); history.replaceState(null,'','#'+b.dataset.g); }); });
-  var h=(location.hash||'').slice(1); show(['futures','etfs','stocks','crypto'].indexOf(h)>=0?h:'futures');
+  var G=['futures','etfs','stocks','crypto'], tabs=document.querySelectorAll('.tabs button'), boards=document.querySelectorAll('.board[data-g]');
+  function board(g){ return document.querySelector('.board[data-g="'+g+'"]'); }
+  function pick(g,s){
+    var b=board(g); if(!b) return;
+    var cards=b.querySelectorAll('.card[data-s]'); if(!cards.length) return;
+    if(!s || !b.querySelector('.card[data-s="'+s+'"]')) s=cards[0].dataset.s;
+    b.querySelectorAll('.picker button').forEach(function(x){x.classList.toggle('on',x.dataset.s===s)});
+    cards.forEach(function(c){c.hidden=c.dataset.s!==s});
+    return s;
+  }
+  function show(g,s){
+    tabs.forEach(function(b){b.classList.toggle('on',b.dataset.g===g)});
+    boards.forEach(function(p){p.hidden=p.dataset.g!==g});
+    var got=pick(g,s); history.replaceState(null,'','#'+(got||g));
+  }
+  tabs.forEach(function(b){ b.addEventListener('click',function(){ show(b.dataset.g); }); });
+  boards.forEach(function(p){ p.querySelectorAll('.picker button').forEach(function(x){ x.addEventListener('click',function(){ show(p.dataset.g,x.dataset.s); }); }); });
+  var h=(location.hash||'').slice(1), hu=h.toUpperCase(), card=document.querySelector('.card[data-s="'+hu+'"]');
+  if(card){ show(card.closest('.board').dataset.g,hu); } else { show(G.indexOf(h)>=0?h:'futures'); }
 })();
 </script>

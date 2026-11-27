@@ -2,7 +2,7 @@
  "built": "2026-11-27",
  "session": "2026-11-27",
  "preview": true,
- "note": "Preview built from the Nov 25 close (open interest from Nov 25). Today's expected move covers two sessions because of the holiday. Daily updates start with the live TOS feed; an SPX card joins then.",
+ "note": "Preview built from the Nov 25 close (open interest from Nov 25). Today's expected move covers two sessions because of the holiday. SPY and QQQ are live now; the other tickers fill in once the live TOS feed starts.",
  "tickers": [
   {
    "sym": "SPY",
@@ -66,6 +66,118 @@
     "30-day implied volatility 34.1%",
     "1.11 puts open per call",
     "downside puts 11.1 vol points over at-the-money"
+   ]
+  }
+ ],
+ "ledger": [
+  {
+   "name": "ETFs & index",
+   "tickers": [
+    {
+     "sym": "SPY",
+     "name": "S&P 500 ETF",
+     "has": true
+    },
+    {
+     "sym": "SPX",
+     "name": "S&P 500 index",
+     "has": false
+    },
+    {
+     "sym": "QQQ",
+     "name": "Nasdaq 100 ETF",
+     "has": true
+    },
+    {
+     "sym": "IWM",
+     "name": "Russell 2000 ETF",
+     "has": false
+    },
+    {
+     "sym": "SMH",
+     "name": "Semiconductor ETF",
+     "has": false
+    },
+    {
+     "sym": "GLD",
+     "name": "Gold ETF",
+     "has": false
+    }
+   ]
+  },
+  {
+   "name": "Stocks",
+   "tickers": [
+    {
+     "sym": "NVDA",
+     "name": "Nvidia",
+     "has": false
+    },
+    {
+     "sym": "AAPL",
+     "name": "Apple",
+     "has": false
+    },
+    {
+     "sym": "MSFT",
+     "name": "Microsoft",
+     "has": false
+    },
+    {
+     "sym": "GOOGL",
+     "name": "Alphabet",
+     "has": false
+    },
+    {
+     "sym": "AMZN",
+     "name": "Amazon",
+     "has": false
+    },
+    {
+     "sym": "META",
+     "name": "Meta",
+     "has": false
+    },
+    {
+     "sym": "TSLA",
+     "name": "Tesla",
+     "has": false
+    },
+    {
+     "sym": "AMD",
+     "name": "AMD",
+     "has": false
+    },
+    {
+     "sym": "COIN",
+     "name": "Coinbase",
+     "has": false
+    },
+    {
+     "sym": "MSTR",
+     "name": "Strategy (MicroStrategy)",
+     "has": false
+    },
+    {
+     "sym": "DIS",
+     "name": "Disney",
+     "has": false
+    },
+    {
+     "sym": "WMT",
+     "name": "Walmart",
+     "has": false
+    },
+    {
+     "sym": "COST",
+     "name": "Costco",
+     "has": false
+    },
+    {
+     "sym": "LLY",
+     "name": "Eli Lilly",
+     "has": false
+    }
    ]
   }
  ]
