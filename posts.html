@@ -7,13 +7,35 @@ permalink: /posts/
   <h1>Posts</h1>
   <p>Pre-market before the open, the daily after the close, and the weekly every Friday.</p>
 </section>
+{% assign latest = site.posts | first %}
+<div class="tabs" role="tablist">
+  <button data-g="premarket">Pre-market</button><button data-g="daily">Daily</button><button data-g="weekly">Weekly</button>
+</div>
+{% assign kinds = "premarket:Pre-market TA,daily:Daily TA,weekly:Weekly TA" | split: "," %}
+{% for kv in kinds %}
+{% assign k = kv | split: ":" %}
+{% assign items = site.posts | where: "kind", k[1] %}
+<div class="board" data-g="{{ k[0] }}">
 <ul class="posts">
-  {% for post in site.posts %}
+  {% for post in items %}
   <li>
     <a href="{{ post.url | relative_url }}">
-      <span class="d">{{ post.date | date: '%b %-d, %Y' }}{% if post.kind %} · {{ post.kind }}{% endif %}</span>
+      <span class="d">{{ post.date | date: '%b %-d, %Y' }}</span>
       <span class="t">{{ post.title }}</span>
     </a>
   </li>
   {% endfor %}
 </ul>
+{% if items.size == 0 %}<p class="empty">{% if k[0] == 'weekly' %}The first weekly post lands Friday evening.{% else %}No posts here yet.{% endif %}</p>{% endif %}
+</div>
+{% endfor %}
+<script>
+(function(){
+  var bs=document.querySelectorAll('.tabs button'), ps=document.querySelectorAll('.board[data-g]');
+  function show(g){ bs.forEach(function(b){b.classList.toggle('on',b.dataset.g===g)}); ps.forEach(function(p){p.hidden=p.dataset.g!==g}); }
+  bs.forEach(function(b){ b.addEventListener('click',function(){ show(b.dataset.g); history.replaceState(null,'','#'+b.dataset.g); }); });
+  var map={'Pre-market TA':'premarket','Daily TA':'daily','Weekly TA':'weekly'};
+  var h=(location.hash||'').slice(1), def=map[{{ latest.kind | jsonify }}]||'daily';
+  show(['premarket','daily','weekly'].indexOf(h)>=0?h:def);
+})();
+</script>
