@@ -1,0 +1,5 @@
+{
+  "supabase_url": "",
+  "anon_key": "",
+  "note": "Fill both after creating the Supabase project (Project Settings > API: Project URL and the anon public key). Never put the service_role key here."
+}

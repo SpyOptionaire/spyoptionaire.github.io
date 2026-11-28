@@ -1,0 +1,81 @@
+---
+layout: default
+title: Trade Diary
+description: Log your trades, see what is working and what is costing you, and find which prop firm or personal account fits your trading best. Your trades are private.
+permalink: /diary/
+---
+{% assign DC = site.data.diary %}
+<link rel="stylesheet" href="{{ '/assets/css/diary.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+<section class="hero">
+  <h1>Trade Diary</h1>
+  <p>Log every trade, see what is working and what is costing you, and find the account that fits your trading best. Your trades stay private.</p>
+</section>
+<div id="diary-app">
+  <div id="dmsg" class="dmsg" hidden></div>
+  <div id="dauth"></div>
+  <div class="dtabs tabs">
+    <button data-t="log" class="on">Log a trade</button>
+    <button data-t="stats">My stats</button>
+    <button data-t="list">Trades</button>
+    <button data-t="opt">Best account</button>
+  </div>
+  <div class="dfilter">
+    <label>From <input type="date" id="ffrom"></label>
+    <label>To <input type="date" id="fto"></label>
+    <select id="facct"><option value="">All accounts</option></select>
+  </div>
+
+  <section class="dpane" id="pane-log">
+    <form id="dform" class="card dform" autocomplete="off">
+      <div class="dgrid">
+        <label>Date<input type="date" name="date" required></label>
+        <label>Time in<input type="time" name="tin"></label>
+        <label>Time out<input type="time" name="tout"></label>
+        <label>Symbol<input name="symbol" list="symlist" placeholder="MNQ" required></label>
+        <label>Type<select name="kind"><option value="futures">Futures</option><option value="option">Option</option><option value="stock">Stock / ETF</option></select></label>
+        <label>Side<select name="side"><option value="long">Long</option><option value="short">Short</option></select></label>
+        <label>Qty<input name="qty" inputmode="decimal" placeholder="1"></label>
+        <label>Entry<input name="entry" inputmode="decimal"></label>
+        <label>Exit<input name="exit" inputmode="decimal"></label>
+        <label>P&amp;L ($)<input name="pnl" inputmode="decimal" placeholder="auto"></label>
+        <label>Fees ($)<input name="fees" inputmode="decimal" placeholder="0"></label>
+        <label>Account<input name="account" list="acctlist" placeholder="FNF eval 1"></label>
+        <label>Setup<input name="setup" list="setuplist" placeholder="ORB, level bounce..."></label>
+        <label>Grade<select name="grade"><option value="">-</option><option>A</option><option>B</option><option>C</option></select></label>
+      </div>
+      <label class="dwide">Notes<textarea name="notes" rows="2" placeholder="Why you took it, how you felt, what you'd do again"></textarea></label>
+      <p class="dnote" id="dpnlhint"></p>
+      <div class="drow"><button class="btn" id="dsave" type="submit">Add trade</button><button class="lnk" id="dcancel" type="button">Clear</button><button class="lnk dn" id="ddel" type="button" hidden>Delete this trade</button></div>
+    </form>
+    <datalist id="symlist"><option value="ES"><option value="MES"><option value="NQ"><option value="MNQ"><option value="RTY"><option value="M2K"><option value="YM"><option value="MYM"><option value="CL"><option value="MCL"><option value="GC"><option value="MGC"><option value="SPY"><option value="QQQ"></datalist>
+    <datalist id="acctlist"></datalist><datalist id="setuplist"></datalist>
+    <div class="card dimp">
+      <b>Import trades</b>
+      <p class="dnote">CSV from NinjaTrader (Trades tab, right-click, Export), Tradovate (Performance report), or any sheet with date, symbol and P&amp;L columns (or entry, exit and quantity).</p>
+      <div class="drow"><input type="file" id="dfile" accept=".csv,text/csv"><button class="lnk" id="dexport" type="button">Export my trades (CSV)</button></div>
+    </div>
+  </section>
+
+  <section class="dpane" id="pane-stats" hidden>
+    <dl id="dtiles" class="dtiles"></dl>
+    <div class="card"><div class="dk">Daily P&amp;L (bars) and running total (line)</div><canvas id="dchart" class="dchart"></canvas></div>
+    <div class="card"><div class="dk">What your trades are telling you</div><ul id="dins" class="dins"></ul></div>
+    <div id="dbreak" class="dbreak"></div>
+  </section>
+
+  <section class="dpane" id="pane-list" hidden>
+    <p class="dnote" id="dcount"></p>
+    <div class="card"><table class="dtab"><thead><tr><th>Date</th><th>Symbol</th><th>Side</th><th>Qty</th><th>Net</th><th>Setup</th><th></th></tr></thead><tbody id="dlist"></tbody></table></div>
+  </section>
+
+  <section class="dpane" id="pane-opt" hidden>
+    <p class="dnote">Your own trades, in order, replayed through each firm's 50K rules and a personal account. Each prop line buys an eval, buys another when one fails, trades the funded account until it blows or pays out its limit, then starts over. Rules as checked Oct-Nov 2026; firms change them often. Checked at each trade's close only. This runs in your browser; nothing is sent anywhere.</p>
+    <div class="drow dpers"><label>Personal account start $<input id="pbal" value="2500" inputmode="decimal"></label><label>at <input id="psize" value="100" inputmode="decimal">% of your size</label></div>
+    <div id="dopt"></div>
+  </section>
+  <p class="note">Education only, not financial advice.</p>
+</div>
+<script>window.DIARY_CFG = {{ DC | jsonify }}; window.DIARY_BASE = "{{ site.baseurl }}";</script>
+{% if DC.supabase_url != "" and DC.anon_key != "" %}<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>{% endif %}
+<script src="{{ '/assets/js/diary-firms.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+<script src="{{ '/assets/js/diary.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>

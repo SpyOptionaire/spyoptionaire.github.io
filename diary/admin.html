@@ -1,0 +1,17 @@
+---
+layout: default
+title: Trade Diary - Admin
+permalink: /diary/admin/
+sitemap: false
+---
+{% assign DC = site.data.diary %}
+<link rel="stylesheet" href="{{ '/assets/css/diary.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+<meta name="robots" content="noindex">
+<section class="hero"><h1>Diary admin</h1><p>Every trader's diary, for support and for learning what works across the group. Only accounts on the admin list can open this; the database refuses everyone else.</p></section>
+<div id="dmsg" class="dmsg" hidden></div>
+<div id="adm"><p class="dnote">Loading...</p></div>
+<script>window.DIARY_CFG = {{ DC | jsonify }};</script>
+{% if DC.supabase_url != "" and DC.anon_key != "" %}<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>{% endif %}
+<script src="{{ '/assets/js/diary-firms.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+<script src="{{ '/assets/js/diary.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+<script src="{{ '/assets/js/diary-admin.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
