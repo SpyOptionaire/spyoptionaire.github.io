@@ -24,7 +24,7 @@ permalink: /swings/
   {% if S.today.swings.size > 0 %}
     {% for x in S.today.swings %}
     <div class="play">
-      <p class="pt"><b>{{ x.ticker }} {{ x.direction }}</b> <span class="muted">possible {{ x.direction }} play</span></p>
+      <p class="pt"><b>{{ x.ticker }} {{ x.direction }}</b> {% if x.best_setup %}<span class="tag best">Best setup</span> {% endif %}<span class="muted">possible {{ x.direction }} play</span></p>
       <table class="lad">
         <tbody>
           <tr><td>Stock</td><td>{{ x.price }}</td></tr>
