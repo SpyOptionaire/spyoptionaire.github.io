@@ -30,6 +30,7 @@ permalink: /swings/
           <tr><td>Stock</td><td>{{ x.price }}</td></tr>
           <tr><td>Option <i>{{ x.contract }}</i></td><td>{% if x.option %}{{ x.option }}{% else %}<span class="muted">at 3:45 PM</span>{% endif %}</td></tr>
           <tr><td>Calmer option <i>at the money, next week's expiry</i></td><td>{% if x.option_week %}{{ x.option_week }}{% else %}<span class="muted">at 3:45 PM</span>{% endif %}</td></tr>
+          {% assign lev = O.fear.lev_map[x.ticker] %}<tr><td>Stock / ETF play</td><td>{{ x.ticker }} shares{% if lev %} (or {{ lev }}, the 3x ETF){% endif %}, in near the close, out the next day</td></tr>
           {% if x.max_option %}<tr><td>Skip it if</td><td>the option costs over ${{ x.max_option }}, or its spread is wider than {{ x.max_spread_pct | default: 5 }}%</td></tr>{% endif %}
         </tbody>
       </table>
@@ -44,15 +45,15 @@ permalink: /swings/
 <div class="card" data-s="fear">
   <span class="k">How Fear Swings have done</span>
   <table class="lad">
-    <thead><tr><th>{{ O.period }}</th><th>Nearest expiry</th><th>Calmer</th></tr></thead>
+    <thead><tr><th>{{ O.period }}</th><th>Nearest expiry</th><th>Calmer</th><th>Stock / ETF</th></tr></thead>
     <tbody>
-      <tr class="tot"><td><b>Avg a trade</b> <i>{{ O.fear.trades }} trades on {{ O.fear.days }} days</i></td><td class="up">+{{ O.fear.avg }}%</td><td class="up">+{{ O.fear.calm.avg }}%</td></tr>
-      <tr><td>Winners</td><td>{{ O.fear.win }}%</td><td>{{ O.fear.calm.win }}%</td></tr>
-      <tr><td>Worst trade</td><td class="dn">-{{ O.fear.worst }}%</td><td class="dn">-{{ O.fear.calm.worst }}%</td></tr>
-      {% for y in O.fear.years %}<tr><td>{{ y.y }}</td><td class="{% if y.v >= 0 %}up{% else %}dn{% endif %}">{% if y.v >= 0 %}+{% endif %}{{ y.v }}%</td><td class="{% if y.c >= 0 %}up{% else %}dn{% endif %}">{% if y.c >= 0 %}+{% endif %}{{ y.c }}%</td></tr>{% endfor %}
+      <tr class="tot"><td><b>Avg a trade</b> <i>{{ O.fear.trades }} trades on {{ O.fear.days }} days</i></td><td class="up">+{{ O.fear.avg }}%</td><td class="up">+{{ O.fear.calm.avg }}%</td><td class="up">+{{ O.fear.stock.avg }}%</td></tr>
+      <tr><td>Winners</td><td>{{ O.fear.win }}%</td><td>{{ O.fear.calm.win }}%</td><td>{{ O.fear.stock.win }}%</td></tr>
+      <tr><td>Worst trade</td><td class="dn">-{{ O.fear.worst }}%</td><td class="dn">-{{ O.fear.calm.worst }}%</td><td class="dn">-{{ O.fear.stock.worst }}%</td></tr>
+      {% for y in O.fear.years %}<tr><td>{{ y.y }}</td><td class="{% if y.v >= 0 %}up{% else %}dn{% endif %}">{% if y.v >= 0 %}+{% endif %}{{ y.v }}%</td><td class="{% if y.c >= 0 %}up{% else %}dn{% endif %}">{% if y.c >= 0 %}+{% endif %}{{ y.c }}%</td><td class="{% if y.s >= 0 %}up{% else %}dn{% endif %}">{% if y.s >= 0 %}+{% endif %}{{ y.s }}%</td></tr>{% endfor %}
     </tbody>
   </table>
-  <p class="asof">Zero or hero: a few big rebound days carry it. The calmer option is the same play with next week's expiry: it makes less on the big days and loses less on the bad ones.</p>
+  <p class="asof">Stock / ETF = the same plays in shares, bought at the close and sold at the next close (a smaller move, so a smaller % than the option, and no zero-or-hero). The ETF plays done with the 3x ETF instead: +{{ O.fear.lev.avg }}% a trade, {{ O.fear.lev.win }}% winners, worst -{{ O.fear.lev.worst }}% ({{ O.fear.lev.n }} trades). Zero or hero on the options: a few big rebound days carry it. The calmer option is the same play with next week's expiry: it makes less on the big days and loses less on the bad ones.</p>
 </div>
 
 <div class="card" data-s="fear">

@@ -5,6 +5,7 @@ description: When the big stocks report, how much they usually move on earnings,
 permalink: /earnings/
 ---
 {% assign E = site.data.earnings %}
+{% assign EO = site.data.earnings_options %}
 <section class="hero">
   <h1>Earnings</h1>
   <p>Who reports next, how much each stock usually moves on its report, and the earnings plays that held up in our tests, with every past result. Prices as of {{ E.asof }}.</p>
@@ -44,6 +45,20 @@ permalink: /earnings/
     </tbody>
   </table>
   <p class="asof">The stock after each Earnings Swing, against a normal 5 days for the same stocks. Positive {{ E.record.cont.years }}. Guessing the report's direction before it comes out has been a coin flip ({{ E.record.coin.up_test }}% up lately).</p>
+</div>
+
+<div class="card">
+  <div class="sh"><span class="k">Earnings Swing on real option prices</span><span class="wr">{{ EO.near.win }}% win rate</span></div>
+  <table class="lad">
+    <thead><tr><th>{{ EO.period }}</th><th>Nearest expiry</th><th>Calmer <i>3+ days out</i></th><th>Stock <i>5 days</i></th></tr></thead>
+    <tbody>
+      <tr class="tot"><td><b>Avg a trade</b> <i>{{ EO.n_near }} / {{ EO.n_calm }} / {{ EO.n_stock }} trades</i></td><td class="up">+{{ EO.near.avg }}%</td><td class="up">+{{ EO.calm.avg }}%</td><td class="up">+{{ EO.stock.avg }}%</td></tr>
+      <tr><td>Winners</td><td>{{ EO.near.win }}%</td><td>{{ EO.calm.win }}%</td><td>{{ EO.stock.win }}%</td></tr>
+      <tr><td>Worst trade</td><td class="dn">-{{ EO.near.worst }}%</td><td class="dn">-{{ EO.calm.worst }}%</td><td class="dn">-{{ EO.stock.worst }}%</td></tr>
+      {% for y in EO.years %}<tr><td>{{ y.y }}</td><td class="{% if y.v >= 0 %}up{% else %}dn{% endif %}">{% if y.v >= 0 %}+{% endif %}{{ y.v }}%</td><td class="{% if y.c >= 0 %}up{% else %}dn{% endif %}">{% if y.c >= 0 %}+{% endif %}{{ y.c }}%</td><td class="{% if y.s >= 0 %}up{% else %}dn{% endif %}">{% if y.s >= 0 %}+{% endif %}{{ y.s }}%</td></tr>{% endfor %}
+    </tbody>
+  </table>
+  <p class="asof">Calls bought at the ask near the close on the reaction day, sold at the bid within 5 days, $0.65 a contract each way; the stock is bought at the same close and held 5 days. A thin edge: 2023 carried it, and the last two years were flat to slightly negative on the options. Every trade uses the same risk; the whole premium is the risk.</p>
 </div>
 
 <div class="card">
