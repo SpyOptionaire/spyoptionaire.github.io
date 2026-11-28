@@ -1,6 +1,6 @@
 {
  "period": "Apr 2023 - Nov 2026",
- "method": "Bought at the ask at 3:45 PM, sold at the bid the next day, $0.65 a contract each side, the same dollars on every trade.",
+ "method": "Prices assume you buy at the ask (3:45 PM) and sell at the bid the next day, with a $0.65 commission per contract each way. Every trade uses the same risk.",
  "fear": {
   "days": 65,
   "days_by_year": "8 / 10 / 21 / 27",

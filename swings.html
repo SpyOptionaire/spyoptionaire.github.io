@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Swings
-description: One-night plays near the close, checked every day at 3:45 PM - the Fear Swing and the daily Lotto Swing - with how each did on real option prices. Education only, never a trade call.
+description: One-night plays near the close, checked every day at 3:45 PM, with how each did on real option prices. Education only, never a trade call.
 permalink: /swings/
 ---
 {% assign S = site.data.swings %}
@@ -14,8 +14,7 @@ permalink: /swings/
 
 {% assign tl = S.today.label | remove: ' close' %}
 {% assign fear_on = false %}{% if S.today.swings.size > 0 %}{% assign fear_on = true %}{% endif %}
-{% assign lotto_on = false %}{% if W.latest.size > 0 and W.latest[0].date == tl %}{% assign lotto_on = true %}{% endif %}
-<div class="picker tabs"><button data-s="fear">Fear Swing{% if fear_on %}<span class="bang" title="Play tonight">!</span>{% endif %}</button><button data-s="lotto">Lotto Swing{% if lotto_on %}<span class="bang" title="Play tonight">!</span>{% endif %}</button></div>
+<div class="picker tabs"><button data-s="fear">Fear Swing{% if fear_on %}<span class="bang" title="Play tonight">!</span>{% endif %}</button></div>
 <p class="muted tabnote"><span class="bang">!</span> = that swing has a play tonight. Not every swing fires every day.</p>
 
 <div class="board one">
@@ -67,39 +66,9 @@ permalink: /swings/
   <p class="asof">{{ S.previous_note }}</p>
 </div>
 
-<div class="card" data-s="lotto" hidden>
-  <div class="sh"><span class="k">Lotto Swing &middot; {{ S.today.label }}</span><span class="wr">{{ O.watch.winrate }} win rate</span></div>
-  {% for r in W.latest %}
-  <div class="play">
-    <p class="pt"><b class="{% if r.side == 'call' %}cl{% else %}pt2{% endif %}">{{ r.sym }} {{ r.side | capitalize }}</b></p>
-    <table class="lad">
-      <tbody>
-        <tr><td>Stock</td><td>{{ r.close }}</td></tr>
-        <tr><td>Option <i>at the money, nearest expiry</i></td><td>{% if r.option %}{{ r.option }}{% else %}<span class="muted">live feed pending</span>{% endif %}</td></tr>
-      </tbody>
-    </table>
-  </div>
-  {% endfor %}
 </div>
 
-<div class="card" data-s="lotto" hidden>
-  <span class="k">Recent Lotto Swings</span>
-  <table class="lad swt">
-    <thead><tr><th>Play</th><th>9:31</th><th>10:00</th><th>Noon</th><th>Close</th><th>Our exit</th></tr></thead>
-    <tbody>
-    {% for r in S.lotto_recent %}
-      <tr><td><b>{{ r.sym }} {{ r.contract }}</b><i>{{ r.date }} &middot; stock {{ r.stock }} &middot; bought at ${{ r.opt }}</i></td>
-        {% for v in r.cells %}{% if v == nil %}<td class="muted">expired</td>{% else %}<td class="{% if v >= 0 %}up{% else %}dn{% endif %}">{% if v >= 0 %}+{% endif %}{{ v }}%</td>{% endif %}{% endfor %}
-        <td class="{% if r.res >= 0 %}up{% else %}dn{% endif %}"><b>{% if r.res >= 0 %}+{% endif %}{{ r.res }}%</b></td></tr>
-    {% endfor %}
-    </tbody>
-  </table>
-  <p class="asof">A lotto: the stock itself was right {{ W.record.call_win }}% (calls) and {{ W.record.put_win }}% (puts) of the time, the option only {{ O.watch.call_win }}% and {{ O.watch.put_win }}%. Never size up.</p>
-</div>
-
-</div>
-
-<div class="note"><p><b>How the option numbers are counted:</b> bought at the ask, sold at the bid, $0.65 a contract each side, the same dollars on every trade. Backtests, not live trades.</p><p>Swings are possible setups for education, not recommendations to buy or sell anything. Options can lose 100% of what you pay.</p></div>
+<div class="note"><p><b>How results are counted:</b> prices assume you buy at the ask and sell at the bid, with a $0.65 commission per contract each way. Every trade uses the same risk. Results use real past option prices, not live trades.</p><p>Swings are possible setups for education, not recommendations to buy or sell anything. Options can lose 100% of what you pay.</p></div>
 
 <script>
 (function(){
