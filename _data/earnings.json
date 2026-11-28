@@ -9,9 +9,7 @@
    "iso": "2026-12-02",
    "time": "after the close",
    "days": 5,
-   "usual": "4.0%",
-   "usual_x": 1.0,
-   "stretch": ""
+   "usual": "4.0%"
   }
  ],
  "upcoming": [
@@ -22,9 +20,7 @@
    "iso": "2026-12-02",
    "time": "after the close",
    "days": 5,
-   "usual": "4.0%",
-   "usual_x": 1.0,
-   "stretch": ""
+   "usual": "4.0%"
   },
   {
    "sym": "ADBE",
@@ -33,9 +29,7 @@
    "iso": "2026-12-09",
    "time": "after the close",
    "days": 12,
-   "usual": "7.2%",
-   "usual_x": 2.0,
-   "stretch": ""
+   "usual": "7.2%"
   },
   {
    "sym": "ORCL",
@@ -44,9 +38,7 @@
    "iso": "2026-12-09",
    "time": "after the close",
    "days": 12,
-   "usual": "11.1%",
-   "usual_x": 2.1,
-   "stretch": ""
+   "usual": "11.1%"
   },
   {
    "sym": "AVGO",
@@ -55,9 +47,7 @@
    "iso": "2026-12-10",
    "time": "after the close",
    "days": 13,
-   "usual": "9.0%",
-   "usual_x": 2.8,
-   "stretch": ""
+   "usual": "9.0%"
   },
   {
    "sym": "COST",
@@ -66,9 +56,7 @@
    "iso": "2026-12-10",
    "time": "after the close",
    "days": 13,
-   "usual": "2.9%",
-   "usual_x": 1.7,
-   "stretch": ""
+   "usual": "2.9%"
   },
   {
    "sym": "MU",
@@ -77,9 +65,7 @@
    "iso": "2026-12-16",
    "time": "after the close",
    "days": 19,
-   "usual": "8.3%",
-   "usual_x": 1.7,
-   "stretch": ""
+   "usual": "8.3%"
   },
   {
    "sym": "JPM",
@@ -88,9 +74,7 @@
    "iso": "2027-01-12",
    "time": "before the open",
    "days": 46,
-   "usual": "1.9%",
-   "usual_x": 1.0,
-   "stretch": ""
+   "usual": "1.9%"
   },
   {
    "sym": "NFLX",
@@ -99,9 +83,7 @@
    "iso": "2027-01-19",
    "time": "after the close",
    "days": 53,
-   "usual": "8.2%",
-   "usual_x": 2.7,
-   "stretch": ""
+   "usual": "8.2%"
   },
   {
    "sym": "INTC",
@@ -110,9 +92,7 @@
    "iso": "2027-01-21",
    "time": "after the close",
    "days": 55,
-   "usual": "8.9%",
-   "usual_x": 1.5,
-   "stretch": ""
+   "usual": "8.9%"
   },
   {
    "sym": "BA",
@@ -121,9 +101,7 @@
    "iso": "2027-01-26",
    "time": "before the open",
    "days": 60,
-   "usual": "4.4%",
-   "usual_x": 1.4,
-   "stretch": ""
+   "usual": "4.4%"
   },
   {
    "sym": "UNH",
@@ -132,9 +110,7 @@
    "iso": "2027-01-26",
    "time": "before the open",
    "days": 60,
-   "usual": "6.3%",
-   "usual_x": 2.3,
-   "stretch": ""
+   "usual": "6.3%"
   },
   {
    "sym": "META",
@@ -143,9 +119,7 @@
    "iso": "2027-01-27",
    "time": "after the close",
    "days": 61,
-   "usual": "8.3%",
-   "usual_x": 2.2,
-   "stretch": ""
+   "usual": "8.3%"
   },
   {
    "sym": "MSFT",
@@ -154,9 +128,7 @@
    "iso": "2027-01-27",
    "time": "after the close",
    "days": 61,
-   "usual": "3.9%",
-   "usual_x": 1.8,
-   "stretch": ""
+   "usual": "3.9%"
   },
   {
    "sym": "TSLA",
@@ -165,9 +137,7 @@
    "iso": "2027-01-27",
    "time": "after the close",
    "days": 61,
-   "usual": "6.8%",
-   "usual_x": 1.8,
-   "stretch": ""
+   "usual": "6.8%"
   },
   {
    "sym": "AAPL",
@@ -176,9 +146,7 @@
    "iso": "2027-01-28",
    "time": "after the close",
    "days": 62,
-   "usual": "1.6%",
-   "usual_x": 0.8,
-   "stretch": ""
+   "usual": "1.6%"
   },
   {
    "sym": "SOFI",
@@ -187,9 +155,7 @@
    "iso": "2027-01-29",
    "time": "before the open",
    "days": 63,
-   "usual": "7.7%",
-   "usual_x": 1.8,
-   "stretch": ""
+   "usual": "7.7%"
   },
   {
    "sym": "DIS",
@@ -198,9 +164,7 @@
    "iso": "2027-02-01",
    "time": "before the open",
    "days": 66,
-   "usual": "6.8%",
-   "usual_x": 3.3,
-   "stretch": ""
+   "usual": "6.8%"
   },
   {
    "sym": "PLTR",
@@ -209,9 +173,7 @@
    "iso": "2027-02-01",
    "time": "after the close",
    "days": 66,
-   "usual": "11.2%",
-   "usual_x": 2.5,
-   "stretch": ""
+   "usual": "11.2%"
   },
   {
    "sym": "AMD",
@@ -220,9 +182,7 @@
    "iso": "2027-02-02",
    "time": "after the close",
    "days": 67,
-   "usual": "6.3%",
-   "usual_x": 1.3,
-   "stretch": ""
+   "usual": "6.3%"
   },
   {
    "sym": "SMCI",
@@ -231,9 +191,7 @@
    "iso": "2027-02-02",
    "time": "after the close",
    "days": 67,
-   "usual": "13.9%",
-   "usual_x": 2.0,
-   "stretch": ""
+   "usual": "13.9%"
   },
   {
    "sym": "GOOGL",
@@ -242,9 +200,7 @@
    "iso": "2027-02-03",
    "time": "after the close",
    "days": 68,
-   "usual": "6.1%",
-   "usual_x": 2.3,
-   "stretch": ""
+   "usual": "6.1%"
   },
   {
    "sym": "LLY",
@@ -253,9 +209,7 @@
    "iso": "2027-02-03",
    "time": "before the open",
    "days": 68,
-   "usual": "6.5%",
-   "usual_x": 2.2,
-   "stretch": ""
+   "usual": "6.5%"
   },
   {
    "sym": "UBER",
@@ -264,9 +218,7 @@
    "iso": "2027-02-03",
    "time": "before the open",
    "days": 68,
-   "usual": "5.2%",
-   "usual_x": 1.9,
-   "stretch": ""
+   "usual": "5.2%"
   },
   {
    "sym": "AMZN",
@@ -275,9 +227,7 @@
    "iso": "2027-02-04",
    "time": "after the close",
    "days": 69,
-   "usual": "5.9%",
-   "usual_x": 2.4,
-   "stretch": ""
+   "usual": "5.9%"
   },
   {
    "sym": "MSTR",
@@ -286,9 +236,7 @@
    "iso": "2027-02-04",
    "time": "after the close",
    "days": 69,
-   "usual": "4.4%",
-   "usual_x": 0.6,
-   "stretch": ""
+   "usual": "4.4%"
   },
   {
    "sym": "HOOD",
@@ -297,9 +245,7 @@
    "iso": "2027-02-09",
    "time": "after the close",
    "days": 74,
-   "usual": "7.0%",
-   "usual_x": 1.2,
-   "stretch": ""
+   "usual": "7.0%"
   },
   {
    "sym": "SHOP",
@@ -308,9 +254,7 @@
    "iso": "2027-02-10",
    "time": "before the open",
    "days": 75,
-   "usual": "7.8%",
-   "usual_x": 1.6,
-   "stretch": ""
+   "usual": "7.8%"
   }
  ],
  "recent": [
@@ -464,8 +408,6 @@
    "sym": "AAPL",
    "name": "Apple",
    "usual": "1.6%",
-   "usual_x": 0.8,
-   "normal": "2.1%",
    "up8": "2 of 8",
    "best": "+10.5%",
    "worst": "-7.4%",
@@ -559,7 +501,6 @@
      "cont": false
     }
    ],
-   "stretch": "",
    "next": "Thu Jan 28",
    "next_iso": "2027-01-28",
    "next_time": "after the close",
@@ -569,8 +510,6 @@
    "sym": "ADBE",
    "name": "Adobe",
    "usual": "7.2%",
-   "usual_x": 2.0,
-   "normal": "3.7%",
    "up8": "2 of 8",
    "best": "+17.7%",
    "worst": "-16.8%",
@@ -664,7 +603,6 @@
      "cont": false
     }
    ],
-   "stretch": "",
    "next": "Wed Dec 09",
    "next_iso": "2026-12-09",
    "next_time": "after the close",
@@ -674,8 +612,6 @@
    "sym": "AMD",
    "name": "AMD",
    "usual": "6.3%",
-   "usual_x": 1.3,
-   "normal": "4.8%",
    "up8": "4 of 8",
    "best": "+19.9%",
    "worst": "-24.2%",
@@ -769,7 +705,6 @@
      "cont": false
     }
    ],
-   "stretch": "",
    "next": "Tue Feb 02",
    "next_iso": "2027-02-02",
    "next_time": "after the close",
@@ -779,8 +714,6 @@
    "sym": "AMZN",
    "name": "Amazon",
    "usual": "5.9%",
-   "usual_x": 2.4,
-   "normal": "2.4%",
    "up8": "3 of 8",
    "best": "+15.3%",
    "worst": "-14.0%",
@@ -874,7 +807,6 @@
      "cont": false
     }
    ],
-   "stretch": "",
    "next": "Thu Feb 04",
    "next_iso": "2027-02-04",
    "next_time": "after the close",
@@ -884,8 +816,6 @@
    "sym": "AVGO",
    "name": "Broadcom",
    "usual": "9.0%",
-   "usual_x": 2.8,
-   "normal": "3.3%",
    "up8": "4 of 8",
    "best": "+24.4%",
    "worst": "-12.6%",
@@ -979,7 +909,6 @@
      "cont": true
     }
    ],
-   "stretch": "",
    "next": "Thu Dec 10",
    "next_iso": "2026-12-10",
    "next_time": "after the close",
@@ -989,8 +918,6 @@
    "sym": "BA",
    "name": "Boeing",
    "usual": "4.4%",
-   "usual_x": 1.4,
-   "normal": "3.1%",
    "up8": "4 of 8",
    "best": "+9.9%",
    "worst": "-10.7%",
@@ -1084,7 +1011,6 @@
      "cont": false
     }
    ],
-   "stretch": "",
    "next": "Tue Jan 26",
    "next_iso": "2027-01-26",
    "next_time": "before the open",
@@ -1094,8 +1020,6 @@
    "sym": "COIN",
    "name": "Coinbase",
    "usual": "8.4%",
-   "usual_x": 1.3,
-   "normal": "6.6%",
    "up8": "3 of 8",
    "best": "+18.3%",
    "worst": "-26.4%",
@@ -1189,7 +1113,6 @@
      "cont": false
     }
    ],
-   "stretch": "",
    "next": "Thu Feb 11",
    "next_iso": "2027-02-11",
    "next_time": "after the close",
@@ -1199,8 +1122,6 @@
    "sym": "COST",
    "name": "Costco",
    "usual": "2.9%",
-   "usual_x": 1.7,
-   "normal": "1.7%",
    "up8": "4 of 8",
    "best": "+6.6%",
    "worst": "-8.6%",
@@ -1294,7 +1215,6 @@
      "cont": false
     }
    ],
-   "stretch": "",
    "next": "Thu Dec 10",
    "next_iso": "2026-12-10",
    "next_time": "after the close",
@@ -1304,8 +1224,6 @@
    "sym": "CRM",
    "name": "Salesforce",
    "usual": "4.0%",
-   "usual_x": 1.0,
-   "normal": "3.9%",
    "up8": "4 of 8",
    "best": "+26.0%",
    "worst": "-19.7%",
@@ -1399,7 +1317,6 @@
      "cont": true
     }
    ],
-   "stretch": "",
    "next": "Wed Dec 02",
    "next_iso": "2026-12-02",
    "next_time": "after the close",
@@ -1409,8 +1326,6 @@
    "sym": "DIS",
    "name": "Disney",
    "usual": "6.8%",
-   "usual_x": 3.3,
-   "normal": "2.1%",
    "up8": "3 of 8",
    "best": "+11.5%",
    "worst": "-13.2%",
@@ -1504,7 +1419,6 @@
      "cont": false
     }
    ],
-   "stretch": "",
    "next": "Mon Feb 01",
    "next_iso": "2027-02-01",
    "next_time": "before the open",
@@ -1514,8 +1428,6 @@
    "sym": "GOOGL",
    "name": "Alphabet",
    "usual": "6.1%",
-   "usual_x": 2.3,
-   "normal": "2.6%",
    "up8": "4 of 8",
    "best": "+10.2%",
    "worst": "-12.6%",
@@ -1609,7 +1521,6 @@
      "cont": false
     }
    ],
-   "stretch": "",
    "next": "Wed Feb 03",
    "next_iso": "2027-02-03",
    "next_time": "after the close",
@@ -1619,8 +1530,6 @@
    "sym": "HOOD",
    "name": "Robinhood",
    "usual": "7.0%",
-   "usual_x": 1.2,
-   "normal": "5.8%",
    "up8": "1 of 8",
    "best": "+14.1%",
    "worst": "-16.7%",
@@ -1714,7 +1623,6 @@
      "cont": true
     }
    ],
-   "stretch": "",
    "next": "Tue Feb 09",
    "next_iso": "2027-02-09",
    "next_time": "after the close",
@@ -1724,8 +1632,6 @@
    "sym": "INTC",
    "name": "Intel",
    "usual": "8.9%",
-   "usual_x": 1.5,
-   "normal": "5.8%",
    "up8": "2 of 8",
    "best": "+23.6%",
    "worst": "-28.6%",
@@ -1819,7 +1725,6 @@
      "cont": false
     }
    ],
-   "stretch": "",
    "next": "Thu Jan 21",
    "next_iso": "2027-01-21",
    "next_time": "after the close",
@@ -1829,8 +1734,6 @@
    "sym": "JPM",
    "name": "JPMorgan",
    "usual": "1.9%",
-   "usual_x": 1.0,
-   "normal": "1.9%",
    "up8": "3 of 8",
    "best": "+7.6%",
    "worst": "-6.5%",
@@ -1924,7 +1827,6 @@
      "cont": false
     }
    ],
-   "stretch": "",
    "next": "Tue Jan 12",
    "next_iso": "2027-01-12",
    "next_time": "before the open",
@@ -1934,8 +1836,6 @@
    "sym": "LLY",
    "name": "Eli Lilly",
    "usual": "6.5%",
-   "usual_x": 2.2,
-   "normal": "3.0%",
    "up8": "6 of 8",
    "best": "+14.9%",
    "worst": "-14.1%",
@@ -2029,7 +1929,6 @@
      "cont": false
     }
    ],
-   "stretch": "",
    "next": "Wed Feb 03",
    "next_iso": "2027-02-03",
    "next_time": "before the open",
@@ -2039,8 +1938,6 @@
    "sym": "META",
    "name": "Meta",
    "usual": "8.3%",
-   "usual_x": 2.2,
-   "normal": "3.7%",
    "up8": "4 of 8",
    "best": "+23.3%",
    "worst": "-26.4%",
@@ -2134,7 +2031,6 @@
      "cont": false
     }
    ],
-   "stretch": "",
    "next": "Wed Jan 27",
    "next_iso": "2027-01-27",
    "next_time": "after the close",
@@ -2144,8 +2040,6 @@
    "sym": "MSFT",
    "name": "Microsoft",
    "usual": "3.9%",
-   "usual_x": 1.8,
-   "normal": "2.2%",
    "up8": "3 of 8",
    "best": "+15.5%",
    "worst": "-10.0%",
@@ -2239,7 +2133,6 @@
      "cont": false
     }
    ],
-   "stretch": "",
    "next": "Wed Jan 27",
    "next_iso": "2027-01-27",
    "next_time": "after the close",
@@ -2249,8 +2142,6 @@
    "sym": "MSTR",
    "name": "Strategy (MicroStrategy)",
    "usual": "4.4%",
-   "usual_x": 0.6,
-   "normal": "6.9%",
    "up8": "3 of 8",
    "best": "+26.1%",
    "worst": "-17.6%",
@@ -2344,7 +2235,6 @@
      "cont": false
     }
    ],
-   "stretch": "",
    "next": "Thu Feb 04",
    "next_iso": "2027-02-04",
    "next_time": "after the close",
@@ -2354,8 +2244,6 @@
    "sym": "MU",
    "name": "Micron",
    "usual": "8.3%",
-   "usual_x": 1.7,
-   "normal": "5.0%",
    "up8": "3 of 8",
    "best": "+15.7%",
    "worst": "-16.2%",
@@ -2449,7 +2337,6 @@
      "cont": false
     }
    ],
-   "stretch": "",
    "next": "Wed Dec 16",
    "next_iso": "2026-12-16",
    "next_time": "after the close",
@@ -2459,8 +2346,6 @@
    "sym": "NFLX",
    "name": "Netflix",
    "usual": "8.2%",
-   "usual_x": 2.7,
-   "normal": "3.0%",
    "up8": "2 of 8",
    "best": "+16.9%",
    "worst": "-35.1%",
@@ -2554,7 +2439,6 @@
      "cont": true
     }
    ],
-   "stretch": "",
    "next": "Tue Jan 19",
    "next_iso": "2027-01-19",
    "next_time": "after the close",
@@ -2564,8 +2448,6 @@
    "sym": "NVDA",
    "name": "Nvidia",
    "usual": "4.4%",
-   "usual_x": 1.5,
-   "normal": "2.9%",
    "up8": "2 of 8",
    "best": "+24.4%",
    "worst": "-18.8%",
@@ -2659,7 +2541,6 @@
      "cont": false
     }
    ],
-   "stretch": "",
    "next": "Wed Feb 24",
    "next_iso": "2027-02-24",
    "next_time": "after the close",
@@ -2669,8 +2550,6 @@
    "sym": "ORCL",
    "name": "Oracle",
    "usual": "11.1%",
-   "usual_x": 2.1,
-   "normal": "5.4%",
    "up8": "3 of 8",
    "best": "+35.9%",
    "worst": "-13.5%",
@@ -2764,7 +2643,6 @@
      "cont": false
     }
    ],
-   "stretch": "",
    "next": "Wed Dec 09",
    "next_iso": "2026-12-09",
    "next_time": "after the close",
@@ -2774,8 +2652,6 @@
    "sym": "PLTR",
    "name": "Palantir",
    "usual": "11.2%",
-   "usual_x": 2.5,
-   "normal": "4.4%",
    "up8": "4 of 8",
    "best": "+30.8%",
    "worst": "-21.3%",
@@ -2869,7 +2745,6 @@
      "cont": true
     }
    ],
-   "stretch": "",
    "next": "Mon Feb 01",
    "next_iso": "2027-02-01",
    "next_time": "after the close",
@@ -2879,8 +2754,6 @@
    "sym": "SHOP",
    "name": "Shopify",
    "usual": "7.8%",
-   "usual_x": 1.6,
-   "normal": "4.8%",
    "up8": "3 of 8",
    "best": "+22.0%",
    "worst": "-15.6%",
@@ -2974,7 +2847,6 @@
      "cont": false
     }
    ],
-   "stretch": "",
    "next": "Wed Feb 10",
    "next_iso": "2027-02-10",
    "next_time": "before the open",
@@ -2984,8 +2856,6 @@
    "sym": "SMCI",
    "name": "Super Micro",
    "usual": "13.9%",
-   "usual_x": 2.0,
-   "normal": "7.0%",
    "up8": "4 of 8",
    "best": "+31.2%",
    "worst": "-23.4%",
@@ -3079,7 +2949,6 @@
      "cont": false
     }
    ],
-   "stretch": "",
    "next": "Tue Feb 02",
    "next_iso": "2027-02-02",
    "next_time": "after the close",
@@ -3089,8 +2958,6 @@
    "sym": "SOFI",
    "name": "SoFi",
    "usual": "7.7%",
-   "usual_x": 1.8,
-   "normal": "4.4%",
    "up8": "4 of 8",
    "best": "+28.4%",
    "worst": "-15.4%",
@@ -3184,7 +3051,6 @@
      "cont": false
     }
    ],
-   "stretch": "",
    "next": "Fri Jan 29",
    "next_iso": "2027-01-29",
    "next_time": "before the open",
@@ -3194,8 +3060,6 @@
    "sym": "TSLA",
    "name": "Tesla",
    "usual": "6.8%",
-   "usual_x": 1.8,
-   "normal": "3.7%",
    "up8": "3 of 8",
    "best": "+21.9%",
    "worst": "-14.5%",
@@ -3289,7 +3153,6 @@
      "cont": false
     }
    ],
-   "stretch": "",
    "next": "Wed Jan 27",
    "next_iso": "2027-01-27",
    "next_time": "after the close",
@@ -3299,8 +3162,6 @@
    "sym": "UBER",
    "name": "Uber",
    "usual": "5.2%",
-   "usual_x": 1.9,
-   "normal": "2.8%",
    "up8": "2 of 8",
    "best": "+18.9%",
    "worst": "-9.8%",
@@ -3394,7 +3255,6 @@
      "cont": false
     }
    ],
-   "stretch": "",
    "next": "Wed Feb 03",
    "next_iso": "2027-02-03",
    "next_time": "before the open",
@@ -3404,8 +3264,6 @@
    "sym": "UNH",
    "name": "UnitedHealth",
    "usual": "6.3%",
-   "usual_x": 2.3,
-   "normal": "2.8%",
    "up8": "3 of 8",
    "best": "+8.2%",
    "worst": "-22.4%",
@@ -3499,7 +3357,6 @@
      "cont": false
     }
    ],
-   "stretch": "",
    "next": "Tue Jan 26",
    "next_iso": "2027-01-26",
    "next_time": "before the open",
@@ -3509,8 +3366,6 @@
    "sym": "WMT",
    "name": "Walmart",
    "usual": "5.5%",
-   "usual_x": 2.6,
-   "normal": "2.1%",
    "up8": "1 of 8",
    "best": "+10.9%",
    "worst": "-11.4%",
@@ -3604,7 +3459,6 @@
      "cont": false
     }
    ],
-   "stretch": "",
    "next": "Thu Feb 18",
    "next_iso": "2027-02-18",
    "next_time": "before the open",
@@ -3621,13 +3475,6 @@
    "next_up_test": 61,
    "years": "9 of 10 years",
    "n": 232
-  },
-  "hot": {
-   "up_train": 32,
-   "up_test": 46,
-   "avg_train": "-1.1%",
-   "avg_test": "-1.7%",
-   "n": 52
   },
   "coin": {
    "up_train": 48,

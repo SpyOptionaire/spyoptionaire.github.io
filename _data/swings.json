@@ -398,21 +398,35 @@
  "lotto_recent": [
   {
    "date": "Nov 24",
-   "sym": "MSTR",
-   "side": "call",
-   "stock": "77.55",
-   "contract": "78 call, exp 11/27",
-   "opt": "3.05",
-   "res": -78
-  },
-  {
-   "date": "Nov 24",
    "sym": "WMT",
    "side": "put",
    "stock": "132.31",
    "contract": "132 put, exp 11/27",
    "opt": "1.30",
+   "cells": [
+    -62,
+    -35,
+    -36,
+    -55
+   ],
+   "best": -7,
    "res": -36
+  },
+  {
+   "date": "Nov 24",
+   "sym": "MSTR",
+   "side": "call",
+   "stock": "77.55",
+   "contract": "78 call, exp 11/27",
+   "opt": "3.05",
+   "cells": [
+    -54,
+    -66,
+    -78,
+    11
+   ],
+   "best": 39,
+   "res": -78
   },
   {
    "date": "Nov 23",
@@ -421,6 +435,13 @@
    "stock": "81.69",
    "contract": "81.5 put, exp 11/25",
    "opt": "0.22",
+   "cells": [
+    -18,
+    -23,
+    -66,
+    -23
+   ],
+   "best": -14,
    "res": -66
   },
   {
@@ -430,16 +451,14 @@
    "stock": "322.87",
    "contract": "323 call, exp 11/23",
    "opt": "3.45",
+   "cells": [
+    314,
+    273,
+    273,
+    179
+   ],
+   "best": 316,
    "res": 314
-  },
-  {
-   "date": "Nov 19",
-   "sym": "UNH",
-   "side": "call",
-   "stock": "330.48",
-   "contract": "330 call, exp 11/20",
-   "opt": "6.20",
-   "res": 77
   },
   {
    "date": "Nov 19",
@@ -448,16 +467,30 @@
    "stock": "120.25",
    "contract": "120 put, exp 11/20",
    "opt": "0.90",
+   "cells": [
+    -72,
+    -77,
+    -3,
+    58
+   ],
+   "best": 128,
    "res": 29
   },
   {
-   "date": "Nov 18",
+   "date": "Nov 19",
    "sym": "UNH",
    "side": "call",
-   "stock": "349.91",
-   "contract": "350 call, exp 11/20",
-   "opt": "6.25",
-   "res": -95
+   "stock": "330.48",
+   "contract": "330 call, exp 11/20",
+   "opt": "6.20",
+   "cells": [
+    77,
+    125,
+    170,
+    46
+   ],
+   "best": 177,
+   "res": 77
   },
   {
    "date": "Nov 18",
@@ -466,16 +499,30 @@
    "stock": "122.36",
    "contract": "122 put, exp 11/20",
    "opt": "0.94",
+   "cells": [
+    5,
+    16,
+    -1,
+    52
+   ],
+   "best": 115,
    "res": 36
   },
   {
-   "date": "Nov 17",
-   "sym": "BABA",
+   "date": "Nov 18",
+   "sym": "UNH",
    "side": "call",
-   "stock": "86.65",
-   "contract": "87 call, exp 11/20",
-   "opt": "3.30",
-   "res": -32
+   "stock": "349.91",
+   "contract": "350 call, exp 11/20",
+   "opt": "6.25",
+   "cells": [
+    -11,
+    -70,
+    -95,
+    -96
+   ],
+   "best": -7,
+   "res": -95
   },
   {
    "date": "Nov 17",
@@ -484,7 +531,30 @@
    "stock": "1110.08",
    "contract": "1110 put, exp 11/20",
    "opt": "12.35",
+   "cells": [
+    18,
+    -2,
+    1,
+    24
+   ],
+   "best": 30,
    "res": 1
+  },
+  {
+   "date": "Nov 17",
+   "sym": "BABA",
+   "side": "call",
+   "stock": "86.65",
+   "contract": "87 call, exp 11/20",
+   "opt": "3.30",
+   "cells": [
+    -17,
+    -17,
+    -32,
+    -50
+   ],
+   "best": -15,
+   "res": -32
   }
  ]
 }

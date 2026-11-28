@@ -81,10 +81,11 @@ permalink: /swings/
 <div class="card" data-s="lotto" hidden>
   <span class="k">Recent Lotto Swings</span>
   <table class="lad swt">
-    <thead><tr><th>Play</th><th>Stock</th><th>Option</th><th>Result</th></tr></thead>
+    <thead><tr><th>Play</th><th>9:31</th><th>10:00</th><th>Noon</th><th>Close</th><th>Our exit</th></tr></thead>
     <tbody>
     {% for r in S.lotto_recent %}
-      <tr><td><b>{{ r.sym }} {{ r.contract }}</b><i>{{ r.date }}</i></td><td>{{ r.stock }}</td><td>${{ r.opt }}</td>
+      <tr><td><b>{{ r.sym }} {{ r.contract }}</b><i>{{ r.date }} &middot; stock {{ r.stock }} &middot; bought at ${{ r.opt }}</i></td>
+        {% for v in r.cells %}{% if v == nil %}<td class="muted">expired</td>{% else %}<td class="{% if v >= 0 %}up{% else %}dn{% endif %}">{% if v >= 0 %}+{% endif %}{{ v }}%</td>{% endif %}{% endfor %}
         <td class="{% if r.res >= 0 %}up{% else %}dn{% endif %}"><b>{% if r.res >= 0 %}+{% endif %}{{ r.res }}%</b></td></tr>
     {% endfor %}
     </tbody>

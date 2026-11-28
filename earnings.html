@@ -9,7 +9,7 @@ permalink: /earnings/
   <h1>Earnings</h1>
   <p>Who reports next, how much each stock usually moves on its report, and the earnings plays that held up in our tests, with every past result. Prices as of {{ E.asof }}.</p>
 </section>
-<p class="pre"><span class="tag warn">ZERO OR HERO</span> Earnings options are lottos. Option prices jump before a report and collapse right after it, so a bet placed before the report can lose most of its value even when the stock moves your way. Only the after-the-report play below has held up in testing.</p>
+<p class="pre"><span class="tag warn">ZERO OR HERO</span> Earnings options are lottos. Option prices jump before a report and collapse right after it, so a bet placed before the report can lose most of its value even when the stock moves your way. Only the Earnings Swing has held up in testing.</p>
 
 <div class="board one">
 <div class="card">
@@ -18,12 +18,8 @@ permalink: /earnings/
   {% for u in E.week %}{% assign T = nil %}{% for x in E.tickers %}{% if x.sym == u.sym %}{% assign T = x %}{% endif %}{% endfor %}
   <div class="swi">
     <div class="ch"><span class="sym">{{ u.sym }}</span><span class="nm">{{ u.name }}</span><span class="px">{{ u.date }}</span></div>
-    <p>Reports {{ u.time }} (estimated: same week as last year). Usual earnings move: <b>&plusmn;{{ u.usual }}</b> (last 3 years){% if T %}; up after {{ T.up8 }} of its last reports{% endif %}.{% if u.stretch != '' %} <span class="tag warn">{{ u.stretch }}</span>{% endif %}</p>
-    <ul class="plain">
-      <li><b>Before the report (lotto):</b> only worth a look when options price a smaller move than the usual &plusmn;{{ u.usual }}. Our expected move from option prices fills in with the live feed.</li>
-      <li><b>After the report (the play that held up):</b> after a strong report-day close, a call for the next few days.</li>
-      {% if u.stretch == 'stretched up into it' %}<li><b>Put lotto watch:</b> stocks that run hard into their report have dropped on it more often than not (small sample).</li>{% endif %}
-    </ul>
+    <p>Reports {{ u.time }} (estimated: same week as last year). Usual earnings move: <b>&plusmn;{{ u.usual }}</b> (last 3 years){% if T %}; up after {{ T.up8 }} of its last reports{% endif %}.</p>
+    <p class="muted">If it sets up, the Earnings Swing posts here on the reaction day.</p>
   </div>
   {% endfor %}
   {% else %}<p class="empty">None of our stocks reports in the next 7 days.</p>{% endif %}
@@ -39,14 +35,15 @@ permalink: /earnings/
 </div>
 
 <div class="card">
-  <span class="k">The plays and how they did (2017 - 2026, 30 stocks)</span>
-  <table class="lad txt">
+  <div class="sh"><span class="k">Earnings Swing: how it has done</span><span class="wr">{{ E.record.cont.next_up_test }}% win rate</span></div>
+  <table class="lad">
+    <thead><tr><th>30 stocks</th><th>Up next day</th><th>Avg 5 days</th><th>Normal 5 days</th></tr></thead>
     <tbody>
-      <tr><td><b>After the report: big up day keeps going</b><i>the play that held up</i></td><td>After a strong report-day close, it was up the next day {{ E.record.cont.next_up_train }}% / {{ E.record.cont.next_up_test }}% of the time (2017-22 / 2023-26) and 5 days later averaged {{ E.record.cont.train }} / {{ E.record.cont.test }} (a normal 5 days: {{ E.record.cont.normal_train }} / {{ E.record.cont.normal_test }}). Positive {{ E.record.cont.years }}.</td></tr>
-      <tr><td><b>Hot into the report</b><i>lotto watch</i></td><td>Stretched up into earnings, the stock rose on the report only {{ E.record.hot.up_train }}% / {{ E.record.hot.up_test }}% of the time (avg {{ E.record.hot.avg_train }} / {{ E.record.hot.avg_test }}). Small sample ({{ E.record.hot.n }}).</td></tr>
-      <tr><td><b>Guessing the direction</b><i>no edge</i></td><td>Up on the report {{ E.record.coin.up_train }}% / {{ E.record.coin.up_test }}% of the time: a coin flip. The big winners are why traders chase it.</td></tr>
+      <tr><td>2017 - 2022</td><td>{{ E.record.cont.next_up_train }}%</td><td class="up">{{ E.record.cont.train }}</td><td class="muted">{{ E.record.cont.normal_train }}</td></tr>
+      <tr><td>2023 - 2026</td><td>{{ E.record.cont.next_up_test }}%</td><td class="up">{{ E.record.cont.test }}</td><td class="muted">{{ E.record.cont.normal_test }}</td></tr>
     </tbody>
   </table>
+  <p class="asof">The stock after each Earnings Swing, against a normal 5 days for the same stocks. Positive {{ E.record.cont.years }}. Guessing the report's direction before it comes out has been a coin flip ({{ E.record.coin.up_test }}% up lately).</p>
 </div>
 
 <div class="card">
@@ -55,26 +52,26 @@ permalink: /earnings/
   {% for t in E.tickers %}
   <div class="ehist" data-s="{{ t.sym }}" hidden>
     <div class="ch"><span class="sym">{{ t.sym }}</span><span class="nm">{{ t.name }}</span>{% if t.next %}<span class="px">next: {{ t.next }}</span>{% endif %}</div>
-    <p>Usual earnings move <b>&plusmn;{{ t.usual }}</b> ({{ t.usual_x }}x a normal day lately); up after {{ t.up8 }} of its last reports; biggest {{ t.best }} / {{ t.worst }}.</p>
+    <p>Usual earnings move <b>&plusmn;{{ t.usual }}</b>; up after {{ t.up8 }} of its last reports; biggest {{ t.best }} / {{ t.worst }}.</p>
     <table class="lad swt">
       <thead><tr><th>Reaction day</th><th>Move</th><th>Next day</th><th>5 days</th></tr></thead>
-      <tbody>{% for h in t.history %}<tr><td>{{ h.date }}{% if h.cont %} <span class="tag bull">setup</span>{% endif %}</td><td class="{% if h.up %}up{% else %}dn{% endif %}">{{ h.move }}</td><td>{{ h.n1 }}</td><td>{{ h.n5 }}</td></tr>{% endfor %}</tbody>
+      <tbody>{% for h in t.history %}<tr><td>{{ h.date }}{% if h.cont %} <span class="tag bull">swing</span>{% endif %}</td><td class="{% if h.up %}up{% else %}dn{% endif %}">{{ h.move }}</td><td>{{ h.n1 }}</td><td>{{ h.n5 }}</td></tr>{% endfor %}</tbody>
     </table>
   </div>
   {% endfor %}
-  <p class="asof"><span class="tag bull">setup</span> = qualified for the after-the-report call. Next day / 5 days = from the reaction day's close.</p>
+  <p class="asof"><span class="tag bull">swing</span> = an Earnings Swing day. Next day / 5 days = from the reaction day's close.</p>
 </div>
 
 <div class="card">
   <span class="k">Latest earnings reactions</span>
   <table class="lad swt">
     <thead><tr><th>Day</th><th>Stock</th><th>Move</th><th>5 days</th></tr></thead>
-    <tbody>{% for r in E.recent %}<tr><td>{{ r.date }}</td><td><b>{{ r.sym }}</b>{% if r.cont %} <span class="tag bull">setup</span>{% endif %}</td><td class="{% if r.up %}up{% else %}dn{% endif %}">{{ r.move }}</td><td>{% if r.n5 %}{{ r.n5 }}{% else %}-{% endif %}</td></tr>{% endfor %}</tbody>
+    <tbody>{% for r in E.recent %}<tr><td>{{ r.date }}</td><td><b>{{ r.sym }}</b>{% if r.cont %} <span class="tag bull">swing</span>{% endif %}</td><td class="{% if r.up %}up{% else %}dn{% endif %}">{{ r.move }}</td><td>{% if r.n5 %}{{ r.n5 }}{% else %}-{% endif %}</td></tr>{% endfor %}</tbody>
   </table>
 </div>
 </div>
 <div class="note">
-  <p><b>Usual move</b> = the median close-to-close move on the day the market reacts to the report (the next day for reports after the close). <b>Normal day</b> = the stock's average daily range lately. Dates and timing come from the companies' SEC filings.</p>
+  <p><b>Usual move</b> = the median close-to-close move on the day the market reacts to the report (the next day for reports after the close). Dates and timing come from the companies' SEC filings.</p>
 </div>
 <script>
 (function(){
