@@ -112,3 +112,6 @@ main > .ob { margin:14px 0; }
 
 .lad.txt td { white-space:normal; } .lad.txt td:last-child { text-align:left; padding-left:12px; }
 .lad.glance th, .lad.glance td { text-align:left; white-space:normal; vertical-align:top; } .lad.glance td:first-child { width:24%; }
+.sh { display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:6px; } .wr { color:var(--accent); font-weight:700; font-size:14px; border:1px solid #166534; border-radius:6px; padding:2px 8px; white-space:nowrap; }
+.play { border-top:1px solid var(--line); padding:8px 0 2px; margin-top:6px; } .play .pt { margin:0 0 2px; font-size:16px; } .play .cl { color:var(--sup); } .play .pt2 { color:var(--dem); } .play .lad { margin-top:2px; } .lad tr.tot td { font-weight:600; }
+.picker.tabs { margin:16px 0 4px; } .picker.tabs button { font-size:15px; padding:7px 16px; }

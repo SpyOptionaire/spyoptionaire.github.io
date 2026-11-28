@@ -26,13 +26,15 @@
     "y": "2026",
     "v": 31
    }
-  ]
+  ],
+  "winrate": "62%"
  },
  "watch": {
   "call_win": 48,
   "call_avg": -4,
   "put_win": 42,
-  "put_avg": -14
+  "put_avg": -14,
+  "winrate": "42-48%"
  },
  "stock": {
   "up": 59,

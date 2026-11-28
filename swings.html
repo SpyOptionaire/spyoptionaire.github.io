@@ -1,108 +1,107 @@
 ---
 layout: default
 title: Swings
-description: One-night swing setups checked every day at 3:45 PM - the fear-day snap-back (the one with an edge) and the daily swing watch - with how each did on real option prices. Education only, never a trade call.
+description: One-night plays near the close, checked every day at 3:45 PM - the Fear Swing and the daily Lotto Swing - with how each did on real option prices. Education only, never a trade call.
 permalink: /swings/
 ---
 {% assign S = site.data.swings %}
 {% assign O = site.data.swing_options %}
-{% assign F = S.fear %}
 {% assign W = S.watch %}
-{% assign H = S.history %}
 <section class="hero">
   <h1>Swings</h1>
-  <p>One-night trades: bought near the close, sold the next morning. Checked every day at 3:45 PM. There are two, and only one has an edge.</p>
+  <p>One-night plays: bought near the close, sold the next day. Checked every day at 3:45 PM.</p>
 </section>
-<p class="pre"><span class="tag warn">ZERO OR HERO</span> Options are lottos. Any option can lose 100% of what you pay, and in our backtests the swing-watch options won less often than simply holding the stock.</p>
+
+<div class="picker tabs"><button data-s="fear">Fear Swing</button><button data-s="lotto">Lotto Swing</button></div>
 
 <div class="board one">
-<div class="card sw">
-  <span class="k">Today &middot; {{ S.today.checked | split: " (" | first | remove: "the " }}</span>
-  <p>{% if F.top5 %}<span class="chip warn">FEAR IN THE TOP 5%</span> {% elsif F.vix >= 20 %}<span class="chip warn">FEARFUL</span> {% else %}<span class="chip calm">CALM</span> {% endif %}VIX {{ F.vix }}, higher than {{ F.pct }}% of the past year.</p>
 
-  <div class="ob">
-    <span class="k">Fear-day snap-back</span>
-    {% if S.today.swings.size > 0 %}
-      {% for x in S.today.swings %}
-      <div class="swi">
-        <div class="ch"><span class="sym">{{ x.ticker }}</span><span class="nm">possible {{ x.direction }} swing</span><span class="px">{{ x.price }}</span></div>
-        <p>{{ x.reason }}</p>
-        <p><b>Contract to look at:</b> {{ x.contract }}</p>
-        <p class="muted">{{ x.plan }}</p>
-      </div>
-      {% endfor %}
-    {% else %}
-      <p class="big">{{ S.today.no_swing }}</p>
-    {% endif %}
-  </div>
-
-  <div class="ob">
-    <span class="k">Swing watch (lotto)</span>
-    <table class="lad swt">
-      <tbody>{% for r in W.latest %}<tr class="{% if r.side == 'call' %}rs{% else %}rd{% endif %}"><td><b>{{ r.sym }} {{ r.side }}</b> <i>{% if r.side == 'call' %}most stretched down: bounce idea{% else %}most stretched up: pullback idea{% endif %}</i></td><td>{{ r.close }}</td></tr>{% endfor %}</tbody>
-    </table>
-    <p class="asof">One call idea and one put idea every day. A lotto: play the stock or a small option, never size up.</p>
-  </div>
-
-  {% assign hits = S.today.swings | map: "ticker" %}
-  <div class="uni">
-  {% for g in S.universe %}
-    <span class="ug">{{ g.name }}</span>
-    <div class="uc">{% for t in g.tickers %}<span class="tk{% if hits contains t %} on{% endif %}">{{ t }}</span>{% endfor %}</div>
-  {% endfor %}
-  </div>
-  <p class="asof">All 42 names are scanned at the close. A name lights up when it qualifies for the fear-day swing. Live 3:45 PM picks start once the live feed is on.</p>
+<div class="card" data-s="fear">
+  <div class="sh"><span class="k">Fear Swing &middot; {{ S.today.label }}</span><span class="wr">{{ O.fear.winrate }} win rate</span></div>
+  {% if S.today.swings.size > 0 %}
+    {% for x in S.today.swings %}
+    <div class="play">
+      <p class="pt"><b>{{ x.ticker }} {{ x.direction }}</b> <span class="muted">possible {{ x.direction }} play</span></p>
+      <table class="lad">
+        <tbody>
+          <tr><td>Stock</td><td>{{ x.price }}</td></tr>
+          <tr><td>Option <i>{{ x.contract }}</i></td><td>{% if x.option %}{{ x.option }}{% else %}<span class="muted">at 3:45 PM</span>{% endif %}</td></tr>
+        </tbody>
+      </table>
+    </div>
+    {% endfor %}
+  {% else %}
+    <p class="big">No Fear Swing today.</p>
+    <p class="muted">It only shows up on a handful of days a year.</p>
+  {% endif %}
 </div>
 
-<div class="card">
-  <span class="k">The two setups at a glance</span>
-  <table class="lad glance">
-    <thead><tr><th></th><th>Fear-day snap-back</th><th>Swing watch</th></tr></thead>
-    <tbody>
-      <tr><td><b>Shows up</b></td><td>Only on broad fear days: {{ O.fear.days }} days since Apr 2023</td><td>Every day: one call idea, one put idea</td></tr>
-      <tr><td><b>The stock won</b></td><td>{{ O.stock.up }}% of the time ({{ O.stock.cases }} cases since {{ O.stock.since }}; any day {{ O.stock.base }})</td><td>Calls {{ W.record.call_win }}%, puts {{ W.record.put_win }}%: a coin flip</td></tr>
-      <tr><td><b>The option won</b> <i>real prices</i></td><td class="up">{{ O.fear.win }}% of the time, +{{ O.fear.avg }}% a trade</td><td class="dn">Calls {{ O.watch.call_win }}% ({{ O.watch.call_avg }}% a trade), puts {{ O.watch.put_win }}% ({{ O.watch.put_avg }}% a trade)</td></tr>
-      <tr><td><b>Use it as</b></td><td>The one swing with an edge. Stock, or a small option: zero or hero.</td><td>A lotto. The stock wins more often than the option.</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<div class="card">
-  <span class="k">Fear-day snap-back: how it has done</span>
-  <p>It only fires when fear and broad selling line up, a handful of days a year. When it does, the name and the contract to look at post here between 3:45 and 4:00 PM, and every one is logged with its result.</p>
+<div class="card" data-s="fear">
+  <span class="k">How Fear Swings have done</span>
   <table class="lad">
     <thead><tr><th>{{ O.period }}</th><th>Avg a trade</th><th>Winners</th></tr></thead>
     <tbody>
-      <tr class="rs"><td><b>All fear-day swings</b> <i>{{ O.fear.trades }} trades on {{ O.fear.days }} days</i></td><td class="up">+{{ O.fear.avg }}%</td><td>{{ O.fear.win }}%</td></tr>
+      <tr class="tot"><td><b>All</b> <i>{{ O.fear.trades }} trades on {{ O.fear.days }} days</i></td><td class="up">+{{ O.fear.avg }}%</td><td>{{ O.fear.win }}%</td></tr>
       {% for y in O.fear.years %}<tr><td>{{ y.y }}</td><td class="{% if y.v >= 0 %}up{% else %}dn{% endif %}">{% if y.v >= 0 %}+{% endif %}{{ y.v }}%</td><td></td></tr>{% endfor %}
     </tbody>
   </table>
-  <p class="asof">Zero or hero: most of the profit comes from a few big rebound days, and the worst trades lost {{ O.fear.worst }}% of the premium. Use the same small dollar amount every time and count the whole premium as the risk.</p>
+  <p class="asof">Zero or hero: a few big rebound days carry it, and the worst trades lost {{ O.fear.worst }}%.</p>
 </div>
 
-<div class="card">
-  <span class="k">Recent fear-day swings: what the plan would have done</span>
+<div class="card" data-s="fear">
+  <span class="k">Recent Fear Swings</span>
   <table class="lad swt">
-    <thead><tr><th>Swing</th><th>9:31</th><th>10:00</th><th>Noon</th><th>Close</th><th>Plan</th></tr></thead>
+    <thead><tr><th>Play</th><th>9:31</th><th>10:00</th><th>Noon</th><th>Close</th><th>Our exit</th></tr></thead>
     <tbody>
     {% for r in S.previous %}
-      <tr><td><b>{{ r.ticker }} {{ r.contract }}</b><i>{{ r.date }} &middot; bought {{ r.bought }} &middot; best {% if r.best >= 0 %}+{% endif %}{{ r.best }}%</i></td>
+      <tr><td><b>{{ r.ticker }} {{ r.contract }}</b><i>{{ r.date }} &middot; bought at ${{ r.bought | split: "$" | last }}</i></td>
         {% for v in r.cells %}{% if v == nil %}<td class="muted">expired</td>{% else %}<td class="{% if v >= 0 %}up{% else %}dn{% endif %}">{% if v >= 0 %}+{% endif %}{{ v }}%</td>{% endif %}{% endfor %}
         <td class="{% if r.plan >= 0 %}up{% else %}dn{% endif %}"><b>{% if r.plan >= 0 %}+{% endif %}{{ r.plan }}%</b></td></tr>
     {% endfor %}
     </tbody>
   </table>
-  <p class="asof">The first name on each November fear day and its contract, on real option quotes: bought at the ask at 3:45 PM, each column sold at the bid at that time the next day, after fees. "Plan" = our exit. {{ S.previous_note }} Hypothetical, not live trades.</p>
+  <p class="asof">{{ S.previous_note }}</p>
 </div>
 
-<div class="card">
-  <span class="k">Swing watch: the last few days (stock move)</span>
+<div class="card" data-s="lotto" hidden>
+  <div class="sh"><span class="k">Lotto Swing &middot; {{ S.today.label }}</span><span class="wr">{{ O.watch.winrate }} win rate</span></div>
+  {% for r in W.latest %}
+  <div class="play">
+    <p class="pt"><b class="{% if r.side == 'call' %}cl{% else %}pt2{% endif %}">{{ r.sym }} {{ r.side | capitalize }}</b></p>
+    <table class="lad">
+      <tbody>
+        <tr><td>Stock</td><td>{{ r.close }}</td></tr>
+        <tr><td>Option <i>at the money, nearest expiry</i></td><td>{% if r.option %}{{ r.option }}{% else %}<span class="muted">live feed pending</span>{% endif %}</td></tr>
+      </tbody>
+    </table>
+  </div>
+  {% endfor %}
+</div>
+
+<div class="card" data-s="lotto" hidden>
+  <span class="k">Recent Lotto Swings</span>
   <table class="lad swt">
-    <thead><tr><th>Name</th><th>Next day</th><th>Best</th></tr></thead>
-    <tbody>{% for r in W.recent %}<tr class="{% if r.side == 'call' %}rs{% else %}rd{% endif %}"><td><b>{{ r.sym }}</b> <i>{{ r.date }} &middot; {% if r.side == 'call' %}call idea{% else %}put idea{% endif %}</i></td><td class="{% if r.result == 'worked' %}up{% else %}dn{% endif %}">{{ r.move }}</td><td>{{ r.best }}</td></tr>{% endfor %}</tbody>
+    <thead><tr><th>Play</th><th>Stock</th><th>Option</th><th>Result</th></tr></thead>
+    <tbody>
+    {% for r in S.lotto_recent %}
+      <tr><td><b>{{ r.sym }} {{ r.contract }}</b><i>{{ r.date }}</i></td><td>{{ r.stock }}</td><td>${{ r.opt }}</td>
+        <td class="{% if r.res >= 0 %}up{% else %}dn{% endif %}"><b>{% if r.res >= 0 %}+{% endif %}{{ r.res }}%</b></td></tr>
+    {% endfor %}
+    </tbody>
   </table>
-  <p class="asof">The stock's move from the close to the next close, counted in the idea's direction. As lotto options (bought at the ask near the close, sold at the bid the next day): the calls won {{ O.watch.call_win }}% of the time and averaged {{ O.watch.call_avg }}% a trade, the puts won {{ O.watch.put_win }}% and averaged {{ O.watch.put_avg }}%. The stock itself won {{ W.record.call_win }}% / {{ W.record.put_win }}%: the spread plus a night of time decay is what the option gives up.</p>
-</div>
+  <p class="asof">A lotto: the stock itself was right {{ W.record.call_win }}% (calls) and {{ W.record.put_win }}% (puts) of the time, the option only {{ O.watch.call_win }}% and {{ O.watch.put_win }}%. Never size up.</p>
 </div>
 
-<div class="note"><p><b>How the option numbers are counted:</b> {{ O.method }} So a $600 contract doesn't count more than a $60 one. Backtests, not live trades.</p><p>Swings are possible setups for education. They're not recommendations to buy or sell anything. Options can lose 100% of what you pay.</p></div>
+</div>
+
+<div class="note"><p><b>How the option numbers are counted:</b> bought at the ask, sold at the bid, $0.65 a contract each side, the same dollars on every trade. Backtests, not live trades.</p><p>Swings are possible setups for education, not recommendations to buy or sell anything. Options can lose 100% of what you pay.</p></div>
+
+<script>
+(function(){
+  var bs=document.querySelectorAll('.picker.tabs button'), cs=document.querySelectorAll('.board.one .card[data-s]');
+  function show(s){ bs.forEach(function(b){b.classList.toggle('on',b.dataset.s===s)}); cs.forEach(function(c){c.hidden=c.dataset.s!==s}); }
+  bs.forEach(function(b){ b.addEventListener('click',function(){ show(b.dataset.s); history.replaceState(null,'','#'+b.dataset.s); }); });
+  var h=(location.hash||'').slice(1).toLowerCase(), ok=[].some.call(bs,function(b){return b.dataset.s===h});
+  show(ok?h:'fear');
+})();
+</script>

@@ -4,7 +4,8 @@
   "date": "2026-11-27",
   "swings": [],
   "no_swing": "No fear-day swing today. Nothing is stretched far enough to qualify.",
-  "checked": "the Nov 27 close (Friday, half day). The next check runs with the next daily update."
+  "checked": "the Nov 27 close (Friday, half day). The next check runs with the next daily update.",
+  "label": "Nov 27 close"
  },
  "history": {
   "period": "Sep 2017 - Nov 2026",
@@ -393,5 +394,97 @@
    "fear_win": 61.5
   }
  },
- "previous_note": "November: 3 of 9 worked and the average was +4% a trade, carried by one +314% day. That's how this setup behaves: most days lose, a few pay big."
+ "previous_note": "November: 3 of 9 worked and the average was +4% a trade, carried by one +314% day. That's how this setup behaves: most days lose, a few pay big.",
+ "lotto_recent": [
+  {
+   "date": "Nov 24",
+   "sym": "MSTR",
+   "side": "call",
+   "stock": "77.55",
+   "contract": "78 call, exp 11/27",
+   "opt": "3.05",
+   "res": -78
+  },
+  {
+   "date": "Nov 24",
+   "sym": "WMT",
+   "side": "put",
+   "stock": "132.31",
+   "contract": "132 put, exp 11/27",
+   "opt": "1.30",
+   "res": -36
+  },
+  {
+   "date": "Nov 23",
+   "sym": "TLT",
+   "side": "put",
+   "stock": "81.69",
+   "contract": "81.5 put, exp 11/25",
+   "opt": "0.22",
+   "res": -66
+  },
+  {
+   "date": "Nov 20",
+   "sym": "GLD",
+   "side": "call",
+   "stock": "322.87",
+   "contract": "323 call, exp 11/23",
+   "opt": "3.45",
+   "res": 314
+  },
+  {
+   "date": "Nov 19",
+   "sym": "UNH",
+   "side": "call",
+   "stock": "330.48",
+   "contract": "330 call, exp 11/20",
+   "opt": "6.20",
+   "res": 77
+  },
+  {
+   "date": "Nov 19",
+   "sym": "DIS",
+   "side": "put",
+   "stock": "120.25",
+   "contract": "120 put, exp 11/20",
+   "opt": "0.90",
+   "res": 29
+  },
+  {
+   "date": "Nov 18",
+   "sym": "UNH",
+   "side": "call",
+   "stock": "349.91",
+   "contract": "350 call, exp 11/20",
+   "opt": "6.25",
+   "res": -95
+  },
+  {
+   "date": "Nov 18",
+   "sym": "DIS",
+   "side": "put",
+   "stock": "122.36",
+   "contract": "122 put, exp 11/20",
+   "opt": "0.94",
+   "res": 36
+  },
+  {
+   "date": "Nov 17",
+   "sym": "BABA",
+   "side": "call",
+   "stock": "86.65",
+   "contract": "87 call, exp 11/20",
+   "opt": "3.30",
+   "res": -32
+  },
+  {
+   "date": "Nov 17",
+   "sym": "COST",
+   "side": "put",
+   "stock": "1110.08",
+   "contract": "1110 put, exp 11/20",
+   "opt": "12.35",
+   "res": 1
+  }
+ ]
 }
