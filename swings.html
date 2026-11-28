@@ -13,6 +13,7 @@ permalink: /swings/
   <h1>Swings</h1>
   <p>One-night trades: bought near the close, sold the next morning. Checked every day at 3:45 PM. There are two, and only one has an edge.</p>
 </section>
+<p class="pre"><span class="tag warn">ZERO OR HERO</span> Options are lottos. Any option can lose 100% of what you pay, and in our backtests the swing-watch options won less often than simply holding the stock.</p>
 
 <div class="board one">
 <div class="card sw">
@@ -36,10 +37,11 @@ permalink: /swings/
   </div>
 
   <div class="ob">
-    <span class="k">Swing watch (stock only)</span>
+    <span class="k">Swing watch (lotto)</span>
     <table class="lad swt">
-      <tbody>{% for r in W.latest %}<tr class="{% if r.side == 'call' %}rs{% else %}rd{% endif %}"><td><b>{{ r.sym }}</b> <i>{% if r.side == 'call' %}most stretched down: bounce idea{% else %}most stretched up: pullback idea{% endif %}</i></td><td>{{ r.close }}</td></tr>{% endfor %}</tbody>
+      <tbody>{% for r in W.latest %}<tr class="{% if r.side == 'call' %}rs{% else %}rd{% endif %}"><td><b>{{ r.sym }} {{ r.side }}</b> <i>{% if r.side == 'call' %}most stretched down: bounce idea{% else %}most stretched up: pullback idea{% endif %}</i></td><td>{{ r.close }}</td></tr>{% endfor %}</tbody>
     </table>
+    <p class="asof">One call idea and one put idea every day. A lotto: play the stock or a small option, never size up.</p>
   </div>
 
   {% assign hits = S.today.swings | map: "ticker" %}
@@ -57,10 +59,10 @@ permalink: /swings/
   <table class="lad glance">
     <thead><tr><th></th><th>Fear-day snap-back</th><th>Swing watch</th></tr></thead>
     <tbody>
-      <tr><td><b>Shows up</b></td><td>Only on broad fear days: {{ O.fear.days }} days since Apr 2023</td><td>Every day: one bounce name, one pullback name</td></tr>
-      <tr><td><b>The stock next day</b></td><td>Up {{ O.stock.up }}% of the time ({{ O.stock.cases }} cases since {{ O.stock.since }}; any day {{ O.stock.base }})</td><td>Bounce idea right {{ W.record.call_win }}%, pullback idea {{ W.record.put_win }}%: a coin flip</td></tr>
-      <tr><td><b>As an option, real prices</b></td><td class="up">+{{ O.fear.avg }}% a trade, {{ O.fear.win }}% winners</td><td class="dn">Lost every way we tried: {{ O.watch.call_lo }}% to {{ O.watch.call_hi }}% a trade</td></tr>
-      <tr><td><b>Use it as</b></td><td>The one swing with an edge. Small size.</td><td>A watch list, not an options play</td></tr>
+      <tr><td><b>Shows up</b></td><td>Only on broad fear days: {{ O.fear.days }} days since Apr 2023</td><td>Every day: one call idea, one put idea</td></tr>
+      <tr><td><b>The stock won</b></td><td>{{ O.stock.up }}% of the time ({{ O.stock.cases }} cases since {{ O.stock.since }}; any day {{ O.stock.base }})</td><td>Calls {{ W.record.call_win }}%, puts {{ W.record.put_win }}%: a coin flip</td></tr>
+      <tr><td><b>The option won</b> <i>real prices</i></td><td class="up">{{ O.fear.win }}% of the time, +{{ O.fear.avg }}% a trade</td><td class="dn">Calls {{ O.watch.call_win }}% ({{ O.watch.call_avg }}% a trade), puts {{ O.watch.put_win }}% ({{ O.watch.put_avg }}% a trade)</td></tr>
+      <tr><td><b>Use it as</b></td><td>The one swing with an edge. Stock, or a small option: zero or hero.</td><td>A lotto. The stock wins more often than the option.</td></tr>
     </tbody>
   </table>
 </div>
@@ -94,12 +96,12 @@ permalink: /swings/
 </div>
 
 <div class="card">
-  <span class="k">Swing watch: the last few days</span>
+  <span class="k">Swing watch: the last few days (stock move)</span>
   <table class="lad swt">
     <thead><tr><th>Name</th><th>Next day</th><th>Best</th></tr></thead>
-    <tbody>{% for r in W.recent %}<tr class="{% if r.side == 'call' %}rs{% else %}rd{% endif %}"><td><b>{{ r.sym }}</b> <i>{{ r.date }} &middot; {% if r.side == 'call' %}bounce idea{% else %}pullback idea{% endif %}</i></td><td class="{% if r.result == 'worked' %}up{% else %}dn{% endif %}">{{ r.move }}</td><td>{{ r.best }}</td></tr>{% endfor %}</tbody>
+    <tbody>{% for r in W.recent %}<tr class="{% if r.side == 'call' %}rs{% else %}rd{% endif %}"><td><b>{{ r.sym }}</b> <i>{{ r.date }} &middot; {% if r.side == 'call' %}call idea{% else %}put idea{% endif %}</i></td><td class="{% if r.result == 'worked' %}up{% else %}dn{% endif %}">{{ r.move }}</td><td>{{ r.best }}</td></tr>{% endfor %}</tbody>
   </table>
-  <p class="asof">The stock's move from the close to the next close, counted in the idea's direction. As options these lost: bounce calls {{ O.watch.call_lo }}% to {{ O.watch.call_hi }}% a trade and pullback puts {{ O.watch.put_lo }}% to {{ O.watch.put_hi }}%, whatever the expiry or exit. The stock is right about half the time, and the spread plus a night of time decay costs more than the move.</p>
+  <p class="asof">The stock's move from the close to the next close, counted in the idea's direction. As lotto options (bought at the ask near the close, sold at the bid the next day): the calls won {{ O.watch.call_win }}% of the time and averaged {{ O.watch.call_avg }}% a trade, the puts won {{ O.watch.put_win }}% and averaged {{ O.watch.put_avg }}%. The stock itself won {{ W.record.call_win }}% / {{ W.record.put_win }}%: the spread plus a night of time decay is what the option gives up.</p>
 </div>
 </div>
 

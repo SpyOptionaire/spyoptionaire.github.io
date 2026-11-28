@@ -29,10 +29,10 @@
   ]
  },
  "watch": {
-  "call_lo": -4,
-  "call_hi": -15,
-  "put_lo": -8,
-  "put_hi": -15
+  "call_win": 48,
+  "call_avg": -4,
+  "put_win": 42,
+  "put_avg": -14
  },
  "stock": {
   "up": 59,
