@@ -12,7 +12,11 @@ permalink: /swings/
   <p>One-night plays: bought near the close, sold the next day. Checked every day at 3:45 PM.</p>
 </section>
 
-<div class="picker tabs"><button data-s="fear">Fear Swing</button><button data-s="lotto">Lotto Swing</button></div>
+{% assign tl = S.today.label | remove: ' close' %}
+{% assign fear_on = false %}{% if S.today.swings.size > 0 %}{% assign fear_on = true %}{% endif %}
+{% assign lotto_on = false %}{% if W.latest.size > 0 and W.latest[0].date == tl %}{% assign lotto_on = true %}{% endif %}
+<div class="picker tabs"><button data-s="fear">Fear Swing{% if fear_on %}<span class="bang" title="Play tonight">!</span>{% endif %}</button><button data-s="lotto">Lotto Swing{% if lotto_on %}<span class="bang" title="Play tonight">!</span>{% endif %}</button></div>
+<p class="muted tabnote"><span class="bang">!</span> = that swing has a play tonight. Not every swing fires every day.</p>
 
 <div class="board one">
 

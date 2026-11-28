@@ -115,3 +115,6 @@ main > .ob { margin:14px 0; }
 .sh { display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:6px; } .wr { color:var(--accent); font-weight:700; font-size:14px; border:1px solid #166534; border-radius:6px; padding:2px 8px; white-space:nowrap; }
 .play { border-top:1px solid var(--line); padding:8px 0 2px; margin-top:6px; } .play .pt { margin:0 0 2px; font-size:16px; } .play .cl { color:var(--sup); } .play .pt2 { color:var(--dem); } .play .lad { margin-top:2px; } .lad tr.tot td { font-weight:600; }
 .picker.tabs { margin:16px 0 4px; } .picker.tabs button { font-size:15px; padding:7px 16px; }
+
+.bang { display:inline-block; margin-left:6px; min-width:16px; height:16px; line-height:16px; padding:0 4px; border-radius:8px; background:#e0a100; color:#111; font-size:11px; font-weight:700; text-align:center; vertical-align:2px; }
+.tabnote { font-size:13px; margin:2px 0 10px; }
