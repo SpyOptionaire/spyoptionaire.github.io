@@ -30,6 +30,7 @@ permalink: /swings/
           <tr><td>Stock</td><td>{{ x.price }}</td></tr>
           <tr><td>Option <i>{{ x.contract }}</i></td><td>{% if x.option %}{{ x.option }}{% else %}<span class="muted">at 3:45 PM</span>{% endif %}</td></tr>
           <tr><td>Calmer option <i>at the money, next week's expiry</i></td><td>{% if x.option_week %}{{ x.option_week }}{% else %}<span class="muted">at 3:45 PM</span>{% endif %}</td></tr>
+          {% if x.max_option %}<tr><td>Skip it if</td><td>the option costs over ${{ x.max_option }}, or its spread is wider than {{ x.max_spread_pct | default: 5 }}%</td></tr>{% endif %}
         </tbody>
       </table>
     </div>
