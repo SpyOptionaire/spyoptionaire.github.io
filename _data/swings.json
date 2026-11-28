@@ -68,7 +68,7 @@
    "noon": -71,
    "close": null,
    "best": 41,
-   "plan": 39,
+   "plan": -92,
    "cells": [
     -33,
     29,
@@ -86,7 +86,7 @@
    "noon": -99,
    "close": null,
    "best": -73,
-   "plan": -99,
+   "plan": -100,
    "cells": [
     -73,
     -83,
@@ -104,7 +104,7 @@
    "noon": -66,
    "close": -73,
    "best": -25,
-   "plan": -66,
+   "plan": -63,
    "cells": [
     -27,
     -44,
@@ -122,7 +122,7 @@
    "noon": -95,
    "close": -100,
    "best": -32,
-   "plan": -95,
+   "plan": -98,
    "cells": [
     -33,
     -38,
@@ -140,7 +140,7 @@
    "noon": -63,
    "close": -91,
    "best": -51,
-   "plan": -63,
+   "plan": -93,
    "cells": [
     -83,
     -79,
@@ -194,7 +194,7 @@
    "noon": 2,
    "close": -26,
    "best": 29,
-   "plan": 2,
+   "plan": 8,
    "cells": [
     -9,
     -15,
@@ -394,7 +394,7 @@
    "fear_win": 61.5
   }
  },
- "previous_note": "November: 3 of 9 worked and the average was +4% a trade, carried by one +314% day. That's how this setup behaves: most days lose, a few pay big.",
+ "previous_note": "November: 3 of 9 worked, and the average was -13% a trade even with one +314% day. That's how this setup behaves: most days lose, a few pay big.",
  "lotto_recent": [
   {
    "date": "Nov 24",
@@ -410,7 +410,7 @@
     -55
    ],
    "best": -7,
-   "res": -36
+   "res": -30
   },
   {
    "date": "Nov 24",
@@ -426,7 +426,7 @@
     11
    ],
    "best": 39,
-   "res": -78
+   "res": -16
   },
   {
    "date": "Nov 23",
@@ -442,7 +442,7 @@
     -23
    ],
    "best": -14,
-   "res": -66
+   "res": -53
   },
   {
    "date": "Nov 20",
@@ -474,7 +474,7 @@
     58
    ],
    "best": 128,
-   "res": 29
+   "res": 54
   },
   {
    "date": "Nov 19",
@@ -506,7 +506,7 @@
     52
    ],
    "best": 115,
-   "res": 36
+   "res": 53
   },
   {
    "date": "Nov 18",
@@ -522,7 +522,7 @@
     -96
    ],
    "best": -7,
-   "res": -95
+   "res": -88
   },
   {
    "date": "Nov 17",
@@ -538,7 +538,7 @@
     24
    ],
    "best": 30,
-   "res": 1
+   "res": -17
   },
   {
    "date": "Nov 17",
@@ -554,7 +554,7 @@
     -50
    ],
    "best": -15,
-   "res": -32
+   "res": -30
   }
  ]
 }

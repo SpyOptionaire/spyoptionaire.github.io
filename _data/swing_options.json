@@ -2,39 +2,39 @@
  "period": "Apr 2023 - Nov 2026",
  "method": "Bought at the ask at 3:45 PM, sold at the bid the next day, $0.65 a contract each side, the same dollars on every trade.",
  "fear": {
-  "days": 66,
+  "days": 65,
   "days_by_year": "8 / 10 / 21 / 27",
-  "trades": 281,
-  "avg": 18,
+  "trades": 241,
+  "avg": 21,
   "med": 30,
-  "win": 62,
-  "worst": 98,
+  "win": 61,
+  "worst": 99,
   "years": [
    {
     "y": "2023",
-    "v": 26
+    "v": 27
    },
    {
     "y": "2024",
-    "v": 35
+    "v": 40
    },
    {
     "y": "2025",
-    "v": -8
+    "v": -5
    },
    {
     "y": "2026",
     "v": 31
    }
   ],
-  "winrate": "62%"
+  "winrate": "61%"
  },
  "watch": {
-  "call_win": 48,
+  "call_win": 43,
   "call_avg": -4,
-  "put_win": 42,
+  "put_win": 39,
   "put_avg": -14,
-  "winrate": "42-48%"
+  "winrate": "39-43%"
  },
  "stock": {
   "up": 59,
