@@ -2,32 +2,40 @@
  "period": "Apr 2023 - Nov 2026",
  "method": "Prices assume you buy at the ask (3:45 PM) and sell at the bid the next day, with a $0.65 commission per contract each way. Every trade uses the same risk.",
  "fear": {
-  "days": 65,
-  "days_by_year": "8 / 10 / 21 / 27",
-  "trades": 241,
+  "days": 66,
+  "trades": 281,
   "avg": 21,
-  "med": 30,
-  "win": 61,
+  "med": 50,
+  "win": 60,
   "worst": 99,
   "years": [
    {
     "y": "2023",
-    "v": 27
+    "v": 25,
+    "c": 11
    },
    {
     "y": "2024",
-    "v": 40
+    "v": 45,
+    "c": 23
    },
    {
     "y": "2025",
-    "v": -5
+    "v": -5,
+    "c": 3
    },
    {
     "y": "2026",
-    "v": 31
+    "v": 28,
+    "c": 14
    }
   ],
-  "winrate": "61%"
+  "winrate": "60%",
+  "calm": {
+   "avg": 12,
+   "win": 56,
+   "worst": 66
+  }
  },
  "watch": {
   "call_win": 43,

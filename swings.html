@@ -29,6 +29,7 @@ permalink: /swings/
         <tbody>
           <tr><td>Stock</td><td>{{ x.price }}</td></tr>
           <tr><td>Option <i>{{ x.contract }}</i></td><td>{% if x.option %}{{ x.option }}{% else %}<span class="muted">at 3:45 PM</span>{% endif %}</td></tr>
+          <tr><td>Calmer option <i>at the money, next week's expiry</i></td><td>{% if x.option_week %}{{ x.option_week }}{% else %}<span class="muted">at 3:45 PM</span>{% endif %}</td></tr>
         </tbody>
       </table>
     </div>
@@ -42,13 +43,15 @@ permalink: /swings/
 <div class="card" data-s="fear">
   <span class="k">How Fear Swings have done</span>
   <table class="lad">
-    <thead><tr><th>{{ O.period }}</th><th>Avg a trade</th><th>Winners</th></tr></thead>
+    <thead><tr><th>{{ O.period }}</th><th>Nearest expiry</th><th>Calmer</th></tr></thead>
     <tbody>
-      <tr class="tot"><td><b>All</b> <i>{{ O.fear.trades }} trades on {{ O.fear.days }} days</i></td><td class="up">+{{ O.fear.avg }}%</td><td>{{ O.fear.win }}%</td></tr>
-      {% for y in O.fear.years %}<tr><td>{{ y.y }}</td><td class="{% if y.v >= 0 %}up{% else %}dn{% endif %}">{% if y.v >= 0 %}+{% endif %}{{ y.v }}%</td><td></td></tr>{% endfor %}
+      <tr class="tot"><td><b>Avg a trade</b> <i>{{ O.fear.trades }} trades on {{ O.fear.days }} days</i></td><td class="up">+{{ O.fear.avg }}%</td><td class="up">+{{ O.fear.calm.avg }}%</td></tr>
+      <tr><td>Winners</td><td>{{ O.fear.win }}%</td><td>{{ O.fear.calm.win }}%</td></tr>
+      <tr><td>Worst trade</td><td class="dn">-{{ O.fear.worst }}%</td><td class="dn">-{{ O.fear.calm.worst }}%</td></tr>
+      {% for y in O.fear.years %}<tr><td>{{ y.y }}</td><td class="{% if y.v >= 0 %}up{% else %}dn{% endif %}">{% if y.v >= 0 %}+{% endif %}{{ y.v }}%</td><td class="{% if y.c >= 0 %}up{% else %}dn{% endif %}">{% if y.c >= 0 %}+{% endif %}{{ y.c }}%</td></tr>{% endfor %}
     </tbody>
   </table>
-  <p class="asof">Zero or hero: a few big rebound days carry it, and the worst trades lost {{ O.fear.worst }}%.</p>
+  <p class="asof">Zero or hero: a few big rebound days carry it. The calmer option is the same play with next week's expiry: it makes less on the big days and loses less on the bad ones.</p>
 </div>
 
 <div class="card" data-s="fear">
