@@ -66,18 +66,16 @@ permalink: /swings/
 </div>
 
 <div class="card">
-  <span class="k">Fear-day snap-back: the plan</span>
-  <ul class="plain">
-    <li><b>When:</b> the market is fearful (VIX 20+) <i>and</i> the selling is broad: 6 or more of the 42 names stretched far below where they've been trading. ETFs first, up to 5 names. A lone stock dropping on its own news doesn't count.</li>
-    <li><b>Contract:</b> a call at the money, the nearest expiry 1 - 3 days out.</li>
-    <li><b>In and out:</b> buy 3:45 - 3:55 PM. Sell on a +30% pop or by noon the next day, whichever comes first.</li>
-    <li><b>Size:</b> the same small dollar amount every time. Count the whole premium as the risk: the worst trades lost {{ O.fear.worst }}% of it.</li>
-  </ul>
+  <span class="k">Fear-day snap-back: how it has done</span>
+  <p>It only fires when fear and broad selling line up, a handful of days a year. When it does, the name and the contract to look at post here between 3:45 and 4:00 PM, and every one is logged with its result.</p>
   <table class="lad">
-    <thead><tr><th>Expiry, strike</th><th>Avg a trade</th><th>Winners</th></tr></thead>
-    <tbody>{% for r in O.fear.contracts %}<tr{% if r.plan %} class="rs"{% endif %}><td>{% if r.plan %}<b>{{ r.c }}</b> <i>the plan</i>{% else %}{{ r.c }}{% endif %}</td><td class="{% if r.avg >= 0 %}up{% else %}dn{% endif %}">{% if r.avg >= 0 %}+{% endif %}{{ r.avg }}%</td><td>{{ r.win }}%</td></tr>{% endfor %}</tbody>
+    <thead><tr><th>{{ O.period }}</th><th>Avg a trade</th><th>Winners</th></tr></thead>
+    <tbody>
+      <tr class="rs"><td><b>All fear-day swings</b> <i>{{ O.fear.trades }} trades on {{ O.fear.days }} days</i></td><td class="up">+{{ O.fear.avg }}%</td><td>{{ O.fear.win }}%</td></tr>
+      {% for y in O.fear.years %}<tr><td>{{ y.y }}</td><td class="{% if y.v >= 0 %}up{% else %}dn{% endif %}">{% if y.v >= 0 %}+{% endif %}{{ y.v }}%</td><td></td></tr>{% endfor %}
+    </tbody>
   </table>
-  <p class="asof">All out at +30% or noon. {{ O.fear.trades }} trades on fear days, {{ O.period }} (fear days a year: {{ O.fear.days_by_year }}). By year: {% for y in O.fear.years %}{{ y.y }} {% if y.v >= 0 %}+{% endif %}{{ y.v }}%{% unless forloop.last %}, {% endunless %}{% endfor %}. Holding to the next close averaged more (+{{ O.fear.hold_close }}%), but nearly all of it came from a few huge rebound days.</p>
+  <p class="asof">Zero or hero: most of the profit comes from a few big rebound days, and the worst trades lost {{ O.fear.worst }}% of the premium. Use the same small dollar amount every time and count the whole premium as the risk.</p>
 </div>
 
 <div class="card">
@@ -92,7 +90,7 @@ permalink: /swings/
     {% endfor %}
     </tbody>
   </table>
-  <p class="asof">The first name on each November fear day, with the plan's contract on real option quotes: bought at the ask at 3:45 PM, each column sold at the bid at that time the next day, after fees. "Plan" = out on a +30% pop or by noon. {{ S.previous_note }} Hypothetical, not live trades.</p>
+  <p class="asof">The first name on each November fear day and its contract, on real option quotes: bought at the ask at 3:45 PM, each column sold at the bid at that time the next day, after fees. "Plan" = our exit. {{ S.previous_note }} Hypothetical, not live trades.</p>
 </div>
 
 <div class="card">

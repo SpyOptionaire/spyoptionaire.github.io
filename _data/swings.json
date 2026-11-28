@@ -38,25 +38,6 @@
    "period": "Jan 2023 - Nov 2026"
   }
  },
- "example": {
-  "date": "2026-11-20",
-  "names": [
-   "GLD",
-   "SPY",
-   "DIA",
-   "IWM",
-   "QQQ"
-  ],
-  "first": {
-   "ticker": "SPY",
-   "direction": "call",
-   "price": 689.81,
-   "reason": "SPY: it is stretched unusually far below where it has traded over the past few weeks; it has closed lower 7 days in a row; it is down 3.6% today. The whole market is fearful and the selling is broad today. In the past, names this stretched on days like this bounced the next day more often than usual. A one-night idea, not a multi-day hold.",
-   "contract": "Call about 1 strike in the money (about $689), expiring in about 3-7 days (not the next-day expiry).",
-   "plan": "Tested as: in near 3:45-3:55 PM, out on a +30% pop or by about noon the next day, whichever comes first. Risk only a small, fixed slice of the account per swing day; a loser can lose most of the premium."
-  },
-  "result": "All 5 closed higher the next day."
- },
  "previous": [
   {
    "date": "Nov 20",
@@ -221,7 +202,6 @@
    ]
   }
  ],
- "lotto": [],
  "universe": [
   {
    "name": "Index ETFs",
@@ -290,7 +270,6 @@
   "base": 60,
   "period": "2012-2026"
  },
- "log": [],
  "watch": {
   "asof": "Nov 27",
   "latest": [

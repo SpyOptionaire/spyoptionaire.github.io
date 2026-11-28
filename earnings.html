@@ -21,7 +21,7 @@ permalink: /earnings/
     <p>Reports {{ u.time }} (estimated: same week as last year). Usual earnings move: <b>&plusmn;{{ u.usual }}</b> (last 3 years){% if T %}; up after {{ T.up8 }} of its last reports{% endif %}.{% if u.stretch != '' %} <span class="tag warn">{{ u.stretch }}</span>{% endif %}</p>
     <ul class="plain">
       <li><b>Before the report (lotto):</b> only worth a look when options price a smaller move than the usual &plusmn;{{ u.usual }}. Our expected move from option prices fills in with the live feed.</li>
-      <li><b>After the report (the play that held up):</b> if it closes up 2+ normal days' ranges on the report, a call for the next 1 - 5 days.</li>
+      <li><b>After the report (the play that held up):</b> after a strong report-day close, a call for the next few days.</li>
       {% if u.stretch == 'stretched up into it' %}<li><b>Put lotto watch:</b> stocks that run hard into their report have dropped on it more often than not (small sample).</li>{% endif %}
     </ul>
   </div>
@@ -42,7 +42,7 @@ permalink: /earnings/
   <span class="k">The plays and how they did (2017 - 2026, 30 stocks)</span>
   <table class="lad txt">
     <tbody>
-      <tr><td><b>After the report: big up day keeps going</b><i>the play that held up</i></td><td>When a stock closes up 2+ normal days' ranges on its report, it was up the next day {{ E.record.cont.next_up_train }}% / {{ E.record.cont.next_up_test }}% of the time (2017-22 / 2023-26) and 5 days later averaged {{ E.record.cont.train }} / {{ E.record.cont.test }} (a normal 5 days: {{ E.record.cont.normal_train }} / {{ E.record.cont.normal_test }}). Positive {{ E.record.cont.years }}.</td></tr>
+      <tr><td><b>After the report: big up day keeps going</b><i>the play that held up</i></td><td>After a strong report-day close, it was up the next day {{ E.record.cont.next_up_train }}% / {{ E.record.cont.next_up_test }}% of the time (2017-22 / 2023-26) and 5 days later averaged {{ E.record.cont.train }} / {{ E.record.cont.test }} (a normal 5 days: {{ E.record.cont.normal_train }} / {{ E.record.cont.normal_test }}). Positive {{ E.record.cont.years }}.</td></tr>
       <tr><td><b>Hot into the report</b><i>lotto watch</i></td><td>Stretched up into earnings, the stock rose on the report only {{ E.record.hot.up_train }}% / {{ E.record.hot.up_test }}% of the time (avg {{ E.record.hot.avg_train }} / {{ E.record.hot.avg_test }}). Small sample ({{ E.record.hot.n }}).</td></tr>
       <tr><td><b>Guessing the direction</b><i>no edge</i></td><td>Up on the report {{ E.record.coin.up_train }}% / {{ E.record.coin.up_test }}% of the time: a coin flip. The big winners are why traders chase it.</td></tr>
     </tbody>
@@ -62,7 +62,7 @@ permalink: /earnings/
     </table>
   </div>
   {% endfor %}
-  <p class="asof"><span class="tag bull">setup</span> = closed up 2+ normal days' ranges on the report: the after-the-report call. Next day / 5 days = from the reaction day's close.</p>
+  <p class="asof"><span class="tag bull">setup</span> = qualified for the after-the-report call. Next day / 5 days = from the reaction day's close.</p>
 </div>
 
 <div class="card">
