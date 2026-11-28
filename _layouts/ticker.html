@@ -1,0 +1,46 @@
+---
+layout: default
+---
+{% assign sym = page.sym %}{% assign t = site.data.levels.tickers | where: "sym", sym | first %}{% assign o = site.data.options.tickers | where: "sym", sym | first %}{% assign S = site.data.swings %}
+{% assign daily = site.posts | where: "kind", "Daily TA" | first %}{% assign d = daily.date | date: '%Y-%m-%d' %}
+{% assign imgpath = '/assets/charts/' | append: d | append: '/' | append: sym | append: '_daily.png' %}{% assign img = site.static_files | where: "path", imgpath | first %}
+<section class="hero">
+  <p class="crumb"><a href="{{ '/today/' | relative_url }}">&larr; Today</a></p>
+  <h1>{{ sym }} <span class="muted">{{ t.name }}</span></h1>
+  {% if t %}<p><b>{{ t.close }}</b> <span class="{% if t.chg_pct >= 0 %}up{% else %}dn{% endif %}">{% if t.chg_pct >= 0 %}+{% endif %}{{ t.chg_pct }}%</span> &middot; {{ t.asof }} close</p>{% endif %}
+  <div class="chips">{% if o %}<span class="chip {% if o.zone == 'FAST' %}fast{% else %}calm{% endif %}">{% if o.zone == 'FAST' %}FAST DAY{% else %}CALM DAY{% endif %}</span>{% if o.rich_label %}<span class="chip">{{ o.rich_label }}</span>{% endif %}{% endif %}{% if t.imbalanced %}<span class="chip warn">{{ t.state | upcase }}</span>{% endif %}{% if t %}<span class="chip">EMAs {{ t.ema }}</span>{% endif %}</div>
+</section>
+
+<div class="board one">
+{% if img %}<div class="card"><span class="k">Daily chart</span><img class="tchart" src="{{ img.path | relative_url }}" alt="{{ sym }} daily chart with EMAs and supply/ demand levels"><p class="asof">From the {{ daily.date | date: '%b %-d' }} daily analysis. <a href="{{ daily.url | relative_url }}">Read it &rarr;</a></p></div>{% endif %}
+
+{% if t %}<div class="card">
+  <span class="k">Levels and how often price gets there</span>
+  <table class="lad">
+    <thead><tr><th rowspan="2">Level</th><th rowspan="2">Away</th><th colspan="2" class="oh">Odds price hits it</th></tr><tr><th>1 day</th><th>5 days</th></tr></thead>
+    <tbody>
+    {% assign sup = t.supply | reverse %}{% for x in sup %}<tr class="rs"><td><b>{{ x.price }}</b> <i>{{ x.tag | replace: 'ema', ' ema' | replace: 'd ema', 'dema' }}</i></td><td>{{ x.away }} <i>{{ x.pct }}</i></td><td>{{ x.p1 }}</td><td>{{ x.p5 }}</td></tr>{% endfor %}
+    <tr class="now"><td colspan="4">{{ t.close }} now</td></tr>
+    {% for x in t.demand %}<tr class="rd"><td><b>{{ x.price }}</b> <i>{{ x.tag | replace: 'ema', ' ema' | replace: 'd ema', 'dema' }}</i></td><td>{{ x.away }} <i>{{ x.pct }}</i></td><td>{{ x.p1 }}</td><td>{{ x.p5 }}</td></tr>{% endfor %}
+    </tbody>
+  </table>
+  <p class="asof">Supply in blue above price, demand in pink below. Odds = how often price reached that far within 1 or 5 sessions in our history. <a href="{{ '/levels/' | relative_url }}">All tickers &rarr;</a></p>
+</div>{% endif %}
+
+{% if o %}<div class="card">
+  <span class="k">What options are pricing</span>
+  <p><b>Range priced to the close: {{ o.close_lo }} - {{ o.close_hi }}</b> (&plusmn;{{ o.move }}, {{ o.move_pct }}%). <span class="muted">Re-center it on the open. In our test the close landed inside it on 63% of days; the whole day stayed inside only 29%.</span></p>
+  <p>{{ o.zone_text }}</p>
+  {% if o.rich_text %}<p>{{ o.rich_text }}</p>{% endif %}
+  <p class="muted"><span class="tag">CONTEXT ONLY</span> Biggest call pile {{ o.ceiling }}, biggest put pile {{ o.floor }}. In our tests these were reached less often than a random level the same distance away and held no better, so we don't trade off them.</p>
+  {% if o.week_risk %}<p class="muted">Next week: {{ o.week_risk }}</p>{% endif %}
+  <p class="asof">Built from {{ o.asof }} option prices. <a href="{{ '/options/' | relative_url }}">Options detail &rarr;</a></p>
+</div>{% endif %}
+
+<div class="card">
+  <span class="k">Plays on {{ sym }}</span>
+  {% assign mine = S.today.swings | where: "ticker", sym %}
+  {% if mine.size > 0 %}<p><b>Fear Swing tonight.</b> <a href="{{ '/swings/' | relative_url }}">See the play &rarr;</a></p>{% else %}<p class="muted">No Fear Swing on {{ sym }} tonight. Checked every day at 3:45 PM. <a href="{{ '/swings/' | relative_url }}">Swings &rarr;</a></p>{% endif %}
+</div>
+</div>
+<div class="note"><p>Education only, not financial advice.</p></div>

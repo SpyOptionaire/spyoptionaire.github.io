@@ -120,3 +120,15 @@ main > .ob { margin:14px 0; }
 .tabnote { font-size:13px; margin:2px 0 10px; }
 
 .tag.best { background:#e0a100; color:#111; font-weight:700; }
+/* Today page and ticker pages (2026-11-28) */
+.today-mood { margin:14px 0 12px; } .today-mood .chips { display:block; margin:4px 0 6px; }
+.tcards { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:12px; margin:0 0 6px; }
+.tile.tc .ch { display:flex; align-items:baseline; gap:8px; margin-bottom:6px; } .tile.tc .ch .px { margin-left:auto; font-weight:650; font-size:15px; }
+.tile.tc .lv { display:flex; align-items:baseline; gap:6px; flex-wrap:wrap; font-size:14px; margin:3px 0; color:var(--text) !important; line-height:1.4; }
+.tile.tc .lv b.s { color:var(--sup); display:inline; font-size:15px; margin:0; } .tile.tc .lv b.m { color:var(--dem); display:inline; font-size:15px; margin:0; }
+.tile.tc .lv i { font-style:normal; color:var(--muted); font-size:12px; } .tile.tc .lv em { font-style:normal; margin-left:auto; font-size:12px; color:var(--text); }
+.tile.tc .rg { display:block; font-size:12px; color:var(--muted); margin-top:6px; } .tile.tc .go { display:block; color:var(--accent) !important; font-size:13px; margin-top:8px; font-weight:650; }
+.crumb { margin:0 0 6px !important; font-size:14px; } .hero h1 .muted { font-size:16px; font-weight:400; }
+.tchart { width:100%; height:auto; border:1px solid var(--line); border-radius:6px; margin:8px 0 2px; }
+@media (max-width:900px) { .tcards { grid-template-columns:repeat(2, minmax(0, 1fr)); } }
+@media (max-width:520px) { .tcards { grid-template-columns:1fr; } }

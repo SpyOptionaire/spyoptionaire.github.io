@@ -1,0 +1,59 @@
+---
+layout: default
+title: Today
+description: The quick read for today - market mood, the next levels for SPY, QQQ, ES and NQ with the odds price gets there, tonight's plays and this week's events. Tap any box for the detail. Education only, not financial advice.
+permalink: /today/
+---
+{% assign L = site.data.levels %}{% assign O = site.data.options %}{% assign S = site.data.swings %}{% assign E = site.data.earnings %}{% assign SO = site.data.swing_options %}
+{% assign spyo = O.tickers | where: "sym", "SPY" | first %}{% assign vix = L.tickers | where: "sym", "VIX" | first %}
+{% assign daily = site.posts | where: "kind", "Daily TA" | first %}{% assign latest = site.posts | first %}
+<section class="hero">
+  <h1>Today's plan</h1>
+  <p>The quick read: how the market is set up, the next levels for the big four, tonight's plays and this week's events. Tap any box for the detail. Levels updated {{ L.built_et }} ET.</p>
+</section>
+
+<a class="tile today-mood" href="{{ '/options/' | relative_url }}">
+  <span class="k">Market mood</span>
+  <span class="chips">{% if spyo %}<span class="chip {% if spyo.zone == 'FAST' %}fast{% else %}calm{% endif %}">{% if spyo.zone == 'FAST' %}FAST DAY{% else %}CALM DAY{% endif %}</span>{% endif %}{% if vix %}<span class="chip">VIX {{ vix.close }} <span class="{% if vix.chg_pct >= 0 %}dn{% else %}up{% endif %}">{% if vix.chg_pct >= 0 %}+{% endif %}{{ vix.chg_pct }}%</span></span>{% endif %}{% if spyo.rich_label %}<span class="chip">{{ spyo.rich_label }}</span>{% endif %}</span>
+  <span>{% if spyo %}{% if spyo.zone == 'FAST' %}SPY is under its volatility line ({{ spyo.line }}): fast days have run about {{ spyo.zone_avg_below }}% wide vs {{ spyo.zone_avg_above }}% on calm days. Give levels more room or size down.{% else %}SPY is over its volatility line ({{ spyo.line }}): calm days have run about {{ spyo.zone_avg_above }}% wide. Levels tend to hold better and ranges stay smaller.{% endif %} Options detail &rarr;{% else %}Options detail &rarr;{% endif %}</span>
+</a>
+
+<div class="tcards">
+{% assign big4 = "SPY,QQQ,ES,NQ" | split: "," %}
+{% for s in big4 %}{% assign t = L.tickers | where: "sym", s | first %}{% assign o = O.tickers | where: "sym", s | first %}
+{% if t %}
+  <a class="tile tc" href="{{ '/ticker/' | append: s | downcase | append: '/' | relative_url }}">
+    <span class="ch"><span class="sym">{{ s }}</span><span class="px">{{ t.close }} <span class="{% if t.chg_pct >= 0 %}up{% else %}dn{% endif %}">{% if t.chg_pct >= 0 %}+{% endif %}{{ t.chg_pct }}%</span></span></span>
+    {% assign up1 = t.supply | first %}{% assign dn1 = t.demand | first %}
+    {% if up1 %}<span class="lv"><b class="s">{{ up1.price }}</b> <i>{% if up1.tag == 'supply' %}supply{% else %}{{ up1.tag | replace: 'ema', ' ema' | replace: 'd ema', 'dema' }}{% endif %} {{ up1.pct }}</i><em>{{ up1.p1 }} next day</em></span>{% endif %}
+    {% if dn1 %}<span class="lv"><b class="m">{{ dn1.price }}</b> <i>{% if dn1.tag == 'demand' %}demand{% else %}{{ dn1.tag | replace: 'ema', ' ema' | replace: 'd ema', 'dema' }}{% endif %} {{ dn1.pct }}</i><em>{{ dn1.p1 }} next day</em></span>{% endif %}
+    {% if o %}<span class="rg">Range priced to the close: {{ o.close_lo }} - {{ o.close_hi }}</span>{% endif %}
+    <span class="go">Open {{ s }} &rarr;</span>
+  </a>
+{% endif %}{% endfor %}
+</div>
+<p class="pre">"Next day" = how often price has reached that level by the next close in our history. Supply above in blue, demand below in pink.</p>
+
+<div class="tiles">
+  <a class="tile" href="{{ '/swings/' | relative_url }}">
+    <span class="k">Tonight's swing</span>
+    {% if S.today.swings.size > 0 %}<b>Fear Swing: {% for x in S.today.swings %}{{ x.ticker }}{% unless forloop.last %}, {% endunless %}{% endfor %}</b>{% else %}<b>No Fear Swing yet</b>{% endif %}
+    <span>{% if S.today.swings.size > 0 %}Posted at 3:45 PM with the option, the calmer option and the stock / ETF play.{% else %}Checked every day at 3:45 PM. It only shows up on fear days.{% endif %} Record on real option prices: {{ SO.fear.winrate }} winners.</span>
+  </a>
+  <a class="tile" href="{{ '/earnings/' | relative_url }}">
+    <span class="k">Earnings this week</span>
+    {% if E.week.size > 0 %}<b>{% for u in E.week %}{{ u.sym }}{% unless forloop.last %}, {% endunless %}{% endfor %}</b>{% else %}<b>None of our stocks</b>{% endif %}
+    <span>{% for u in E.week %}{{ u.sym }} {{ u.date }} {{ u.time }} (usual move &plusmn;{{ u.usual }}). {% endfor %}The Earnings Swing posts on the reaction day if it sets up.</span>
+  </a>
+  {% if latest %}<a class="tile" href="{{ latest.url | relative_url }}">
+    <span class="k">Latest analysis</span>
+    <b>{{ latest.title | split: '…' | first | split: '...' | first }}</b>
+    <span>{{ latest.date | date: '%b %-d' }} &middot; {{ latest.kind }}. Both cases and every level with its reason.</span>
+  </a>{% endif %}
+  <a class="tile" href="{{ '/levels/' | relative_url }}">
+    <span class="k">All levels</span>
+    <b>Futures, ETFs, stocks and crypto</b>
+    <span>The next levels above and below price for every ticker we cover, with 1-day and 5-day odds.</span>
+  </a>
+</div>
+<div class="note"><p>Education only, not financial advice. Odds come from history and can be wrong; the trades are yours to make.</p></div>
