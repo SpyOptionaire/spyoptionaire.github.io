@@ -1,59 +1,47 @@
 ---
 layout: default
 title: Swings
-description: Possible overnight swing setups - the fear-day snap-back when it fires, plus a daily zero-or-hero swing watch (one call, one put) - with the reason, a contract to look at, and what each would have done the next morning. Education only, never a trade call.
+description: One-night swing setups checked every day at 3:45 PM - the fear-day snap-back (the one with an edge) and the daily swing watch - with how each did on real option prices. Education only, never a trade call.
 permalink: /swings/
 ---
 {% assign S = site.data.swings %}
-{% assign H = S.history %}
+{% assign O = site.data.swing_options %}
 {% assign F = S.fear %}
+{% assign W = S.watch %}
+{% assign H = S.history %}
 <section class="hero">
   <h1>Swings</h1>
-  <p>Possible one-night setups, not trade calls. Bought near the close, out the next morning. Most days there isn't one, and that's on purpose.</p>
+  <p>One-night trades: bought near the close, sold the next morning. Checked every day at 3:45 PM. There are two, and only one has an edge.</p>
 </section>
-<p class="pre"><span class="tag warn">ZERO OR HERO</span> Every swing is risky. An option bought for one night can lose most or all of what you pay. Only the fear-day snap-back has held up as a higher-probability setup; everything else here, including the daily swing watch, is a lotto idea.</p>
 
-{% if F %}
-<div class="ob">
-  <span class="k">Fear check</span>
-  <p>{% if F.top5 %}<span class="chip warn">FEAR IN THE TOP 5%</span> {% endif %}VIX closed at {{ F.vix }} on {{ F.asof }}, higher than {{ F.pct }}% of the past year.</p>
-  <p class="muted">When fear has been this high ({{ F.period }}), SPY was higher 5 days later {{ F.up }}% of the time, against {{ F.base }}% on a normal day. Extreme fear tends to set up bounces, which is when the swing trade below shows up.</p>
-</div>
-{% endif %}
-
-<div class="ob">
-  <span class="k">Previous swings: what would have happened</span>
-  <table class="lad swt">
-    <thead><tr><th>Swing</th><th>9:31</th><th>10:00</th><th>Noon</th><th>Close</th></tr></thead>
-    <tbody>
-    {% for r in S.previous %}
-      <tr><td><b>{{ r.ticker }} {{ r.contract }}</b><i>{{ r.date }} &middot; bought {{ r.bought }} &middot; best {% if r.best >= 0 %}+{% endif %}{{ r.best }}%</i></td>
-        <td class="{% if r.o >= 0 %}up{% else %}dn{% endif %}">{% if r.o >= 0 %}+{% endif %}{{ r.o }}%</td>
-        <td class="{% if r.t10 >= 0 %}up{% else %}dn{% endif %}">{% if r.t10 >= 0 %}+{% endif %}{{ r.t10 }}%</td>
-        <td class="{% if r.noon >= 0 %}up{% else %}dn{% endif %}">{% if r.noon >= 0 %}+{% endif %}{{ r.noon }}%</td>
-        <td class="{% if r.close >= 0 %}up{% else %}dn{% endif %}">{% if r.close >= 0 %}+{% endif %}{{ r.close }}%</td></tr>
-    {% endfor %}
-    </tbody>
-  </table>
-  <p class="muted">Fear-day snap-backs from November, priced on real option quotes: bought at the ask, sold at the bid at each time the next day, after fees. Hypothetical, not live trades. From the next live swing on, each one gets added here.</p>
-</div>
-
+<div class="board one">
 <div class="card sw">
-  <span class="k">Swing trade: fear-day snap-back</span>
-  <p class="asof">Swing plays are posted between 3:45 and 4:00 PM ET on the days one shows up.</p>
-  {% if S.today.swings.size > 0 %}
-    {% for x in S.today.swings %}
-    <div class="swi">
-      <div class="ch"><span class="sym">{{ x.ticker }}</span><span class="nm">possible {{ x.direction }} swing</span><span class="px">{{ x.price }}</span></div>
-      <p>{{ x.reason }}</p>
-      <p><b>Contract to look at:</b> {{ x.contract }}</p>
-      <p class="muted">{{ x.plan }}</p>
-    </div>
-    {% endfor %}
-  {% else %}
-    <p class="big">{{ S.today.no_swing }}</p>
-  {% endif %}
-  <p class="asof">Last check: {{ S.today.checked }}</p>
+  <span class="k">Today &middot; {{ S.today.checked | split: " (" | first | remove: "the " }}</span>
+  <p>{% if F.top5 %}<span class="chip warn">FEAR IN THE TOP 5%</span> {% elsif F.vix >= 20 %}<span class="chip warn">FEARFUL</span> {% else %}<span class="chip calm">CALM</span> {% endif %}VIX {{ F.vix }}, higher than {{ F.pct }}% of the past year.</p>
+
+  <div class="ob">
+    <span class="k">Fear-day snap-back</span>
+    {% if S.today.swings.size > 0 %}
+      {% for x in S.today.swings %}
+      <div class="swi">
+        <div class="ch"><span class="sym">{{ x.ticker }}</span><span class="nm">possible {{ x.direction }} swing</span><span class="px">{{ x.price }}</span></div>
+        <p>{{ x.reason }}</p>
+        <p><b>Contract to look at:</b> {{ x.contract }}</p>
+        <p class="muted">{{ x.plan }}</p>
+      </div>
+      {% endfor %}
+    {% else %}
+      <p class="big">{{ S.today.no_swing }}</p>
+    {% endif %}
+  </div>
+
+  <div class="ob">
+    <span class="k">Swing watch (stock only)</span>
+    <table class="lad swt">
+      <tbody>{% for r in W.latest %}<tr class="{% if r.side == 'call' %}rs{% else %}rd{% endif %}"><td><b>{{ r.sym }}</b> <i>{% if r.side == 'call' %}most stretched down: bounce idea{% else %}most stretched up: pullback idea{% endif %}</i></td><td>{{ r.close }}</td></tr>{% endfor %}</tbody>
+    </table>
+  </div>
+
   {% assign hits = S.today.swings | map: "ticker" %}
   <div class="uni">
   {% for g in S.universe %}
@@ -61,46 +49,60 @@ permalink: /swings/
     <div class="uc">{% for t in g.tickers %}<span class="tk{% if hits contains t %} on{% endif %}">{{ t }}</span>{% endfor %}</div>
   {% endfor %}
   </div>
-  <p class="asof">All 42 names are scanned. A name lights up when it qualifies.</p>
+  <p class="asof">All 42 names are scanned at the close. A name lights up when it qualifies for the fear-day swing. Live 3:45 PM picks start once the live feed is on.</p>
 </div>
 
-<div class="card sw">
-  <span class="k">Swing watch: one call, one put (zero or hero)</span>
-  {% assign W = S.watch %}
-  <p>Every day at 3:45 - 4:00 PM: the name of the 42 stretched furthest <b>below</b> its short-term average (call idea) and the one stretched furthest <b>above</b> it (put idea). Not high probability: about a coin flip on the stock, and most of these options lose the whole premium.</p>
-  {% if W.latest.size > 0 %}
-  <table class="lad swt">
-    <thead><tr><th>Latest ({{ W.asof }} close)</th><th>Idea</th><th>Price</th></tr></thead>
-    <tbody>{% for r in W.latest %}<tr class="{% if r.side == 'call' %}rs{% else %}rd{% endif %}"><td><b>{{ r.sym }}</b></td><td>{{ r.side }} idea</td><td>{{ r.close }}</td></tr>{% endfor %}</tbody>
-  </table>
-  <p class="asof">Example from the backtest scan. Live picks post here once the 3:45 PM scan runs on the live feed.</p>
-  {% endif %}
-  <table class="lad swt">
-    <thead><tr><th>Day (backtest)</th><th>Idea</th><th>Next day</th><th>Best</th></tr></thead>
-    <tbody>{% for r in W.recent %}<tr><td>{{ r.date }}</td><td><b>{{ r.sym }}</b> <i>{{ r.side }}</i></td><td class="{% if r.result == 'worked' %}up{% else %}dn{% endif %}">{{ r.move }}</td><td>{{ r.best }}</td></tr>{% endfor %}</tbody>
-  </table>
-  <p class="asof">Stock's move from the 4 PM close to the next close, in the idea's direction (put ideas count a drop as a gain). Backtest: call ideas worked {{ W.record.call_win }}% and put ideas {{ W.record.put_win }}% of {{ W.record.call_n }} days ({{ W.record.period }}). The fear-day snap-back: {{ W.record.fear_win }}%.</p>
-</div>
-
-<div class="ob">
-  <span class="k">How the swing trade works</span>
-  <ul class="plain">
-    <li><b>When:</b> only on days when the whole market is fearful <i>and</i> the selling is broad across many names, and only for names stretched unusually far below where they've been trading. Single-stock news drops don't count.</li>
-    <li><b>The idea:</b> a call bought near the close (3:45 - 3:55 PM) for a one-night bounce. It's not a multi-day hold.</li>
-    <li><b>The contract:</b> about 1 strike in the money, expiring in about 3 - 7 days rather than the next day. The next-day expiry is the lotto version.</li>
-    <li><b>Size:</b> a small, fixed slice of the account per swing day.</li>
-  </ul>
-</div>
-
-<div class="ob">
-  <span class="k">How often the stock bounced ({{ H.period }})</span>
-  <table class="lad">
-    <thead><tr><th>Group</th><th>Up next day</th><th>Avg next day</th></tr></thead>
+<div class="card">
+  <span class="k">The two setups at a glance</span>
+  <table class="lad glance">
+    <thead><tr><th></th><th>Fear-day snap-back</th><th>Swing watch</th></tr></thead>
     <tbody>
-      <tr><td><b>All names</b></td><td>{{ H.up }}%</td><td>+{{ H.avg }}%</td></tr>
-      {% for g in H.groups %}<tr><td>{{ g.name }}</td><td>{{ g.up }}%</td><td>+{{ g.avg }}%</td></tr>{% endfor %}
+      <tr><td><b>Shows up</b></td><td>Only on broad fear days: {{ O.fear.days }} days since Apr 2023</td><td>Every day: one bounce name, one pullback name</td></tr>
+      <tr><td><b>The stock next day</b></td><td>Up {{ O.stock.up }}% of the time ({{ O.stock.cases }} cases since {{ O.stock.since }}; any day {{ O.stock.base }})</td><td>Bounce idea right {{ W.record.call_win }}%, pullback idea {{ W.record.put_win }}%: a coin flip</td></tr>
+      <tr><td><b>As an option, real prices</b></td><td class="up">+{{ O.fear.avg }}% a trade, {{ O.fear.win }}% winners</td><td class="dn">Lost every way we tried: {{ O.watch.call_lo }}% to {{ O.watch.call_hi }}% a trade</td></tr>
+      <tr><td><b>Use it as</b></td><td>The one swing with an edge. Small size.</td><td>A watch list, not an options play</td></tr>
     </tbody>
   </table>
-  <p class="muted">{{ H.cases }} cases on {{ H.days }} days. Buying any name on a fearful day was up the next day {{ H.base }} of the time.</p>
 </div>
-<div class="note"><p>Swings are possible setups for education. They're not recommendations to buy or sell anything. Options can lose 100% of what you pay.</p></div>
+
+<div class="card">
+  <span class="k">Fear-day snap-back: the plan</span>
+  <ul class="plain">
+    <li><b>When:</b> the market is fearful (VIX 20+) <i>and</i> the selling is broad: 6 or more of the 42 names stretched far below where they've been trading. ETFs first, up to 5 names. A lone stock dropping on its own news doesn't count.</li>
+    <li><b>Contract:</b> a call at the money, the nearest expiry 1 - 3 days out.</li>
+    <li><b>In and out:</b> buy 3:45 - 3:55 PM. Sell on a +30% pop or by noon the next day, whichever comes first.</li>
+    <li><b>Size:</b> the same small dollar amount every time. Count the whole premium as the risk: the worst trades lost {{ O.fear.worst }}% of it.</li>
+  </ul>
+  <table class="lad">
+    <thead><tr><th>Expiry, strike</th><th>Avg a trade</th><th>Winners</th></tr></thead>
+    <tbody>{% for r in O.fear.contracts %}<tr{% if r.plan %} class="rs"{% endif %}><td>{% if r.plan %}<b>{{ r.c }}</b> <i>the plan</i>{% else %}{{ r.c }}{% endif %}</td><td class="{% if r.avg >= 0 %}up{% else %}dn{% endif %}">{% if r.avg >= 0 %}+{% endif %}{{ r.avg }}%</td><td>{{ r.win }}%</td></tr>{% endfor %}</tbody>
+  </table>
+  <p class="asof">All out at +30% or noon. {{ O.fear.trades }} trades on fear days, {{ O.period }} (fear days a year: {{ O.fear.days_by_year }}). By year: {% for y in O.fear.years %}{{ y.y }} {% if y.v >= 0 %}+{% endif %}{{ y.v }}%{% unless forloop.last %}, {% endunless %}{% endfor %}. Holding to the next close averaged more (+{{ O.fear.hold_close }}%), but nearly all of it came from a few huge rebound days.</p>
+</div>
+
+<div class="card">
+  <span class="k">Recent fear-day swings: what the plan would have done</span>
+  <table class="lad swt">
+    <thead><tr><th>Swing</th><th>9:31</th><th>10:00</th><th>Noon</th><th>Close</th><th>Plan</th></tr></thead>
+    <tbody>
+    {% for r in S.previous %}
+      <tr><td><b>{{ r.ticker }} {{ r.contract }}</b><i>{{ r.date }} &middot; bought {{ r.bought }} &middot; best {% if r.best >= 0 %}+{% endif %}{{ r.best }}%</i></td>
+        {% for v in r.cells %}{% if v == nil %}<td class="muted">expired</td>{% else %}<td class="{% if v >= 0 %}up{% else %}dn{% endif %}">{% if v >= 0 %}+{% endif %}{{ v }}%</td>{% endif %}{% endfor %}
+        <td class="{% if r.plan >= 0 %}up{% else %}dn{% endif %}"><b>{% if r.plan >= 0 %}+{% endif %}{{ r.plan }}%</b></td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <p class="asof">The first name on each November fear day, with the plan's contract on real option quotes: bought at the ask at 3:45 PM, each column sold at the bid at that time the next day, after fees. "Plan" = out on a +30% pop or by noon. {{ S.previous_note }} Hypothetical, not live trades.</p>
+</div>
+
+<div class="card">
+  <span class="k">Swing watch: the last few days</span>
+  <table class="lad swt">
+    <thead><tr><th>Name</th><th>Next day</th><th>Best</th></tr></thead>
+    <tbody>{% for r in W.recent %}<tr class="{% if r.side == 'call' %}rs{% else %}rd{% endif %}"><td><b>{{ r.sym }}</b> <i>{{ r.date }} &middot; {% if r.side == 'call' %}bounce idea{% else %}pullback idea{% endif %}</i></td><td class="{% if r.result == 'worked' %}up{% else %}dn{% endif %}">{{ r.move }}</td><td>{{ r.best }}</td></tr>{% endfor %}</tbody>
+  </table>
+  <p class="asof">The stock's move from the close to the next close, counted in the idea's direction. As options these lost: bounce calls {{ O.watch.call_lo }}% to {{ O.watch.call_hi }}% a trade and pullback puts {{ O.watch.put_lo }}% to {{ O.watch.put_hi }}%, whatever the expiry or exit. The stock is right about half the time, and the spread plus a night of time decay costs more than the move.</p>
+</div>
+</div>
+
+<div class="note"><p><b>How the option numbers are counted:</b> {{ O.method }} So a $600 contract doesn't count more than a $60 one. Backtests, not live trades.</p><p>Swings are possible setups for education. They're not recommendations to buy or sell anything. Options can lose 100% of what you pay.</p></div>

@@ -1,10 +1,10 @@
 {
  "built": "2026-11-27",
  "today": {
-  "date": "2026-11-25",
+  "date": "2026-11-27",
   "swings": [],
-  "no_swing": "No swing today. Nothing is stretched far enough to qualify.",
-  "checked": "the Nov 25 close (Wednesday). The next check runs with the next daily update."
+  "no_swing": "No fear-day swing today. Nothing is stretched far enough to qualify.",
+  "checked": "the Nov 27 close (Friday, half day). The next check runs with the next daily update."
  },
  "history": {
   "period": "Sep 2017 - Nov 2026",
@@ -59,48 +59,166 @@
  },
  "previous": [
   {
-   "date": "2026-11-17",
-   "ticker": "IWM",
-   "contract": "268 call, exp 11/24",
-   "bought": "3:55 PM at $4.44",
-   "o": -11,
-   "t10": 18,
-   "noon": 11,
-   "close": 5,
-   "best": 37
+   "date": "Nov 20",
+   "ticker": "GLD",
+   "contract": "323 call, exp 11/23",
+   "bought": "3:45 PM at $3.45",
+   "o": 314,
+   "t10": 273,
+   "noon": 273,
+   "close": 179,
+   "best": 316,
+   "plan": 314,
+   "cells": [
+    314,
+    273,
+    273,
+    179
+   ]
   },
   {
-   "date": "2026-11-16",
+   "date": "Nov 19",
+   "ticker": "DIA",
+   "contract": "491 call, exp 11/20",
+   "bought": "3:45 PM at $3.25",
+   "o": -33,
+   "t10": 29,
+   "noon": -71,
+   "close": null,
+   "best": 41,
+   "plan": 39,
+   "cells": [
+    -33,
+    29,
+    -71,
+    null
+   ]
+  },
+  {
+   "date": "Nov 18",
+   "ticker": "GLD",
+   "contract": "341 call, exp 11/19",
+   "bought": "3:45 PM at $2.78",
+   "o": -73,
+   "t10": -83,
+   "noon": -99,
+   "close": null,
+   "best": -73,
+   "plan": -99,
+   "cells": [
+    -73,
+    -83,
+    -99,
+    null
+   ]
+  },
+  {
+   "date": "Nov 17",
+   "ticker": "DIA",
+   "contract": "507 call, exp 11/20",
+   "bought": "3:45 PM at $4.50",
+   "o": -27,
+   "t10": -44,
+   "noon": -66,
+   "close": -73,
+   "best": -25,
+   "plan": -66,
+   "cells": [
+    -27,
+    -44,
+    -66,
+    -73
+   ]
+  },
+  {
+   "date": "Nov 16",
    "ticker": "SPY",
-   "contract": "739 call, exp 11/23",
-   "bought": "3:55 PM at $9.26",
-   "o": -13,
-   "t10": -11,
-   "noon": -47,
-   "close": -47,
-   "best": -10
+   "contract": "740 call, exp 11/17",
+   "bought": "3:45 PM at $3.48",
+   "o": -33,
+   "t10": -38,
+   "noon": -95,
+   "close": -100,
+   "best": -32,
+   "plan": -95,
+   "cells": [
+    -33,
+    -38,
+    -95,
+    -100
+   ]
   },
   {
-   "date": "2026-11-06",
-   "ticker": "SPY",
-   "contract": "734 call, exp 11/13",
-   "bought": "3:55 PM at $10.69",
-   "o": 18,
-   "t10": 57,
-   "noon": 80,
-   "close": 95,
-   "best": 112
+   "date": "Nov 6",
+   "ticker": "XLE",
+   "contract": "62 call, exp 11/9",
+   "bought": "3:45 PM at $0.56",
+   "o": -83,
+   "t10": -79,
+   "noon": -63,
+   "close": -91,
+   "best": -51,
+   "plan": -63,
+   "cells": [
+    -83,
+    -79,
+    -63,
+    -91
+   ]
   },
   {
-   "date": "2026-11-05",
-   "ticker": "IWM",
-   "contract": "271 call, exp 11/12",
-   "bought": "3:55 PM at $4.83",
+   "date": "Nov 5",
+   "ticker": "SMH",
+   "contract": "450 call, exp 11/6",
+   "bought": "3:45 PM at $11.70",
+   "o": 75,
+   "t10": 73,
+   "noon": 15,
+   "close": -1,
+   "best": 107,
+   "plan": 75,
+   "cells": [
+    75,
+    73,
+    15,
+    -1
+   ]
+  },
+  {
+   "date": "Nov 3",
+   "ticker": "INTC",
+   "contract": "61 call, exp 11/6",
+   "bought": "3:45 PM at $1.88",
+   "o": -61,
+   "t10": -53,
+   "noon": -70,
+   "close": -76,
+   "best": -36,
+   "plan": -70,
+   "cells": [
+    -61,
+    -53,
+    -70,
+    -76
+   ]
+  },
+  {
+   "date": "Nov 2",
+   "ticker": "QQQ",
+   "contract": "681 call, exp 11/3",
+   "bought": "3:45 PM at $5.97",
    "o": -9,
-   "t10": -17,
-   "noon": 8,
-   "close": 5,
-   "best": 15
+   "t10": -15,
+   "noon": 2,
+   "close": -26,
+   "best": 29,
+   "plan": 2,
+   "cells": [
+    -9,
+    -15,
+    2,
+    -26
+   ]
   }
  ],
  "lotto": [],
@@ -164,38 +282,56 @@
   }
  ],
  "fear": {
-  "pct": 97.6,
-  "asof": "2026-11-25",
-  "vix": 28.29,
-  "top5": true,
+  "pct": 88.0,
+  "asof": "2026-11-27",
+  "vix": 23.81,
+  "top5": false,
   "up": 68,
   "base": 60,
   "period": "2012-2026"
  },
  "log": [],
  "watch": {
-  "asof": "Nov 25",
+  "asof": "Nov 27",
   "latest": [
    {
-    "date": "Nov 25",
+    "date": "Nov 27",
     "side": "call",
-    "sym": "GLD",
-    "close": "327.45",
+    "sym": "MSTR",
+    "close": "81.62",
     "move": null,
     "best": null,
     "result": "pending"
    },
    {
-    "date": "Nov 25",
+    "date": "Nov 27",
     "side": "put",
-    "sym": "TLT",
-    "close": "82.24",
+    "sym": "DIS",
+    "close": "127.24",
     "move": null,
     "best": null,
     "result": "pending"
    }
   ],
   "recent": [
+   {
+    "date": "Nov 25",
+    "side": "call",
+    "sym": "GLD",
+    "close": "327.45",
+    "move": "+2.12%",
+    "best": "+2.12%",
+    "result": "worked"
+   },
+   {
+    "date": "Nov 25",
+    "side": "put",
+    "sym": "TLT",
+    "close": "82.24",
+    "move": "+1.18%",
+    "best": "+1.23%",
+    "result": "worked"
+   },
    {
     "date": "Nov 24",
     "side": "put",
@@ -267,24 +403,6 @@
     "move": "+2.84%",
     "best": "+5.13%",
     "result": "worked"
-   },
-   {
-    "date": "Nov 18",
-    "side": "put",
-    "sym": "DIS",
-    "close": "122.36",
-    "move": "+1.72%",
-    "best": "+1.95%",
-    "result": "worked"
-   },
-   {
-    "date": "Nov 18",
-    "side": "call",
-    "sym": "UNH",
-    "close": "349.91",
-    "move": "-5.55%",
-    "best": "+1.13%",
-    "result": "did not work"
    }
   ],
   "record": {
@@ -295,5 +413,6 @@
    "put_win": 47,
    "fear_win": 61.5
   }
- }
+ },
+ "previous_note": "November: 3 of 9 worked and the average was +4% a trade, carried by one +314% day. That's how this setup behaves: most days lose, a few pay big."
 }
